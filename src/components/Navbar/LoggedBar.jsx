@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { useMediaQuery } from 'react-responsive';
 import { ExitBtn, LoggedContainer, UserName } from './styled/LoggedBar.styled';
+import LogoutModal from 'components/LogoutModal/LogoutModal';
 
 export default function LoggedBar() {
+  const [openModal, setOpenModal]=useState(false)
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
   console.log(isMobile);
+
+  const onClickHandler = () => {
+    setOpenModal(true)
+  }
+
+  const modalClose = () => {
+    setOpenModal(false)
+  }
 
 
   const userName = useSelector(({ auth }) => auth.user.name);
@@ -22,7 +32,7 @@ export default function LoggedBar() {
 
       {!isMobile && <UserName>{userName}</UserName>}
 
-      <ExitBtn type="button">
+      <ExitBtn type="button" onClick={onClickHandler}>
         {' '}
         {isMobile ? (
           <svg width="16px" height="16px">
@@ -32,6 +42,7 @@ export default function LoggedBar() {
           'Выйти'
         )}
       </ExitBtn>
+      {openModal && <LogoutModal onAction={modalClose}/>}
     </LoggedContainer>
   );
 }
