@@ -9,7 +9,7 @@ export default function LoggedBar() {
     query: '(max-width: 767px)',
   });
 
-  console.log(isMobile);
+
 
 
   const userName = useSelector(({ auth }) => auth.user.name);

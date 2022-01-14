@@ -5,7 +5,7 @@ export default function Logo() {
 
     return (
        
-   <a href="http:localhost:3000/">
+   <a href="/">
             <svg width="90" height="31">
                 <use href={icons + "#icon-logo"}> </use>
             </svg>

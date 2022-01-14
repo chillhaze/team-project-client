@@ -1,7 +1,7 @@
 import { Wrapper } from './Reports.styled';
 
 const Reports = () => {
-  return <Wrapper>Reports</Wrapper>;
+  return <Wrapper>Отчеты</Wrapper>;
 };
 
 export default Reports;

@@ -22,15 +22,17 @@ function App() {
         <Navbar />
       </Header>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         {isLoggedIn && (
-          <Route path="/finance" element={<Finance />}>
-            <Route path="expenses" element={<Expences />} />
-            <Route path="income" element={<Income />} />
-            <Route path="reports" element={<Reports />} />
-          </Route>
+          <>
+            <Route path="/" exact element={<Finance />}>
+              <Route path="/expenses" exact element={<Expences />} />
+              <Route path="/income" exact element={<Income />} />
+            </Route>
+            <Route path="/reports" exact element={<Reports />} />
+          </>
         )}
 
         {/* any route below*/}
