@@ -6,26 +6,22 @@ import { ExitBtn, LoggedContainer, UserName } from './styled/LoggedBar.styled';
 import LogoutModal from 'components/LogoutModal/LogoutModal';
 
 export default function LoggedBar() {
-  const [openModal, setOpenModal]=useState(false)
+  const [openModal, setOpenModal] = useState(false);
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
-
-
   const onClickHandler = () => {
-    setOpenModal(true)
-  }
+    setOpenModal(true);
+  };
 
   const modalClose = () => {
-    setOpenModal(false)
-  }
-
+    setOpenModal(false);
+  };
 
   const userName = useSelector(({ auth }) => auth.user.name);
   return (
     <LoggedContainer>
-
       <svg width="32px" height="32px">
         <use href={icons + '#icon-user'}> </use>
       </svg>
@@ -42,7 +38,7 @@ export default function LoggedBar() {
           'Выйти'
         )}
       </ExitBtn>
-      {openModal && <LogoutModal onAction={modalClose}/>}
+      {openModal && <LogoutModal onAction={modalClose} />}
     </LoggedContainer>
   );
 }

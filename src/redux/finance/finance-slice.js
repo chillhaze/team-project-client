@@ -40,9 +40,6 @@ export const financeSlice = createSlice({
       state.token = action.payload.token;
       state.isLoading = false;
     },
-    [financeOperations.setBalance.pending](state, _) {
-      state.isLoading = true;
-    },
     [financeOperations.setBalance.pending](state, action) {
       state.financeData.ballance = action.payload;
       state.token = action.payload.token;
@@ -51,4 +48,4 @@ export const financeSlice = createSlice({
   },
 });
 
-export const {setBalanceToState} = financeSlice.actions
+export const { setBalanceToState } = financeSlice.actions;

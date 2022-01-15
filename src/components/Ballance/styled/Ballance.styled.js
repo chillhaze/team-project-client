@@ -23,8 +23,6 @@ export const BalanceWrapper = styled.div`
     display: flex;
     align-items: center;
   }
-
-
 `;
 
 export const Text = styled.span`
@@ -38,9 +36,8 @@ export const Text = styled.span`
   margin-bottom: ${props => props.theme.spacing(1.5)};
 
   @media only screen and (min-width: 768px) {
-    margin-right: ${props=> props.theme.spacing(5)};
+    margin-right: ${props => props.theme.spacing(5)};
   }
-
 `;
 
 export const Form = styled.form``;
@@ -62,17 +59,14 @@ export const Input = styled.input`
   box-sizing: border-box;
   border-radius: 22px 0px 0px 22px;
 
-
   @media only screen and (min-width: 768px) {
-    margin-right: ${props=> props.theme.spacing(4)};
+    margin-right: ${props => props.theme.spacing(4)};
     border-radius: 16px;
   }
 
   @media only screen and (min-width: 1024px) {
-    margin-right: ${props=> props.theme.spacing(5)};
+    margin-right: ${props => props.theme.spacing(5)};
   }
-
-
 `;
 
 export const Button = styled.button`
@@ -95,7 +89,6 @@ export const Button = styled.button`
     color: ${props => props.theme.colors.white};
   }
 
-  
   @media only screen and (min-width: 768px) {
     border-radius: 16px;
   }
@@ -116,13 +109,12 @@ export const BalanceText = styled.span`
   box-sizing: border-box;
   border-radius: 22px 0px 0px 22px;
 
-  
   @media only screen and (min-width: 768px) {
-    margin-right: ${props=> props.theme.spacing(4)};
+    margin-right: ${props => props.theme.spacing(4)};
     border-radius: 16px;
   }
 
   @media only screen and (min-width: 1024px) {
-    margin-right: ${props=> props.theme.spacing(5)};
+    margin-right: ${props => props.theme.spacing(5)};
   }
 `;

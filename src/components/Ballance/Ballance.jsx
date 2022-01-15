@@ -51,8 +51,8 @@ const Ballance = () => {
 
       <BalanceWrapper>
         <Text>Баланс:</Text>
-        //Рендерим либо форму (если это первый раз вводим) либо спан с значением
-        баланса
+        {/*Рендерим либо форму (если это первый раз вводим) либо спан с значением
+        баланса*/}
         {!isBalanceEntered ? (
           <Form action="submit" onSubmit={handlerSubmit}>
             <Input

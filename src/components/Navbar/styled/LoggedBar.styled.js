@@ -7,10 +7,8 @@ export const LoggedContainer = styled.div`
   svg {
     margin-right: 15px;
     @media only screen and (min-width: 768px) {
-   
-        margin-right: 15px;
-   
-   }
+      margin-right: 15px;
+    }
   }
 `;
 
@@ -36,16 +34,13 @@ export const UserName = styled.span`
 `;
 
 export const ExitBtn = styled.button`
-cursor: pointer;
-border: none;
-background-color: transparent;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
 
-@media only screen and (min-width: 768px) {
-   
-color: ${props => props.theme.colors.black};
+  @media only screen and (min-width: 768px) {
+    color: ${props => props.theme.colors.black};
 
-text-decoration: underline;
-
-}
-
-`
+    text-decoration: underline;
+  }
+`;
