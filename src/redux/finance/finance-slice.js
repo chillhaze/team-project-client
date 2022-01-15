@@ -15,6 +15,13 @@ const initialState = {
 export const financeSlice = createSlice({
   name: 'finance',
   initialState,
+  reducers: {
+    setBalanceToState: {
+      reducer: (state, action) => {
+        state.financeData.ballance = action.payload;
+      },
+    },
+  },
   extraReducers: {
     //------------------ Get Data
     [financeOperations.getFinance.pending](state, _) {
@@ -25,5 +32,23 @@ export const financeSlice = createSlice({
       state.token = action.payload.token;
       state.isLoading = false;
     },
+    [financeOperations.getBalance.pending](state, _) {
+      state.isLoading = true;
+    },
+    [financeOperations.getBalance.fulfilled](state, action) {
+      state.financeData.ballance = action.payload;
+      state.token = action.payload.token;
+      state.isLoading = false;
+    },
+    [financeOperations.setBalance.pending](state, _) {
+      state.isLoading = true;
+    },
+    [financeOperations.setBalance.pending](state, action) {
+      state.financeData.ballance = action.payload;
+      state.token = action.payload.token;
+      state.isLoading = true;
+    },
   },
 });
+
+export const {setBalanceToState} = financeSlice.actions

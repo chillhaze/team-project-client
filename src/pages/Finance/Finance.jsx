@@ -5,7 +5,6 @@ import { Wrapper } from './Finance.styled';
 const Finance = () => {
   return (
     <Wrapper>
-      Finance
       <Ballance />
       <Outlet />
     </Wrapper>

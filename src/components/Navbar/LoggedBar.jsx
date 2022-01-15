@@ -11,7 +11,7 @@ export default function LoggedBar() {
     query: '(max-width: 767px)',
   });
 
-  console.log(isMobile);
+
 
   const onClickHandler = () => {
     setOpenModal(true)
