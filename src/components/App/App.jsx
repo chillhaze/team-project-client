@@ -10,7 +10,7 @@ import Finance from '../../pages/Finance/Finance';
 import Expences from '../../pages/Expences/Expences';
 import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';
-import { Header, Wrapper } from './App.styled';
+import { Background, Header, Wrapper } from './App.styled';
 
 function App() {
   // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
@@ -21,6 +21,7 @@ function App() {
       <Header>
         <Navbar />
       </Header>
+      <Background />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
