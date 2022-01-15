@@ -1,7 +1,7 @@
 import ButtonsSet from '../Button/Button';
 import ReactDOM from 'react-dom';
 import { Route } from 'react-router-dom';
-import { ModalContainer, Icon, Title, ExitBtn } from './styled/LogoutModal.styled';
+import { ModalContainer, Icon, Title, ExitBtn, ModalBackground } from './styled/LogoutModal.styled';
 import icons from '../../images/icons.svg';
 
 //Создания портала и вызов модалки для правильного позиционирования
@@ -17,7 +17,8 @@ const LogoutModal = ({ onAction,value }) => {
   const logout = value === "logout"
  
   return (
-    <ModalContainer>
+    <ModalBackground>
+          <ModalContainer>
       <ExitBtn onClick={e => onAction()}>
         <Icon>
           <use href={icons + '#icon-close'}></use>
@@ -28,8 +29,9 @@ const LogoutModal = ({ onAction,value }) => {
       ) : (
         <Title>Вы уверены?</Title>
       )}
-      <ButtonsSet value1={'Да'} value2={'Нет'} />
+      <ButtonsSet value1={'да'} value2={'нет'} onClose={onAction} />
     </ModalContainer>
+</ModalBackground>
   );
 };
 export default Modal;

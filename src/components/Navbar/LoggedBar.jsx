@@ -14,13 +14,12 @@ export default function LoggedBar() {
 
   const onClickHandler = (e) => {
     const name = e.target.name
-    setOpenModal(true);
+    setOpenModal(!openModal);
     setButtonName(name)
-  
   };
 
   const modalClose = () => {
-    setOpenModal(false);
+    setOpenModal(!openModal);
   };
 
   const userName = useSelector(({ auth }) => auth.user.name);

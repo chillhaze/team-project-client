@@ -11,6 +11,15 @@ export const Button = styled.button`
   transition-duration: 300ms;
   transition-timing-function: ease-out;
 
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.1666;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: ${props => props.theme.colors.mainTextColor};
+
   &:not(:last-child) {
     margin-right: 15px;
   }
@@ -26,15 +35,4 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-export const Span = styled.span`
-font-family: Roboto;
-font-style: normal;
-font-weight: bold;
-font-size: 12px;
-line-height: 1.1666;
-letter-spacing: 0.02em;
-text-transform: uppercase;
-color: ${props => props.theme.colors.mainTextColor};
 `;
