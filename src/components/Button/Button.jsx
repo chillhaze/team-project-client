@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, ButtonsWrapper } from './styled/Button.styled';
+import { Button, ButtonsWrapper, Span } from './styled/Button.styled';
 
 const ButtonsSet = ({ value1, value2 }) => {
   return (
     <ButtonsWrapper>
-      <Button type="button">{value1}</Button>
-      <Button type="button">{value2}</Button>
+      <Button type="button"><Span>{value1}</Span></Button>
+      <Button type="button"><Span>{value2}</Span></Button>
     </ButtonsWrapper>
   );
 };

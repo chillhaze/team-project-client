@@ -27,3 +27,14 @@ export const ButtonsWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const Span = styled.span`
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 1.1666;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+color: ${props => props.theme.colors.mainTextColor};
+`;
