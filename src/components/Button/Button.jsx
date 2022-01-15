@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonsWrapper } from './Button.styled';
+import { Button, ButtonsWrapper } from './styled/Button.styled';
 
 const ButtonsSet = ({ value1, value2 }) => {
   return (

@@ -7,6 +7,9 @@ export const Button = styled.button`
   margin: 0;
   border: 2px solid ${props => props.theme.colors.MainBgColor};
   background-color: inherit;
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
 
   &:not(:last-child) {
     margin-right: 15px;

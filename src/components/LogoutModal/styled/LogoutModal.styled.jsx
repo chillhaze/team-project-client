@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import icons from '../../images/icons.svg';
 
 export const ModalContainer = styled.div`
   position: absolute;
