@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "61e1d9a176f88cc2188f5e1c",
+    "completedAt": "2022-01-13T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1db9318a7301833dc78f6",
+    "completedAt": "2022-01-13T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd3631c8a1405def857",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd4631c8a1405def859",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd5631c8a1405def85b",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd5631c8a1405def85d",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd6631c8a1405def85f",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd7631c8a1405def863",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dbd9631c8a1405def865",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  },
+  {
+    "_id": "61e1dc01403436723343294c",
+    "completedAt": "2022-01-12T22:00:00.000Z",
+    "description": "Сходил в киношку",
+    "category": "61e1793bb8d7c55e16415512",
+    "amount": 300
+  }
+]

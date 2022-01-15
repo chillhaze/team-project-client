@@ -1,0 +1,68 @@
+[
+  {
+    "_id": "61e17911b8d7c55e164150f3",
+    "type": "credit",
+    "name": "Транспорт",
+    "iconUrl": "http://localhost:8080/icons/61e17911b8d7c55e164150f3.svg"
+  },
+  {
+    "_id": "61e1793bb8d7c55e164155bd",
+    "type": "credit",
+    "name": "Продукты",
+    "iconUrl": "http://localhost:8080/icons/61e1793bb8d7c55e164155bd.svg"
+  },
+  {
+    "_id": "61e17943b8d7c55e164157a5",
+    "type": "credit",
+    "name": "Здоровье",
+    "iconUrl": "http://localhost:8080/icons/61e17943b8d7c55e164157a5.svg"
+  },
+  {
+    "_id": "61e1794cb8d7c55e16415b41",
+    "type": "credit",
+    "name": "Алкоголь",
+    "iconUrl": "http://localhost:8080/icons/61e1794cb8d7c55e16415b41.svg"
+  },
+  {
+    "_id": "61e17958b8d7c55e16415fa9",
+    "type": "credit",
+    "name": "Развлечения",
+    "iconUrl": "http://localhost:8080/icons/61e17958b8d7c55e16415fa9.svg"
+  },
+  {
+    "_id": "61e1796fb8d7c55e164168fc",
+    "type": "credit",
+    "name": "Всё для дома",
+    "iconUrl": "http://localhost:8080/icons/61e1796fb8d7c55e164168fc.svg"
+  },
+  {
+    "_id": "61e17979b8d7c55e16416cca",
+    "type": "credit",
+    "name": "Техника",
+    "iconUrl": "http://localhost:8080/icons/61e17979b8d7c55e16416cca.svg"
+  },
+  {
+    "_id": "61e17986b8d7c55e164171fd",
+    "type": "credit",
+    "name": "Коммуналка, связь",
+    "iconUrl": "http://localhost:8080/icons/61e17986b8d7c55e164171fd.svg"
+  },
+  {
+    "_id": "61e17993b8d7c55e16417703",
+    "type": "credit",
+    "name": "Спорт, хобби",
+    "iconUrl": "http://localhost:8080/icons/61e17993b8d7c55e16417703.svg"
+  },
+  {
+    "_id": "61e179a4b8d7c55e16417db2",
+    "type": "credit",
+    "name": "Образование",
+    "iconUrl": "http://localhost:8080/icons/61e179a4b8d7c55e16417db2.svg"
+  },
+  {
+    "_id": "61e179aeb8d7c55e164181a0",
+    "type": "credit",
+    "name": "Прочее",
+    "iconUrl": "http://localhost:8080/icons/61e179aeb8d7c55e164181a0.svg"
+  }
+]

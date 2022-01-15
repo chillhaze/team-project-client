@@ -16,3 +16,45 @@ export const getFinance = createAsyncThunk(
     }
   },
 );
+
+export const getTransactionsStatistic = createAsyncThunk(
+  'finance/statistic',
+  async credentials => {
+    try {
+      const { data } = await axios.get('/finance', credentials);
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+export const addTransaction = createAsyncThunk(
+  'finance/add-transaction',
+  async credentials => {
+    try {
+      const { data } = await axios.post('/finance', credentials);
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+export const deleteTransaction = createAsyncThunk(
+  'finance/delete-transaction',
+  async credentials => {
+    try {
+      const { data } = await axios.delete(
+        `/finance/${credentials}`,
+        credentials,
+      );
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
