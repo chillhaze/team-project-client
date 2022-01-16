@@ -34,6 +34,7 @@ export const Text = styled.div`
     background-image: url(${backgroundMessage});
     background-repeat: no-repeat;
     transform: translate(75px, -12px);
+  }
 `;
 export const TextMessage = styled.p`
   padding: 41px 25px 20px 25px;
