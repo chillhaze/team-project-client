@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const StyledNavLink = styled(NavLink)``;
-
-export const ToReportsWrapper = styled.div`
+export const StyledNavLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
+export const ToReportsWrapper = styled.div`
   @media only screen and (max-width: 767px) {
     margin-bottom: ${props => props.theme.spacing(11)};
   }
@@ -20,6 +20,7 @@ export const ToReportsWrapper = styled.div`
 `;
 
 export const Text = styled.span`
+  display: inline-block;
   font-family: Roboto;
   font-weight: 500px;
   font-size: 12px;
