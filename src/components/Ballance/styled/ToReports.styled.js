@@ -7,7 +7,10 @@ export const ToReportsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: ${props => props.theme.spacing(11)};
+
+  @media only screen and (max-width: 767px) {
+    margin-bottom: ${props => props.theme.spacing(11)};
+  }
 
   @media only screen and (min-width: 1024px) {
     position: absolute;
