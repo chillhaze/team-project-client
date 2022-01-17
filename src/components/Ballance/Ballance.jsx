@@ -14,36 +14,45 @@ import { useDispatch } from 'react-redux';
 import { setBalanceToState } from 'redux/finance/finance-slice';
 import { useMediaQuery } from 'react-responsive';
 import WellcomeMessage from './WellcomeMessage';
+import { openModal } from 'redux/confirming/confirm-slice';
 
 const Ballance = () => {
+  const dispatch = useDispatch();
+
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
+  const isConfirmed = useSelector(state => state.confirm.isConfirmed);
+
   // берем баланс со стейта
   const balance = useSelector(({ finance }) => finance.financeData.ballance);
-  const dispatch = useDispatch();
-
   const [curentBalance, setCurentBalance] = useState('');
 
   // проверка, первый раз вводится баланс или нет
   const [isBalanceEntered, setIsBalanceEntered] = useState(false);
-  useEffect(() => balance && setIsBalanceEntered(true), []);
+  useEffect(() => {
+    if (balance) {
+      setIsBalanceEntered(true);
+    }
+  }, []);
+
+  // Если подтвердили ввод - забрасываем баланс в стейт и на бэк
+  // пока забрасываем только в стейт - дальше будет + пост запрос на бек
+  useEffect(() => {
+    if (isConfirmed) {
+      dispatch(setBalanceToState(curentBalance));
+      setIsBalanceEntered(true);
+    }
+  }, [isConfirmed]);
 
   const handlerChange = e => {
     const balance = e.target.value.trim();
     setCurentBalance(balance);
   };
 
-  // забрасываем баланс в стейт и на бэк
-  const handlerSubmit = e => {
-    e.preventDefault();
-    // пока забрасываем только в стейт - дальше будет + пост запрос на бек
-    if (!curentBalance) {
-      return;
-    }
-    dispatch(setBalanceToState(curentBalance));
-    setIsBalanceEntered(true);
+  const onClickHandler = () => {
+    curentBalance && dispatch(openModal());
   };
 
   return (
@@ -56,7 +65,7 @@ const Ballance = () => {
         баланса*/}
         {!isBalanceEntered ? (
           <>
-            <Form action="submit" onSubmit={handlerSubmit}>
+            <Form action="submit">
               <Input
                 type="text"
                 value={curentBalance}
@@ -64,14 +73,16 @@ const Ballance = () => {
                 placeholder="00.00 UAH"
                 min="1"
               />
-              <Button type="submit">Подтвердить</Button>
+              <Button onClick={onClickHandler} type="button">
+                Подтвердить
+              </Button>
             </Form>
             <WellcomeMessage />
           </>
         ) : (
           <>
             <BalanceText>
-              {parseFloat(curentBalance).toLocaleString('ru-RU') + ' UAH'}
+              {parseFloat(balance).toLocaleString('ru-RU') + ' UAH'}
             </BalanceText>
             <Button disabled={true} type="submit">
               Подтвердить

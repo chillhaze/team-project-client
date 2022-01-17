@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { useMediaQuery } from 'react-responsive';
 import { ExitBtn, LoggedContainer, UserName } from './styled/LoggedBar.styled';
-import Modal from 'components/LogoutModal/LogoutModal';
 
 export default function LoggedBar() {
   const [openModal, setOpenModal] = useState(false);
@@ -12,10 +11,10 @@ export default function LoggedBar() {
     query: '(max-width: 767px)',
   });
 
-  const onClickHandler = (e) => {
-    const name = e.target.name
+  const onClickHandler = e => {
+    const name = e.target.name;
     setOpenModal(!openModal);
-    setButtonName(name)
+    setButtonName(name);
   };
 
   const modalClose = () => {
@@ -41,7 +40,6 @@ export default function LoggedBar() {
           'Выйти'
         )}
       </ExitBtn>
-      {openModal && <Modal onAction={modalClose} value={buttonName} />}
     </LoggedContainer>
   );
 }
