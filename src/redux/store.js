@@ -3,7 +3,7 @@ import { authSlice } from './auth/auth-slice';
 import { financeSlice } from './finance/finance-slice';
 import storage from 'redux-persist/lib/storage';
 import {
-  persistStore,
+  // persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
