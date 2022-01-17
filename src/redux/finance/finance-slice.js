@@ -45,6 +45,14 @@ export const financeSlice = createSlice({
       state.token = action.payload.token;
       state.isLoading = true;
     },
+    [financeOperations.addTransaction.fulfilled](state, action) {
+      state.transaction = action.payload;
+      state.token = action.payload.token;
+    },
+    [financeOperations.deleteTransaction.fulfilled](state, action) {
+      state.transaction = action.payload;
+      state.token = action.payload.token;
+    },
   },
 });
 

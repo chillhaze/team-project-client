@@ -1,0 +1,97 @@
+{
+  "ids": [
+    "61e17911b8d7c55e164150f3",
+    "61e1793bb8d7c55e164155bd",
+    "61e17943b8d7c55e164157a5",
+    "61e1794cb8d7c55e16415b41",
+    "61e17958b8d7c55e16415fa9",
+    "61e1796fb8d7c55e164168fc",
+    "61e17979b8d7c55e16416cca",
+    "61e17986b8d7c55e164171fd",
+    "61e17993b8d7c55e16417703",
+    "61e179a4b8d7c55e16417db2",
+    "61e179aeb8d7c55e164181a0",
+    "61e179ddb8d7c55e1641941d",
+    "61e179f7b8d7c55e16419e57"
+  ],
+  "entities": {
+    "61e17911b8d7c55e164150f3": {
+      "_id": "61e17911b8d7c55e164150f3",
+      "type": "credit",
+      "name": "Транспорт",
+      "iconUrl": "http://localhost:8080/icons/61e17911b8d7c55e164150f3.svg"
+    },
+    "61e1793bb8d7c55e164155bd": {
+      "_id": "61e1793bb8d7c55e164155bd",
+      "type": "credit",
+      "name": "Продукты",
+      "iconUrl": "http://localhost:8080/icons/61e1793bb8d7c55e164155bd.svg"
+    },
+    "61e17943b8d7c55e164157a5": {
+      "_id": "61e17943b8d7c55e164157a5",
+      "type": "credit",
+      "name": "Здоровье",
+      "iconUrl": "http://localhost:8080/icons/61e17943b8d7c55e164157a5.svg"
+    },
+    "61e1794cb8d7c55e16415b41": {
+      "_id": "61e1794cb8d7c55e16415b41",
+      "type": "credit",
+      "name": "Алкоголь",
+      "iconUrl": "http://localhost:8080/icons/61e1794cb8d7c55e16415b41.svg"
+    },
+    "61e17958b8d7c55e16415fa9": {
+      "_id": "61e17958b8d7c55e16415fa9",
+      "type": "credit",
+      "name": "Развлечения",
+      "iconUrl": "http://localhost:8080/icons/61e17958b8d7c55e16415fa9.svg"
+    },
+    "61e1796fb8d7c55e164168fc": {
+      "_id": "61e1796fb8d7c55e164168fc",
+      "type": "credit",
+      "name": "Всё для дома",
+      "iconUrl": "http://localhost:8080/icons/61e1796fb8d7c55e164168fc.svg"
+    },
+    "61e17979b8d7c55e16416cca": {
+      "_id": "61e17979b8d7c55e16416cca",
+      "type": "credit",
+      "name": "Техника",
+      "iconUrl": "http://localhost:8080/icons/61e17979b8d7c55e16416cca.svg"
+    },
+    "61e17986b8d7c55e164171fd": {
+      "_id": "61e17986b8d7c55e164171fd",
+      "type": "credit",
+      "name": "Коммуналка, связь",
+      "iconUrl": "http://localhost:8080/icons/61e17986b8d7c55e164171fd.svg"
+    },
+    "61e17993b8d7c55e16417703": {
+      "_id": "61e17993b8d7c55e16417703",
+      "type": "credit",
+      "name": "Спорт, хобби",
+      "iconUrl": "http://localhost:8080/icons/61e17993b8d7c55e16417703.svg"
+    },
+    "61e179a4b8d7c55e16417db2": {
+      "_id": "61e179a4b8d7c55e16417db2",
+      "type": "credit",
+      "name": "Образование",
+      "iconUrl": "http://localhost:8080/icons/61e179a4b8d7c55e16417db2.svg"
+    },
+    "61e179aeb8d7c55e164181a0": {
+      "_id": "61e179aeb8d7c55e164181a0",
+      "type": "credit",
+      "name": "Прочее",
+      "iconUrl": "http://localhost:8080/icons/61e179aeb8d7c55e164181a0.svg"
+    },
+    "61e179ddb8d7c55e1641941d": {
+      "_id": "61e179ddb8d7c55e1641941d",
+      "type": "debit",
+      "name": "ЗП",
+      "iconUrl": "http://localhost:8080/icons/61e179ddb8d7c55e1641941d.svg"
+    },
+    "61e179f7b8d7c55e16419e57": {
+      "_id": "61e179f7b8d7c55e16419e57",
+      "type": "debit",
+      "name": "Доп. доход",
+      "iconUrl": "http://localhost:8080/icons/61e179f7b8d7c55e16419e57.svg"
+    }
+  }
+}
