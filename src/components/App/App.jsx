@@ -24,7 +24,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
         {isLoggedIn && (
           <>
             <Route path="/" exact element={<Finance />}>
