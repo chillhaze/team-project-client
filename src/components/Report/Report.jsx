@@ -1,6 +1,7 @@
 import React from 'react';
 import BalanceInReport from './BalanceInReport';
 import CategoryList from './CategoryList';
+import BarChart from './BarChart';
 import CurrentPeriod from './CurrentPeriod';
 import ExpensesIncome from './ExpensesIncome';
 import { Wrapper } from './styled/Report.styled';
@@ -22,6 +23,7 @@ const Report = () => {
       <ExpensesIncome summExpenses={summExpenses} summIncome={summIncome} />
       <SwitchType selectedType={selectedType} />
       <CategoryList />
+      <BarChart />
     </Wrapper>
   );
 };

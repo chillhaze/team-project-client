@@ -6,22 +6,22 @@
   },
   {
     "name": "алкоголь",
-    "summ": "5000",
+    "summ": "4000",
     "icon": "icon-alcohol"
   },
   {
     "name": "развлечение",
-    "summ": "5000",
+    "summ": "3000",
     "icon": "icon-entertainment"
   },
   {
     "name": "здоровье",
-    "summ": "5000",
+    "summ": "2000",
     "icon": "icon-health"
   },
   {
     "name": "транспорт",
-    "summ": "5000",
+    "summ": "1000",
     "icon": "icon-transport"
   },
   {
