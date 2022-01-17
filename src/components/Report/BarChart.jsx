@@ -14,15 +14,16 @@ import { Bar } from 'react-chartjs-2';
 import category from './db/db.json';
 
 function BarChart() {
+  const sortedCategories = category.sort((a, b) => b.summ - a.summ);
   const isMobile = useMediaQuery({
     query: '(max-width: 320px)',
   });
   const indexAxis = isMobile ? 'y' : 'x';
   // ==========================================
   const labels = [];
-  category.map(({ name }) => labels.push(name));
+  sortedCategories.map(({ name }) => labels.push(name));
   const dataSumm = [];
-  category.map(({ summ }) => dataSumm.push(summ));
+  sortedCategories.map(({ summ }) => dataSumm.push(summ));
 
   ChartJS.register(
     CategoryScale,
