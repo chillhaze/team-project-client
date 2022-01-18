@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 import { setBalanceToState } from 'redux/finance/finance-slice';
 import { useMediaQuery } from 'react-responsive';
 import WellcomeMessage from './WellcomeMessage';
-import { openModal } from 'redux/confirming/confirm-slice';
+import { openModal, confirmAction } from 'redux/confirming/confirm-slice';
 
 const Ballance = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Ballance = () => {
   });
 
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
-
+  const isLogOut = useSelector(state => state.confirm.isLogOut);
   // берем баланс со стейта
   const balance = useSelector(({ finance }) => finance.financeData.ballance);
   const [curentBalance, setCurentBalance] = useState('');
@@ -34,25 +34,38 @@ const Ballance = () => {
   useEffect(() => {
     if (balance) {
       setIsBalanceEntered(true);
+      setCurentBalance(balance);
     }
   }, []);
 
   // Если подтвердили ввод - забрасываем баланс в стейт и на бэк
   // пока забрасываем только в стейт - дальше будет + пост запрос на бек
-  useEffect(() => {
-    if (isConfirmed) {
-      dispatch(setBalanceToState(curentBalance));
-      setIsBalanceEntered(true);
-    }
-  }, [isConfirmed]);
+  // useEffect(() => {
+  //   if (isConfirmed) {
+  //     dispatch(setBalanceToState(curentBalance));
+  //     setIsBalanceEntered(true);
+  //     dispatch(confirmAction(false));
+  //   }
+  // }, [isConfirmed, isLogOut]);
 
   const handlerChange = e => {
     const balance = e.target.value.trim();
     setCurentBalance(balance);
   };
 
-  const onClickHandler = () => {
+  const onClickHandler = async e => {
+    console.log(Form);
     curentBalance && dispatch(openModal());
+
+    if (isConfirmed) {
+      dispatch(setBalanceToState(curentBalance));
+      setIsBalanceEntered(true);
+      dispatch(confirmAction(false));
+    }
+  };
+
+  const onSubmit = async e => {
+    e.preventDefault();
   };
 
   return (
@@ -65,7 +78,7 @@ const Ballance = () => {
         баланса*/}
         {!isBalanceEntered ? (
           <>
-            <Form action="submit">
+            <Form action="submit" onSubmit={onSubmit}>
               <Input
                 type="text"
                 value={curentBalance}

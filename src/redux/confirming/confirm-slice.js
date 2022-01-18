@@ -25,13 +25,14 @@ export const confirmSlice = createSlice({
         state.isConfirmed = action.payload;
         state.shoudModalOpen = false;
       },
-      isLogOut: {
-        reducer: (state, _) => {
-          state.isLogOut = true;
-        },
+    },
+    isLogOut: {
+      reducer: (state, action) => {
+        state.isLogOut = action.payload;
       },
     },
   },
 });
 
-export const { openModal, closeModal, confirmAction } = confirmSlice.actions;
+export const { openModal, closeModal, confirmAction, isLogOut } =
+  confirmSlice.actions;

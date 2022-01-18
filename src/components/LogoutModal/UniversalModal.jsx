@@ -12,13 +12,12 @@ import icons from '../../images/icons.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal } from 'redux/confirming/confirm-slice';
 
-//Создания портала и вызов модалки для правильного позиционирования
-
 //Модалка с пропсами
 export const UniversalModal = () => {
   const isLogOut = useSelector(state => state.confirm.isLogOut);
   const dispatch = useDispatch();
 
+  // закрытие по клику в оверлей
   const onOverlayClick = e => {
     const isOverlay = e.target.id === 'overlay';
     isOverlay && dispatch(closeModal());

@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { useMediaQuery } from 'react-responsive';
 import { ExitBtn, LoggedContainer, UserName } from './styled/LoggedBar.styled';
+import {
+  openModal,
+  confirmAction,
+  isLogOut,
+} from 'redux/confirming/confirm-slice';
 
 export default function LoggedBar() {
-  const [openModal, setOpenModal] = useState(false);
-  const [buttonName, setButtonName] = useState('');
+  const dispatch = useDispatch();
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
-  const onClickHandler = e => {
-    const name = e.target.name;
-    setOpenModal(!openModal);
-    setButtonName(name);
-  };
-
-  const modalClose = () => {
-    setOpenModal(!openModal);
-  };
-
   const userName = useSelector(({ auth }) => auth.user.name);
+
+  const handlerOnClik = () => {
+    dispatch(isLogOut(true));
+    dispatch(openModal());
+  };
   return (
     <LoggedContainer>
       <svg width="32px" height="32px">
@@ -30,7 +29,7 @@ export default function LoggedBar() {
 
       {!isMobile && <UserName>{userName}</UserName>}
 
-      <ExitBtn type="button" name="logout" onClick={onClickHandler}>
+      <ExitBtn type="button" name="logout" onClick={handlerOnClik}>
         {' '}
         {isMobile ? (
           <svg width="16px" height="16px">
