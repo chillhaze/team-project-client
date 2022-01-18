@@ -1,0 +1,57 @@
+[
+  {
+    "name": "продукты",
+    "summ": "5000",
+    "icon": "icon-products"
+  },
+  {
+    "name": "алкоголь",
+    "summ": "4000",
+    "icon": "icon-alcohol"
+  },
+  {
+    "name": "развлечение",
+    "summ": "3000",
+    "icon": "icon-entertainment"
+  },
+  {
+    "name": "здоровье",
+    "summ": "2000",
+    "icon": "icon-health"
+  },
+  {
+    "name": "транспорт",
+    "summ": "1000",
+    "icon": "icon-transport"
+  },
+  {
+    "name": "все для дома",
+    "summ": "5000",
+    "icon": "icon-рousing"
+  },
+  {
+    "name": "техника",
+    "summ": "5000",
+    "icon": "icon-technics"
+  },
+  {
+    "name": "комуналка, связь",
+    "summ": "5000",
+    "icon": "icon-communal"
+  },
+  {
+    "name": "спорт хобби",
+    "summ": "5000",
+    "icon": "icon-sport"
+  },
+  {
+    "name": "образование",
+    "summ": "5000",
+    "icon": "icon-education"
+  },
+  {
+    "name": "прочее",
+    "summ": "5000",
+    "icon": "icon-other"
+  }
+]

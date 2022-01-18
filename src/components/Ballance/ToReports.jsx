@@ -10,8 +10,8 @@ import icons from '../../images/icons.svg';
 export default function ToReports() {
   return (
     <ToReportsWrapper>
-      <Text>Перейти к отчетам</Text>
       <StyledNavLink to={'/reports'}>
+        <Text>Перейти к отчетам</Text>
         <svg width="24px" height="24px">
           <use href={icons + '#icon-statistic'}></use>
         </svg>

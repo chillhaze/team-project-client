@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setBalanceToState } from 'redux/finance/finance-slice';
 import { useMediaQuery } from 'react-responsive';
+import WellcomeMessage from './WellcomeMessage';
 
 const Ballance = () => {
   const isMobile = useMediaQuery({
@@ -54,16 +55,19 @@ const Ballance = () => {
         {/*Рендерим либо форму (если это первый раз вводим) либо спан с значением
         баланса*/}
         {!isBalanceEntered ? (
-          <Form action="submit" onSubmit={handlerSubmit}>
-            <Input
-              type="text"
-              value={curentBalance}
-              onChange={handlerChange}
-              placeholder="00.00 UAH"
-              min="1"
-            />
-            <Button type="submit">Подтвердить</Button>
-          </Form>
+          <>
+            <Form action="submit" onSubmit={handlerSubmit}>
+              <Input
+                type="text"
+                value={curentBalance}
+                onChange={handlerChange}
+                placeholder="00.00 UAH"
+                min="1"
+              />
+              <Button type="submit">Подтвердить</Button>
+            </Form>
+            <WellcomeMessage />
+          </>
         ) : (
           <>
             <BalanceText>

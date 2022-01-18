@@ -3,6 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as userApi from '../../API/userApi';
+ 
+
+axios.defaults.baseURL = 'https://kapusta-app-teamproject.herokuapp.com/api/';
+ 
 
 const token = {
   set(token) {

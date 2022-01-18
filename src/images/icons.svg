@@ -52,6 +52,15 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 1L13 13" stroke="#52555F" stroke-width="2"  fill="#F5F6FA"/>
 <path d="M1 13L13 0.999999" stroke="#52555F" stroke-width="2"  fill="#F5F6FA"/>
 </symbol>
+<symbol id="icon-back" viewbox="0 0 24 24">
+<path d="M21 11H6.83L10.41 7.41L9 6L3 12L9 18L10.41 16.59L6.83 13H21V11Z" fill="#FF751D"/>
+</symbol>
+<symbol id="icon-arrow-left" viewBox="0 0 19 32">
+<path fill="none" stroke="#ff751d" style="stroke: var(--color1, #ff751d)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="5.3333" d="M16 2.667l-10.667 13.333 10.667 13.333"></path>
+</symbol>
+<symbol id="icon-arrow-right" viewBox="0 0 19 32">
+<path fill="none" stroke="#ff751d" style="stroke: var(--color1, #ff751d)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="5.3333" d="M2.667 2.667l10.667 13.333-10.667 13.333"></path>
+</symbol>
 </defs>
 </svg>
 

@@ -7,6 +7,18 @@ export const Button = styled.button`
   margin: 0;
   border: 2px solid ${props => props.theme.colors.MainBgColor};
   background-color: inherit;
+  transition-property: background-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.1666;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: ${props => props.theme.colors.mainTextColor};
 
   &:not(:last-child) {
     margin-right: 15px;
