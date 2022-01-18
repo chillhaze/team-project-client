@@ -13,6 +13,13 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    updateName: {
+      reducer: (state, action) => {
+        state.user.name = action.payload;
+      },
+    },
+  },
   extraReducers: {
     //------------------ Register
     [authOperations.signUp.fulfilled](state, action) {
@@ -65,6 +72,8 @@ export const authSlice = createSlice({
     },
   },
 });
+
+export const { updateName } = authSlice.actions;
 
 // import { createSlice } from '@reduxjs/toolkit';
 // import * as authOperations from './auth-operations';

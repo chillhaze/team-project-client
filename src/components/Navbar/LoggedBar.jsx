@@ -8,6 +8,7 @@ import {
   confirmAction,
   isLogOut,
 } from 'redux/confirming/confirm-slice';
+import Setings from './Setings';
 
 export default function LoggedBar() {
   const dispatch = useDispatch();
@@ -44,7 +45,12 @@ export default function LoggedBar() {
         <use href={icons + '#icon-user'}> </use>
       </svg>
 
-      {!isMobile && <UserName>{userName}</UserName>}
+      {!isMobile && (
+        <>
+          <UserName>{userName}</UserName>
+          <Setings></Setings>
+        </>
+      )}
 
       <ExitBtn type="button" name="logout" onClick={handlerOnClik}>
         {' '}
