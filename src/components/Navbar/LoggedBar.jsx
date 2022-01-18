@@ -14,11 +14,16 @@ export default function LoggedBar() {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+
+  // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
 
   const userName = useSelector(({ auth }) => auth.user.name);
+
+  // Для проверки на тип текущей операции
   const [isLogoutOperation, setIsLogoutOperation] = useState(false);
 
+  // Будет функция на выход, пока для теста алерт
   useEffect(() => {
     if (isConfirmed && isLogoutOperation) {
       alert('ВЫ ВЫШЛИ ИЗ АККАУНТА (test)');
@@ -27,6 +32,7 @@ export default function LoggedBar() {
     }
   }, [isConfirmed, isLogoutOperation]);
 
+  // Открытие модалки и изменения флагов для запуска useEffect и отправки данных
   const handlerOnClik = () => {
     setIsLogoutOperation(true);
     dispatch(isLogOut(true));

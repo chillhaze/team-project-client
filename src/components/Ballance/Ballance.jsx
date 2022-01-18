@@ -23,11 +23,14 @@ const Ballance = () => {
     query: '(max-width: 767px)',
   });
 
+  // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
 
   // берем баланс со стейта
   const balance = useSelector(({ finance }) => finance.financeData.ballance);
   const [curentBalance, setCurentBalance] = useState('');
+
+  // Для проверки на тип текущей операции
   const [isBalanceOperation, setIsBalanceOperation] = useState(false);
 
   // проверка, первый раз вводится баланс или нет
@@ -39,7 +42,8 @@ const Ballance = () => {
     }
   }, []);
 
-  // Если подтвердили ввод - забрасываем баланс в стейт и на бэк
+  // Если подтвердили ввод, и это операция с балансом
+  // забрасываем баланс в стейт и на бэк
   // пока забрасываем только в стейт - дальше будет + пост запрос на бек
   useEffect(() => {
     if (isConfirmed && isBalanceOperation) {
@@ -55,7 +59,8 @@ const Ballance = () => {
     setCurentBalance(balance);
   };
 
-  const onClickHandler = e => {
+  // Открытие модалки и изменения флагов для запуска useEffect и отправки данных
+  const onClickHandler = () => {
     setIsBalanceOperation(true);
     curentBalance && dispatch(openModal());
 

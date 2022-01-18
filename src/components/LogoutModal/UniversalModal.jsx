@@ -12,7 +12,6 @@ import icons from '../../images/icons.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeModal } from 'redux/confirming/confirm-slice';
 
-//Модалка с пропсами
 export const UniversalModal = () => {
   const isLogOut = useSelector(state => state.confirm.isLogOut);
   const dispatch = useDispatch();
@@ -31,6 +30,8 @@ export const UniversalModal = () => {
             <use href={icons + '#icon-close'}></use>
           </Icon>
         </ExitBtn>
+        // рендерим тайтл в засимости от того // это логаут или подтверждеие
+        действия
         {isLogOut ? (
           <Title>Вы действительно хотите выйти?</Title>
         ) : (
