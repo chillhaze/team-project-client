@@ -27,7 +27,9 @@ export default function Setings() {
 
   return (
     <Wrapper>
-      <button onClick={() => setIsOpen(!isOpen)}>Настройки</button>
+      <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? 'Закрыть' : 'Настройки'}
+      </button>
       <SetingsWrapper isOpen={isOpen}>
         <span>Ваше имя: </span>{' '}
         {isEditing ? (
