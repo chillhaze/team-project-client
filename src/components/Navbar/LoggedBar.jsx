@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { useMediaQuery } from 'react-responsive';
@@ -14,10 +14,21 @@ export default function LoggedBar() {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+  const isConfirmed = useSelector(state => state.confirm.isConfirmed);
 
   const userName = useSelector(({ auth }) => auth.user.name);
+  const [isLogoutOperation, setIsLogoutOperation] = useState(false);
+
+  useEffect(() => {
+    if (isConfirmed && isLogoutOperation) {
+      alert('ВЫ ВЫШЛИ ИЗ АККАУНТА (test)');
+      dispatch(confirmAction(false));
+      setIsLogoutOperation(false);
+    }
+  }, [isConfirmed, isLogoutOperation]);
 
   const handlerOnClik = () => {
+    setIsLogoutOperation(true);
     dispatch(isLogOut(true));
     dispatch(openModal());
   };

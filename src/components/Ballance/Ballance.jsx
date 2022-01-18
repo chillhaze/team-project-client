@@ -24,10 +24,11 @@ const Ballance = () => {
   });
 
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
-  const isLogOut = useSelector(state => state.confirm.isLogOut);
+
   // берем баланс со стейта
   const balance = useSelector(({ finance }) => finance.financeData.ballance);
   const [curentBalance, setCurentBalance] = useState('');
+  const [isBalanceOperation, setIsBalanceOperation] = useState(false);
 
   // проверка, первый раз вводится баланс или нет
   const [isBalanceEntered, setIsBalanceEntered] = useState(false);
@@ -40,21 +41,22 @@ const Ballance = () => {
 
   // Если подтвердили ввод - забрасываем баланс в стейт и на бэк
   // пока забрасываем только в стейт - дальше будет + пост запрос на бек
-  // useEffect(() => {
-  //   if (isConfirmed) {
-  //     dispatch(setBalanceToState(curentBalance));
-  //     setIsBalanceEntered(true);
-  //     dispatch(confirmAction(false));
-  //   }
-  // }, [isConfirmed, isLogOut]);
+  useEffect(() => {
+    if (isConfirmed && isBalanceOperation) {
+      dispatch(setBalanceToState(curentBalance));
+      setIsBalanceEntered(true);
+      dispatch(confirmAction(false));
+      setIsBalanceOperation(false);
+    }
+  }, [isConfirmed, isBalanceOperation]);
 
   const handlerChange = e => {
     const balance = e.target.value.trim();
     setCurentBalance(balance);
   };
 
-  const onClickHandler = async e => {
-    console.log(Form);
+  const onClickHandler = e => {
+    setIsBalanceOperation(true);
     curentBalance && dispatch(openModal());
 
     if (isConfirmed) {
@@ -62,10 +64,6 @@ const Ballance = () => {
       setIsBalanceEntered(true);
       dispatch(confirmAction(false));
     }
-  };
-
-  const onSubmit = async e => {
-    e.preventDefault();
   };
 
   return (
@@ -78,18 +76,17 @@ const Ballance = () => {
         баланса*/}
         {!isBalanceEntered ? (
           <>
-            <Form action="submit" onSubmit={onSubmit}>
-              <Input
-                type="text"
-                value={curentBalance}
-                onChange={handlerChange}
-                placeholder="00.00 UAH"
-                min="1"
-              />
-              <Button onClick={onClickHandler} type="button">
-                Подтвердить
-              </Button>
-            </Form>
+            <Input
+              type="text"
+              value={curentBalance}
+              onChange={handlerChange}
+              placeholder="00.00 UAH"
+              min="1"
+            />
+            <Button onClick={onClickHandler} type="button">
+              Подтвердить
+            </Button>
+
             <WellcomeMessage />
           </>
         ) : (
