@@ -8,6 +8,7 @@ export const theme = {
     white: '#FFFFFF',
     red: '#E7192E',
     green: '#407946',
+    redText: '#EB5757',
   },
   spacing: val => `${4 * val}px`,
 };
