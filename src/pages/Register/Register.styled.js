@@ -24,20 +24,20 @@ export const TitleWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     width: auto;
-    padding-right: 165px;
+    padding-right: 205px;
     margin-top: 90px;
     margin-left: 0;
   }
 
   @media screen and (min-width: 1280px) {
     width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-left: 0px;
-    margin-top: 0px;
-    margin-left: 0px;
+    padding-left: 227px;
+    margin-bottom: 195px;
   }
 `;
 

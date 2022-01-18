@@ -11,14 +11,14 @@ import { FiEyeOff } from 'react-icons/fi';
 import ButtonBlock from '../../ButtonBlock/ButtonBlock';
 
 
-import { Wrap, TextWrap, Text,Text1, GoogleBtn, Label, Errors, Field, FieldWrap, Eye, Span } from './RegisterForm.styled';
+import { Wrap, TextWrap, Text,Text1, GoogleBtn, Label, Label1, Errors, Field, FieldWrap, Eye, Span } from './RegisterForm.styled';
 
 
 const registerSchema = Yup.object().shape({
   username: Yup.string().max(50, 'Too Long').required('Required'),
   email: Yup.string().email().required('Valid mail required'),
   password: Yup.string()
-    .min(6, 'Password is too short - should be 6 chars minimum.')
+    .min(6, 'Password is short - should be at least 6 chars')
     .required('Required'),
 });
 
@@ -39,7 +39,7 @@ export default function RegisterForm() {
   const onSubmit = newUser => console.log(dispatch(signUp(newUser)));
   
 
-  const onLogInBtnClick = () => navigate('/login');
+  const onLoginBtnClick = () => navigate('/login');
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
@@ -82,7 +82,7 @@ export default function RegisterForm() {
             {errors.email && <Errors>{errors.email.message}</Errors>}
           </div>
           <FieldWrap>
-            <Label>
+            <Label1>
               {errors.password && <Errors> * </Errors>} Пароль:
             {/* </Label> */}
             <Field  type={passwordShown ? "text" : "password"}
@@ -92,12 +92,12 @@ export default function RegisterForm() {
               <Errors>{errors.password.message}</Errors>
               )}
               <Eye onClick={togglePasswordVisiblity}><FiEyeOff /></Eye>
-           </Label>
+           </Label1>
           </FieldWrap>
           <ButtonBlock
             firstButtonText={'Войти'}
             secondButtonText={'Регистрация'}
-            firstButtonHandler={onLogInBtnClick}
+            firstButtonHandler={onLoginBtnClick}
             firstButtonType={'button'}
             secondButtonType={'submit'}
           ></ButtonBlock>

@@ -13,6 +13,10 @@ export const Wrap = styled.div`
     width: 436px;
     padding: 50px 85px 55px 85px;
   }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 132px;
+  }
 `;
 
 export const TextWrap = styled.div`
@@ -36,12 +40,13 @@ export const Text = styled.p`
   text-align: start;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: ${props => props.theme.colors.mainTextColor};
 
   @media screen and (min-width: 768px) {
     width: 265px;
     font-size: 12px;
+    margin-bottom: 20px;
     // text-align: start;
   }
 `;
@@ -54,7 +59,7 @@ export const Text1 = styled.p`
   text-align: start;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   color: ${props => props.theme.colors.mainTextColor};
 
   @media screen and (min-width: 768px) {
@@ -102,13 +107,32 @@ export const Label = styled.label`
   line-height: 1.2;
   letter-spacing: 0.04em;
   margin-top: 24px;
-  margin-bottom: 12px;
+  // margin-bottom: 12px;
   color: ${props => props.theme.colors.black};
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
     margin-top: 20px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    color: ${props => props.theme.colors.black};
+  }
+`;
+
+export const Label1 = styled.label`
+  display: inline-block;
+  font-weight: 400;
+  font-family: 'Montserrat';
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  margin-top: 30px;
+  // margin-bottom: 12px;
+  color: ${props => props.theme.colors.black};
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    // margin-top: 20px;
+    // margin-bottom: 10px;
     color: ${props => props.theme.colors.black};
   }
 `;
@@ -130,10 +154,12 @@ export const Field = styled.input`
   background: ${props => props.theme.colors.MainBgColor};
   border-radius: 30px;
   outline: none;
+  margin-top: 12px;
 
   @media screen and (min-width: 768px) {
     width: 265px;
     font-size: 14px;
+    margin-top: 10px;
   }
 
   &:placeholder {
@@ -153,7 +179,7 @@ export const FieldWrap = styled.div`
 
 export const Eye = styled.i`
   position: absolute;
-  top: 58%;
+  top: 71%;
   right: 14%;
 
   &:hover {

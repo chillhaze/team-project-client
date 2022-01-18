@@ -9,12 +9,12 @@ import 'yup-phone';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEyeOff } from 'react-icons/fi';
 import ButtonBlock from '../../ButtonBlock/ButtonBlock';
-import { Wrap, TextWrap, Text, Text1, GoogleBtn, Label, Errors, Field, FieldWrap, Eye, Span } from './LoginForm.styled';
+import { Wrap, TextWrap, Text, Text1, GoogleBtn, Label, Label1, Errors, Field, FieldWrap, Eye, Span } from './LoginForm.styled';
 
-const LogInSchema = Yup.object().shape({
+const SignInSchema = Yup.object().shape({
   email: Yup.string().email().required('Valid mail required'),
   password: Yup.string()
-    .min(6, 'Password is short - should be at least 6 chars.')
+    .min(6, 'Password is short - should be at least 6 chars')
     .required('Required'),
 });
 
@@ -27,13 +27,13 @@ export default function LoginForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(LogInSchema),
+    resolver: yupResolver(SignInSchema),
   });
   const [passwordShown, setPasswordShown] = useState(false);
 
   const onSubmit = newUser => console.log(dispatch(signIn(newUser)));
 
-  const onSignUpBtnClick = () => navigate('/register');
+  const onRegisterBtnClick = () => navigate('/register');
 
  const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -70,7 +70,7 @@ export default function LoginForm() {
             {errors.email && <Errors>{errors.email.message}</Errors>}
           </div>
           <FieldWrap>
-            <Label>
+            <Label1>
               {errors.password && <Errors> * </Errors>} Пароль:
             {/* </Label> */}
             <Field
@@ -83,13 +83,12 @@ export default function LoginForm() {
               <Errors>{errors.password.message}</Errors>
             )}
             <Eye onClick={togglePasswordVisiblity}><FiEyeOff /></Eye>
-           </Label>
-            {/* <i onClick={togglePasswordVisiblity}>{eye}</i> */}
-          </FieldWrap>
+           </Label1>
+           </FieldWrap>
           <ButtonBlock
             firstButtonText={'Войти'}
             secondButtonText={'Регистрация'}
-            secondButtonHandler={onSignUpBtnClick}
+            secondButtonHandler={onRegisterBtnClick}
             firstButtonType={'submit'}
             secondButtonType={'button'}
           ></ButtonBlock>

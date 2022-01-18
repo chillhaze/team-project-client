@@ -3,7 +3,7 @@ import { authSlice } from './auth/auth-slice';
 import { financeSlice } from './finance/finance-slice';
 import storage from 'redux-persist/lib/storage';
 import {
-  // persistStore,
+  persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -33,3 +33,4 @@ export const store = configureStore({
   ],
   devTools: process.env.NODE_ENV === 'development',
 });
+export const persistor = persistStore(store);

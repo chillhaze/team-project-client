@@ -34,10 +34,10 @@ export const googleAuth = createAsyncThunk(
       const { data } = await userApi.googleAuth(credentials);
       token.set(data.result.user.token);
 
-      toast.success('Success Google auth');
+      toast.success('Success Google authorization');
       return data.result;
     } catch (error) {
-      toast.warning('Error with Google auth');
+      toast.warning('Error with Google authorization');
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -49,7 +49,6 @@ export const signIn = createAsyncThunk(
     try {
       const { data } = await userApi.signIn(credentials);
       token.set(data.result.token);
-      // toast.warning("Warning, something wrong - sign in");
       toast.success('Success sign in');
       return data.result;
     } catch (error) {
