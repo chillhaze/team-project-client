@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/any-route';
+axios.defaults.baseURL = 'https://kapusta-app-teamproject.herokuapp.com/api/';
 
 const token = {
   set(token) {
