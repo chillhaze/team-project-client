@@ -38,6 +38,9 @@ export default function Setings() {
         <button onClick={editingHandler}>
           {isEditing ? 'Подтвердить' : 'Изменить'}{' '}
         </button>
+        <br />
+        <span>Обновить аватар: </span>
+        <input type="file" />
       </SetingsWrapper>
     </Wrapper>
   );
