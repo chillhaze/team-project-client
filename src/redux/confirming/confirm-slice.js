@@ -18,6 +18,7 @@ export const confirmSlice = createSlice({
     closeModal: {
       reducer: (state, _) => {
         state.shoudModalOpen = false;
+        state.isLogOut = false;
       },
     },
     confirmAction: {
