@@ -40,7 +40,7 @@ export default function RegisterForm() {
   const onSubmit = data => dispatch(signUp(data));
    
   
-// const onSubmit = data => console.log(data);
+
   const onLoginBtnClick = () => navigate('/login');
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
