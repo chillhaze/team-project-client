@@ -8,6 +8,7 @@ flex-direction:column;
 align-items:center;
 margin:0 auto;
 padding:0;
+max-width:320px;
 `;
 
 export const CurrentPeriodWrapper = styled.div`
