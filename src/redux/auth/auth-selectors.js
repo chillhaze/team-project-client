@@ -5,3 +5,4 @@ export const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
 export const getUserName = state => state.auth.user.name;
 export const getUserId = state => state.auth.user.id;
 export const getError = state => state.auth.error;
+// export const getToken = state => state.auth.token;
