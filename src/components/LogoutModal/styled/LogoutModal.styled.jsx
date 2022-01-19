@@ -11,7 +11,7 @@ export const ModalContainer = styled.div`
   padding: 50px 10px;
   border-radius: 30px;
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
-  background-color: ${props => props.theme.colors.white};
+
   @media screen and (min-width: 768px) {
     width: 380px;
     padding: 50px 58px;
@@ -55,10 +55,10 @@ export const ExitBtn = styled.button`
 `;
 
 export const ModalBackground = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-color:transparent;
 `;

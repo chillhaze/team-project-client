@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signIn } from '../../../redux/auth/auth-operations';
+import { login } from '../../../redux/auth/auth-operations';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -31,7 +31,7 @@ export default function LoginForm() {
   });
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const onSubmit = newUser => console.log(dispatch(signIn(newUser)));
+  const onSubmit = data => dispatch(login(data));
 
   const onRegisterBtnClick = () => navigate('/register');
 

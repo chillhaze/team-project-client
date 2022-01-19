@@ -9,13 +9,14 @@ import 'yup-phone';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEyeOff } from 'react-icons/fi';
 import ButtonBlock from '../../ButtonBlock/ButtonBlock';
+// import { connect } from "react-redux";
 
 
 import { Wrap, TextWrap, Text,Text1, GoogleBtn, Label, Label1, Errors, Field, FieldWrap, Eye, Span } from './RegisterForm.styled';
 
 
 const registerSchema = Yup.object().shape({
-  username: Yup.string().max(50, 'Too Long').required('Required'),
+  name: Yup.string().max(50, 'Too Long').required('Required'),
   email: Yup.string().email().required('Valid mail required'),
   password: Yup.string()
     .min(6, 'Password is short - should be at least 6 chars')
@@ -36,9 +37,10 @@ export default function RegisterForm() {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const onSubmit = newUser => console.log(dispatch(signUp(newUser)));
+  const onSubmit = data => dispatch(signUp(data));
+   
   
-
+// const onSubmit = data => console.log(data);
   const onLoginBtnClick = () => navigate('/login');
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
@@ -66,11 +68,11 @@ export default function RegisterForm() {
           </Text1>
           <div>
             <Label>
-              {errors.username && <Errors> * </Errors>} Имя:
+              {errors.name && <Errors> * </Errors>} Имя:
             </Label>
-            <Field {...register('username')} placeholder=" your name" />
-            {errors.username && (
-              <Errors>{errors.username.message}</Errors>
+            <Field {...register('name')} placeholder=" your name" />
+            {errors.name && (
+              <Errors>{errors.name.message}</Errors>
             )}
           </div>
           <div>
@@ -106,6 +108,7 @@ export default function RegisterForm() {
     </Wrap>
   );
 }
+
 
 
 //////////////////////////////////////////////////////////////
