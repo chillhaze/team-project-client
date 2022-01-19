@@ -6,7 +6,7 @@ import * as authOperations from '../../redux/auth/auth-operations';
 import Navbar from '../Navbar/Navbar';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Register/Register';
-import Finance from '../../pages/Finance/Finance';
+import Transactions from '../../pages/Finance/Finanse';
 import Expences from '../../pages/Expences/Expences';
 import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';
@@ -27,7 +27,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         {isLoggedIn && (
           <>
-            <Route path="/" exact element={<Finance />}>
+            <Route path="/" exact element={<Transactions />}>
               <Route path="/expenses" exact element={<Expences />} />
               <Route path="/income" exact element={<Income />} />
             </Route>

@@ -1,3 +1,3 @@
-export const isLoadingTransactions = state =>
-  state.transactions.isLoadingTransactions;
-export const getTransactions = state => state.transactions.transactionsData;
+export const isLoading = state => state.transactions.isLoading;
+export const getTransactionsData = state => state.transactions.transactionsData;
+

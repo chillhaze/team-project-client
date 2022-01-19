@@ -7,6 +7,7 @@ const Expences = () => {
     <Wrapper>
       <DataInput />
       <TransactionsTable />
+      {/* СВОДКА - добавляем компонент сюда */}
     </Wrapper>
   );
 };

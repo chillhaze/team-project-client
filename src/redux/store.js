@@ -6,6 +6,7 @@ import { categoriesSlice } from './categories/categories-slice';
 import { reportsSlice } from './reports/reports-slice';
 import { financeSlice } from './finance/finance-slice';
 import { confirmSlice } from './confirming/confirm-slice';
+
 import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
