@@ -29,40 +29,40 @@ export const authSlice = createSlice({
     [authOperations.signUp.rejected](state, action) {
       state.isLoggedIn = false;
       state.isLoading = false;
-      state.error = action.payload.message;
+      state.error = action.payload;
     },
     //------------------ Login
-    [authOperations.signIn.fulfilled](state, action) {
+    [authOperations.login.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
-    [authOperations.signIn.pending](state, action) {
+    [authOperations.login.pending](state, action) {
       state.isLoggedIn = false;
       state.isLoading = true;
       state.error = '';
     },
-    [authOperations.signIn.rejected](state, action) {
+    [authOperations.login.rejected](state, action) {
       state.isLoggedIn = false;
       state.isLoading = false;
       state.error = action.payload.message;
     },
-    [authOperations.getCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
-      state.isLoggedIn = true;
-    },
-    [authOperations.signOut.fulfilled](state, action) {
-      state.user = { name: null, email: null };
-      state.token = null;
-      state.isLoggedIn = false;
-    },
+    // [authOperations.getCurrentUser.fulfilled](state, action) {
+    //   state.user = action.payload;
+    //   state.isLoggedIn = true;
+    // },
+    // [authOperations.signOut.fulfilled](state, action) {
+    //   state.user = { name: null, email: null };
+    //   state.token = null;
+    //   state.isLoggedIn = false;
+    // },
 
-    [authOperations.googleAuth.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.user.token;
-      state.isLoggedIn = true;
-    },
+    // [authOperations.googleAuth.fulfilled](state, action) {
+    //   state.user = action.payload.user;
+    //   state.token = action.payload.user.token;
+    //   state.isLoggedIn = true;
+    // },
   },
 });
 
