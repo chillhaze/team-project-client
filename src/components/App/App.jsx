@@ -6,7 +6,7 @@ import * as authOperations from '../../redux/auth/auth-operations';
 import Navbar from '../Navbar/Navbar';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Register/Register';
-import Transactions from '../../pages/Transactions/Transactions';
+import Transactions from '../../pages/Finance/Finanse';
 import Expences from '../../pages/Expences/Expences';
 import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';

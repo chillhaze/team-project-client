@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as transactionsOperations from '../../redux/transactions/transactions-operations';
 import transformDate from '../../utils/transformDate';
 import {
   Wrapper,
   Form,
-  Date,
+  TodayDate,
   InputWrapper,
   DescriptionInput,
   SelectList,
@@ -20,17 +20,18 @@ import categories from '../../template/categories.json';
 
 const DataInput = () => {
   const dispatch = useDispatch();
-  const [completedAt, setCompletedAt] = useState('');
+  const [period, setPeriod] = useState(new Date().toISOString());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
+  // const [type, setType] = useState('credit');
 
   //getting form value to state
   const handleFormChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
-      case 'completedAt':
-        setCompletedAt(value);
+      case 'period':
+        setPeriod(value);
         break;
       case 'description':
         setDescription(value);
@@ -51,10 +52,11 @@ const DataInput = () => {
     //Creating new transaction
     dispatch(
       transactionsOperations.addTransaction({
-        completedAt,
+        period,
         description,
         category,
-        amount,
+        amount: Number(amount),
+        type: 'credit',
       }),
     );
     //Updating transaction list with added new transaction
@@ -63,39 +65,57 @@ const DataInput = () => {
   };
 
   const formReset = () => {
-    setCompletedAt('');
+    setPeriod('');
     setDescription('');
     setCategory('');
-    amount('');
+    setAmount('');
   };
 
-  let activateSubmitBtn = true;
-  if (completedAt && description && category && amount) {
-    activateSubmitBtn = false;
-  }
+  // let activateSubmitBtn = true;
+  // if (period && description && category && amount) {
+  //   activateSubmitBtn = false;
+  // }
 
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit} autoComplete="off">
-        <Date onChange={handleFormChange}>{transformDate()}</Date>
+        <TodayDate
+          onChange={handleFormChange}
+          name="completedAt"
+          value={period}
+        >
+          {transformDate(period)}
+        </TodayDate>
         <InputWrapper>
-          <DescriptionInput onChange={handleFormChange} />
-          <SelectList>
+          <DescriptionInput
+            onChange={handleFormChange}
+            placeholder="Описание расхода"
+            name="description"
+            value={description}
+          />
+          <SelectList
+            name="category"
+            value={category}
+            onChange={handleFormChange}
+          >
             <CategoryItem value="">Выберите категорию</CategoryItem>
             {categories.ids.map(elem => {
               const { _id, name } = categories.entities[elem];
               return (
-                <CategoryItem onChange={handleFormChange} value={_id} key={_id}>
+                <CategoryItem value={_id} key={_id}>
                   {name}
                 </CategoryItem>
               );
             })}
           </SelectList>
-          <AmountInput onChange={handleFormChange} />
+          <AmountInput
+            onChange={handleFormChange}
+            placeholder="0.00"
+            name="amount"
+            value={amount}
+          />
         </InputWrapper>
-        <EnterButton type="submit" disabled={activateSubmitBtn}>
-          ввод
-        </EnterButton>
+        <EnterButton type="submit">ввод</EnterButton>
         <ClearButton type="button" onClick={formReset}>
           очистить
         </ClearButton>

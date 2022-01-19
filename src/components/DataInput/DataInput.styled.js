@@ -17,7 +17,7 @@ export const Form = styled.form`
   letter-spacing: 0.02em;
 `;
 
-export const Date = styled.p`
+export const TodayDate = styled.p`
   margin-right: 23px;
 `;
 

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Ballance from '../../components/Ballance/Ballance';
-import { Wrapper } from './Transactions.styled';
+import { Wrapper } from './Finance.styled';
 
 const Transactions = () => {
   return (

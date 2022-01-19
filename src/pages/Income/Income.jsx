@@ -7,6 +7,7 @@ const Income = () => {
     <Wrapper>
       <DataInput />
       <TransactionsTable />
+      {/* СВОДКА - добавляем компонент сюда */}
     </Wrapper>
   );
 };
