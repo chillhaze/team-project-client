@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import * as transactionOperations from '../../redux/finance/finance-operations';
-import * as transactionSelectors from '../../redux/finance/finance-selectors';
+import * as transactionOperations from '../../redux/transactions/transactions-operations';
+import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
 import categories from '../../template/categories.json';
 import transactions from '../../template/transactions.json';
 import transformDate from '../../utils/transformDate';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import * as transactionOperations from '../../redux/finance/finance-operations';
+import * as transactionsOperations from '../../redux/transactions/transactions-operations';
 import transformDate from '../../utils/transformDate';
 import {
   Wrapper,
@@ -50,7 +50,7 @@ const DataInput = () => {
     e.preventDefault();
     //Creating new transaction
     dispatch(
-      transactionOperations.addTransaction({
+      transactionsOperations.addTransaction({
         completedAt,
         description,
         category,
@@ -58,7 +58,7 @@ const DataInput = () => {
       }),
     );
     //Updating transaction list with added new transaction
-    dispatch(transactionOperations.getFinance());
+    dispatch(transactionsOperations.getTransactions());
     formReset();
   };
 

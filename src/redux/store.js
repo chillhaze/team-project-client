@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { authSlice } from './auth/auth-slice';
-import { financeSlice } from './finance/finance-slice';
+import { transactionsSlice } from './transactions/transactions-slice';
 import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
@@ -21,7 +21,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authSlice.reducer),
-    finance: financeSlice.reducer,
+    transactions: transactionsSlice.reducer,
   },
 
   middleware: getDefaultMiddleware => [

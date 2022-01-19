@@ -11,7 +11,7 @@ import ToReports from './ToReports';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setBalanceToState } from 'redux/finance/finance-slice';
+import { setBalanceToState } from 'redux/transactions/transactions-slice';
 import { useMediaQuery } from 'react-responsive';
 import WellcomeMessage from './WellcomeMessage';
 
@@ -21,7 +21,9 @@ const Ballance = () => {
   });
 
   // берем баланс со стейта
-  const balance = useSelector(({ finance }) => finance.financeData.ballance);
+  const balance = useSelector(
+    ({ transactions }) => transactions.transactionsData.ballance,
+  );
   const dispatch = useDispatch();
 
   const [curentBalance, setCurentBalance] = useState('');
