@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import icons from '../../images/icons.svg';
 import { useMediaQuery } from 'react-responsive';
 import { ExitBtn, LoggedContainer, UserName } from './styled/LoggedBar.styled';
-import Modal from 'components/LogoutModal/LogoutModal';
+import {
+  openModal,
+  confirmAction,
+  isLogOut,
+} from 'redux/confirming/confirm-slice';
 
 export default function LoggedBar() {
-  const [openModal, setOpenModal] = useState(false);
-  const [buttonName, setButtonName] = useState('');
+  const dispatch = useDispatch();
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
-  const onClickHandler = (e) => {
-    const name = e.target.name
-    setOpenModal(!openModal);
-    setButtonName(name)
-  };
-
-  const modalClose = () => {
-    setOpenModal(!openModal);
-  };
+  // Для проверки подтверждено ли дейтсвие в модалке
+  const isConfirmed = useSelector(state => state.confirm.isConfirmed);
 
   const userName = useSelector(({ auth }) => auth.user.name);
+
+  // Для проверки на тип текущей операции
+  const [isLogoutOperation, setIsLogoutOperation] = useState(false);
+
+  // Будет функция на выход, пока для теста алерт
+  useEffect(() => {
+    if (isConfirmed && isLogoutOperation) {
+      alert('ВЫ ВЫШЛИ ИЗ АККАУНТА (test)');
+      dispatch(confirmAction(false));
+      setIsLogoutOperation(false);
+    }
+  }, [isConfirmed, isLogoutOperation]);
+
+  // Открытие модалки и изменения флагов для запуска useEffect и отправки данных
+  const handlerOnClik = () => {
+    setIsLogoutOperation(true);
+    dispatch(isLogOut(true));
+    dispatch(openModal());
+  };
   return (
     <LoggedContainer>
       <svg width="32px" height="32px">
@@ -31,7 +46,7 @@ export default function LoggedBar() {
 
       {!isMobile && <UserName>{userName}</UserName>}
 
-      <ExitBtn type="button" name="logout" onClick={onClickHandler}>
+      <ExitBtn type="button" name="logout" onClick={handlerOnClik}>
         {' '}
         {isMobile ? (
           <svg width="16px" height="16px">
@@ -41,7 +56,6 @@ export default function LoggedBar() {
           'Выйти'
         )}
       </ExitBtn>
-      {openModal && <Modal onAction={modalClose} value={buttonName} />}
     </LoggedContainer>
   );
 }

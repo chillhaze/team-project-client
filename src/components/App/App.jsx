@@ -11,6 +11,7 @@ import Expences from '../../pages/Expences/Expences';
 import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';
 import { Header, Wrapper } from './App.styled';
+import { ModalPortal } from 'components/LogoutModal/Modal';
 
 function App() {
   // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
@@ -37,6 +38,7 @@ function App() {
         {/* any route below*/}
         <Route path="*" element={<Navigate replace to={'/'} />} />
       </Routes>
+      <ModalPortal />
     </Wrapper>
   );
 }
