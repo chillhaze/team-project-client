@@ -11,11 +11,11 @@ function ExpensesIncome({ summExpenses, summIncome }) {
       <List>
         <Item>
           <Text>Расходы:</Text>
-          <AmountRed>{summExpenses}</AmountRed>
+          <AmountRed>-18000.00 ГРН</AmountRed>
         </Item>
         <Item>
           <Text>Доходы:</Text>
-          <AmountGreen>{summIncome}</AmountGreen>
+          <AmountGreen>+45000.00 ГРН</AmountGreen>
         </Item>
       </List>
     </Wrapper>
