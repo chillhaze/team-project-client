@@ -18,7 +18,7 @@ export default function LoggedBar() {
   // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
 
-  const userName = useSelector(({ auth }) => auth.user.name);
+  const user = useSelector(({ auth }) => auth.user);
 
   // Для проверки на тип текущей операции
   const [isLogoutOperation, setIsLogoutOperation] = useState(false);
@@ -44,10 +44,9 @@ export default function LoggedBar() {
         <use href={icons + '#icon-user'}> </use>
       </svg>
 
-      {!isMobile && <UserName>{userName}</UserName>}
+      {!isMobile && <UserName>{user.name}</UserName>}
 
       <ExitBtn type="button" name="logout" onClick={handlerOnClik}>
-        {' '}
         {isMobile ? (
           <svg width="16px" height="16px">
             <use href={icons + '#icon-logout'}> </use>

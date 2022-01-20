@@ -1,7 +1,4 @@
-export const getUser = state => state.auth.user;
-export const getIsLoggedIn = state => state.auth.isLoggedIn;
-export const isLoading = state => state.auth.isLoading;
-export const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
+export const getCurrentUser = state => state.auth.user;
+export const isUserLoggedIn = state => state.auth.isUserLoggedIn;
+export const isLoadingUser = state => state.auth.isLoadingUser;
 export const getUserName = state => state.auth.user.name;
-export const getUserId = state => state.auth.user.id;
-export const getError = state => state.auth.error;

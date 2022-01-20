@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signIn } from '../../../redux/auth/auth-operations';
+import { login } from '../../../redux/auth/auth-operations';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -9,7 +9,20 @@ import 'yup-phone';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEyeOff } from 'react-icons/fi';
 import ButtonBlock from '../../ButtonBlock/ButtonBlock';
-import { Wrap, TextWrap, Text, Text1, GoogleBtn, Label, Label1, Errors, Field, FieldWrap, Eye, Span } from './LoginForm.styled';
+import {
+  Wrap,
+  TextWrap,
+  Text,
+  Text1,
+  GoogleBtn,
+  Label,
+  Label1,
+  Errors,
+  Field,
+  FieldWrap,
+  Eye,
+  Span,
+} from './LoginForm.styled';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email().required('Valid mail required'),
@@ -31,11 +44,10 @@ export default function LoginForm() {
   });
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const onSubmit = newUser => console.log(dispatch(signIn(newUser)));
-
+  const onSubmit = newUser => dispatch(login(newUser));
   const onRegisterBtnClick = () => navigate('/register');
 
- const togglePasswordVisiblity = () => {
+  const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
   return (
@@ -43,10 +55,11 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextWrap>
           <Text>
-            Вы можете авторизоваться с помощью <br />  <Span>Google Account:</Span>
+            Вы можете авторизоваться с помощью <br />{' '}
+            <Span>Google Account:</Span>
           </Text>
           <GoogleBtn
-            // href="https://project.herokuapp.com/auth/google"/ нужна ссылка на бекенд
+          // href="https://project.herokuapp.com/auth/google"/ нужна ссылка на бекенд
           >
             <FcGoogle size={18} />
             Google
@@ -72,19 +85,19 @@ export default function LoginForm() {
           <FieldWrap>
             <Label1>
               {errors.password && <Errors> * </Errors>} Пароль:
-            {/* </Label> */}
-            <Field
-              // type="password"
-             type={passwordShown ? "text" : "password"}
-              {...register('password')}
-              placeholder="your password"
-            />
-            {errors.password && (
-              <Errors>{errors.password.message}</Errors>
-            )}
-            <Eye onClick={togglePasswordVisiblity}><FiEyeOff /></Eye>
-           </Label1>
-           </FieldWrap>
+              {/* </Label> */}
+              <Field
+                // type="password"
+                type={passwordShown ? 'text' : 'password'}
+                {...register('password')}
+                placeholder="your password"
+              />
+              {errors.password && <Errors>{errors.password.message}</Errors>}
+              <Eye onClick={togglePasswordVisiblity}>
+                <FiEyeOff />
+              </Eye>
+            </Label1>
+          </FieldWrap>
           <ButtonBlock
             firstButtonText={'Войти'}
             secondButtonText={'Регистрация'}
@@ -97,28 +110,6 @@ export default function LoginForm() {
     </Wrap>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /////////////////////////////////////////////
 
@@ -165,7 +156,7 @@ export default function LoginForm() {
 //     const [passwordError, setPasswordError] = useState('Это обязательное поле');
 //     const [nameError, setNameError] = useState('Это обязательное поле');
 
-//     // eslint-disable-next-line  
+//     // eslint-disable-next-line
 //     const [errorSymbol, _setErrorSymbol] = useState('*');
 
 //     const blurHandler = e => {

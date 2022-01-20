@@ -1,21 +1,33 @@
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { signUp } from '../../../redux/auth/auth-operations';
+import { registerUser } from '../../../redux/auth/auth-operations';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import * as authSelectors from '../../../redux/auth/auth-selectors';
 import 'yup-phone';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEyeOff } from 'react-icons/fi';
 import ButtonBlock from '../../ButtonBlock/ButtonBlock';
-
-
-import { Wrap, TextWrap, Text,Text1, GoogleBtn, Label, Label1, Errors, Field, FieldWrap, Eye, Span } from './RegisterForm.styled';
-
+import {
+  Wrap,
+  TextWrap,
+  Text,
+  Text1,
+  GoogleBtn,
+  Label,
+  Label1,
+  Errors,
+  Field,
+  FieldWrap,
+  Eye,
+  Span,
+} from './RegisterForm.styled';
+import { useSelector } from 'react-redux';
 
 const registerSchema = Yup.object().shape({
-  username: Yup.string().max(50, 'Too Long').required('Required'),
+  name: Yup.string().max(50, 'Too Long').required('Required'),
   email: Yup.string().email().required('Valid mail required'),
   password: Yup.string()
     .min(6, 'Password is short - should be at least 6 chars')
@@ -26,7 +38,7 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-   const {
+  const {
     register,
     handleSubmit,
     formState: { errors },
@@ -36,8 +48,7 @@ export default function RegisterForm() {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const onSubmit = newUser => console.log(dispatch(signUp(newUser)));
-  
+  const onSubmit = newUser => dispatch(registerUser(newUser));
 
   const onLoginBtnClick = () => navigate('/login');
   const togglePasswordVisiblity = () => {
@@ -49,11 +60,11 @@ export default function RegisterForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextWrap>
           <Text>
-            Вы можете авторизоваться с помощью <br /> <Span>Google Account:</Span>
+            Вы можете авторизоваться с помощью <br />{' '}
+            <Span>Google Account:</Span>
           </Text>
           <GoogleBtn
-            // href="https://project.herokuapp.com/auth/google"//нужна ссылка на бекенд
-            
+          // href="https://project.herokuapp.com/auth/google"//нужна ссылка на бекенд
           >
             <FcGoogle size={18} />
             Google
@@ -65,34 +76,36 @@ export default function RegisterForm() {
             зарегистрировавшись:
           </Text1>
           <div>
-            <Label>
-              {errors.username && <Errors> * </Errors>} Имя:
-            </Label>
-            <Field {...register('username')} placeholder=" your name" />
-            {errors.username && (
-              <Errors>{errors.username.message}</Errors>
-            )}
+            <Label>{errors.name && <Errors> * </Errors>} Имя:</Label>
+            <Field {...register('name')} placeholder=" your name" />
+            {errors.name && <Errors>{errors.name.message}</Errors>}
           </div>
           <div>
             <Label>
               {errors.email && <Errors> * </Errors>}
               Электронная почта:
             </Label>
-             <Field type="email" {...register('email')} placeholder="your@email.com"/>
+            <Field
+              type="email"
+              {...register('email')}
+              placeholder="your@email.com"
+            />
             {errors.email && <Errors>{errors.email.message}</Errors>}
           </div>
           <FieldWrap>
             <Label1>
               {errors.password && <Errors> * </Errors>} Пароль:
-            {/* </Label> */}
-            <Field  type={passwordShown ? "text" : "password"}
-              {...register('password')}
-              placeholder="your password" />
-            {errors.password && (
-              <Errors>{errors.password.message}</Errors>
-              )}
-              <Eye onClick={togglePasswordVisiblity}><FiEyeOff /></Eye>
-           </Label1>
+              {/* </Label> */}
+              <Field
+                type={passwordShown ? 'text' : 'password'}
+                {...register('password')}
+                placeholder="your password"
+              />
+              {errors.password && <Errors>{errors.password.message}</Errors>}
+              <Eye onClick={togglePasswordVisiblity}>
+                <FiEyeOff />
+              </Eye>
+            </Label1>
           </FieldWrap>
           <ButtonBlock
             firstButtonText={'Войти'}
@@ -107,17 +120,7 @@ export default function RegisterForm() {
   );
 }
 
-
 //////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
 
 // import React, { Fragment, useState } from 'react';
 // import { useDispatch } from 'react-redux';
@@ -135,7 +138,6 @@ export default function RegisterForm() {
 // import { FormInput } from './RegisterForm.styled';
 // import { FormBtn } from './RegisterForm.styled';
 // import { SpanTextWrapper, AuthGoogleBtn } from './RegisterForm.styled';
-
 
 // export default function AuthForm() {
 //     const dispatch = useDispatch();

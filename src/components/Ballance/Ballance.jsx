@@ -30,7 +30,6 @@ const Ballance = () => {
   const balance = useSelector(
     ({ transactions }) => transactions.transactionsData.ballance,
   );
-  const dispatch = useDispatch();
   const [curentBalance, setCurentBalance] = useState('');
 
   // Для проверки на тип текущей операции

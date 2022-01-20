@@ -1,15 +1,17 @@
+import { useSelector } from 'react-redux';
 import LoggedBar from './LoggedBar';
 import Logo from './Logo';
 import { Wrapper } from './styled/Navbar.styled';
+import * as authSelectors from '../../redux/auth/auth-selectors';
 
 const Navbar = () => {
-  // const isLoggedIn = useSelector(({ auth }) => auth.isLoggedIn);
-  const isLoggedIn = true;
+  // const isUserLoggedIn = useSelector(({ auth }) => auth.isUserLoggedIn);
+  const isUserLoggedIn = true;
 
   return (
     <Wrapper>
       <Logo />
-      {isLoggedIn && <LoggedBar />}
+      {isUserLoggedIn && <LoggedBar />}
     </Wrapper>
   );
 };

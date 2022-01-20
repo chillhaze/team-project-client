@@ -4,7 +4,6 @@ import { ballanceSlice } from './ballance/ballance-slice';
 import { transactionsSlice } from './transactions/transactions-slice';
 import { categoriesSlice } from './categories/categories-slice';
 import { reportsSlice } from './reports/reports-slice';
-import { financeSlice } from './finance/finance-slice';
 import { confirmSlice } from './confirming/confirm-slice';
 
 import storage from 'redux-persist/lib/storage';
@@ -26,12 +25,11 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authSlice.reducer),
+    auth: authSlice.reducer,
     ballance: ballanceSlice.reducer,
     transactions: transactionsSlice.reducer,
     categories: categoriesSlice.reducer,
     reports: reportsSlice.reducer,
-    finance: financeSlice.reducer,
     confirm: confirmSlice.reducer,
   },
 
