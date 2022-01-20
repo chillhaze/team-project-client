@@ -4,8 +4,14 @@ export const Wrapper = styled.div`
 @media screen and (min-width:768px){
     display:flex;
     align-items:center;
-    margin-left:270px;
+    margin-left:220px;
     margin-right:80px;
+    height:44px;
+}
+
+@media screen and (min-width:1280px){
+    margin-left:310px;
+    margin-right:240px;
     height:44px;
 }
 `;

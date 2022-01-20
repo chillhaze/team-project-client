@@ -10,7 +10,8 @@ export const BackBtn = styled.button`
   z-index:1;
 
   @media only screen and (min-width: 768px) {
-     top:47px;
+    top:47px;
+    left:47px;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.04em;
@@ -23,4 +24,8 @@ export const BackBtn = styled.button`
       margin-right: ${props => props.theme.spacing(4.5)};
     }
   }
+
+     @media only screen and (min-width: 1280px) {
+     left:110px;
+   };
 `;
