@@ -5,10 +5,18 @@ import BarChart from './BarChart';
 import CurrentPeriod from './CurrentPeriod';
 import BackToMain from './BackToMain';
 import ExpensesIncome from './ExpensesIncome';
-import { Wrapper, CurrentPeriodWrapper } from './styled/Report.styled';
+import { Wrapper, CurrentPeriodWrapper,TabletWrapper } from './styled/Report.styled';
 import SwitchType from './SwitchTypeTransaction';
+import { useMediaQuery } from 'react-responsive';
 
 const Report = () => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
+   const isTablet = useMediaQuery({
+    query: '(max-width: 1023px)',
+  });
+
   // временная заглушка
   const selectedPeriod = 'Ноябрь 2019';
   const balance = '0.00';
@@ -20,13 +28,29 @@ const Report = () => {
   return (
     <Wrapper>
       <BackToMain/>
+      {isMobile && 
+        <>
       <CurrentPeriodWrapper>
       <CurrentPeriod selectedPeriod={selectedPeriod} />
       <BalanceInReport balance={balance} currency={currency} />
       <ExpensesIncome summExpenses={summExpenses} summIncome={summIncome} />
-     </CurrentPeriodWrapper>
+        </CurrentPeriodWrapper>
+        <SwitchType selectedType={selectedType} />
+      <CategoryList /> 
+        </>
+      }
+      {!isMobile &&
+      <CurrentPeriodWrapper>
+        <TabletWrapper>
+        <BalanceInReport balance={balance} currency={currency} />
+        <CurrentPeriod selectedPeriod={selectedPeriod} />
+       </TabletWrapper>
+      <ExpensesIncome summExpenses={summExpenses} summIncome={summIncome} />
       <SwitchType selectedType={selectedType} />
-      <CategoryList />
+      <CategoryList />     
+        </CurrentPeriodWrapper> 
+      }
+      
       <BarChart />
     </Wrapper>
   );

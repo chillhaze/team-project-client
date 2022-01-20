@@ -4,14 +4,13 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
 margin-top:50px;
-// position:relative;
-// display:flex;
-// flex-direction:column;
-// align-items:center;
-// width:320px;
-// /* height:286px; */
-// margin:0 auto;
-// padding:0;
+
+@media screen and (min-width:768px){
+    order:2;
+    /* display:flex;
+    align-items:center; */
+    margin-top:0px;
+}
  `;
 
 export const ArrowBackBtn = styled.button`
@@ -26,6 +25,10 @@ export const DateContainer = styled.div`
 display:flex;
 align-items:center;
 margin-bottom:30px;
+
+@media screen and (min-width:768px){
+margin-bottom:0;
+};
 `;
 
 export const PeriodTitle = styled.h3`

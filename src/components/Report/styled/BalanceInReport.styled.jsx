@@ -1,6 +1,14 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+@media screen and (min-width:768px){
+    display:flex;
+    align-items:center;
+    margin-left:270px;
+    margin-right:80px;
+    height:44px;
+}
+`;
 
 export const BalanceTitle = styled.h3`
 font-family: Roboto;
@@ -14,6 +22,10 @@ margin-bottom:5px;
 
 color: rgba(82, 85, 95, 0.7);
 
+@media screen and (min-width:768px){
+    margin-right:20px;
+};
+
 `;
 
 export const BalanceWrapper = styled.div`
@@ -25,6 +37,12 @@ justify-content:center;
 border: 2px solid #FFFFFF;
 border-radius: 22px;
 margin-bottom: 40px;
+
+@media screen and (min-width:768px){
+    margin-bottom:0;
+    width:125px;
+    border-radius: 16px;
+}
 `;
 
 export const BalanceAmount = styled.p`
