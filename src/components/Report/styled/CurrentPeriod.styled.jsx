@@ -7,9 +7,11 @@ margin-top:50px;
 
 @media screen and (min-width:768px){
     order:2;
-    /* display:flex;
-    align-items:center; */
     margin-top:0px;
+}
+
+@media screen and (min-width:1280px){
+margin-left:auto;
 }
  `;
 
@@ -28,7 +30,7 @@ margin-bottom:30px;
 
 @media screen and (min-width:768px){
 margin-bottom:0;
-};
+}
 `;
 
 export const PeriodTitle = styled.h3`

@@ -16,6 +16,12 @@ align-items:center;
     padding:10px;
     margin-bottom:30px;
 }
+
+@media screen and (min-width:1280px){
+    width:1060px;
+    height:50px;
+    padding:10px;
+}
 `;
 
 export const List = styled.ul`
@@ -84,9 +90,14 @@ export const Bar = styled.svg`
 position:absolute;
 top:8px;
 left:140px;
+
 @media screen and (min-width:768px){
     top:7px;
     left:334px;
     height:36px;
-};
+}
+@media screen and (min-width:768px){
+    left:530px;
+    height:36px;
+}
 `;
