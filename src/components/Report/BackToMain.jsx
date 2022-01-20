@@ -2,7 +2,7 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../images/icons.svg';
-import { BackBtn } from './BackToMain.styled';
+import { BackBtn } from '../Report/styled/BackToMain.styled';
 
 export default function BackToMain() {
   const isMobile = useMediaQuery({

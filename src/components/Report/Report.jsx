@@ -3,8 +3,9 @@ import BalanceInReport from './BalanceInReport';
 import CategoryList from './CategoryList';
 import BarChart from './BarChart';
 import CurrentPeriod from './CurrentPeriod';
+import BackToMain from './BackToMain';
 import ExpensesIncome from './ExpensesIncome';
-import { Wrapper } from './styled/Report.styled';
+import { Wrapper, CurrentPeriodWrapper } from './styled/Report.styled';
 import SwitchType from './SwitchTypeTransaction';
 
 const Report = () => {
@@ -18,9 +19,12 @@ const Report = () => {
 
   return (
     <Wrapper>
+      <BackToMain/>
+      <CurrentPeriodWrapper>
       <CurrentPeriod selectedPeriod={selectedPeriod} />
       <BalanceInReport balance={balance} currency={currency} />
       <ExpensesIncome summExpenses={summExpenses} summIncome={summIncome} />
+     </CurrentPeriodWrapper>
       <SwitchType selectedType={selectedType} />
       <CategoryList />
       <BarChart />

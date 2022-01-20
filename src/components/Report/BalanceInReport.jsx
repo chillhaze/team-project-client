@@ -1,14 +1,16 @@
 import React from 'react';
-import { Wrapper } from './styled/BalanceInReport.styled';
+import { Wrapper, BalanceTitle,BalanceWrapper,BalanceAmount } from './styled/BalanceInReport.styled';
 
 function BalanceInReport({ balance, currency }) {
   return (
     <Wrapper>
-      <h3>Баланс:</h3>
-      <p>
+      <BalanceTitle>Баланс:</BalanceTitle>
+      <BalanceWrapper>
+      <BalanceAmount>
         {balance}
         {currency}
-      </p>
+      </BalanceAmount>
+</BalanceWrapper>
     </Wrapper>
   );
 }

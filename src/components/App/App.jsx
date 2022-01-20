@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as authSelectors from '../../redux/auth/auth-selectors';
@@ -14,8 +14,9 @@ import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 
 function App() {
-  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const isLoggedIn = true;
+  // const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
+
+  const isUserLoggedIn = true;
 
   return (
     <Wrapper>
@@ -23,9 +24,9 @@ function App() {
         <Navbar />
       </Header>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {isLoggedIn && (
+        {isUserLoggedIn && (
           <>
             <Route path="/" exact element={<Transactions />}>
               <Route path="/expenses" exact element={<Expences />} />
