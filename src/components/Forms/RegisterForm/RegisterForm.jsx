@@ -63,9 +63,7 @@ export default function RegisterForm() {
             Вы можете авторизоваться с помощью <br />{' '}
             <Span>Google Account:</Span>
           </Text>
-          <GoogleBtn
-          // href="https://project.herokuapp.com/auth/google"//нужна ссылка на бекенд
-          >
+          <GoogleBtn href="https://kapusta-app-teamproject.herokuapp.com/api/auth/google">
             <FcGoogle size={18} />
             Google
           </GoogleBtn>
