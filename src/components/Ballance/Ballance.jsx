@@ -27,16 +27,17 @@ const Ballance = () => {
 
   const dispatch = useDispatch();
 
+  // берем баланс с бека
   useEffect(() => {
     dispatch(getBallance());
   }, [dispatch]);
+
+  const balance = useSelector(({ ballance }) => ballance.ballanceData);
 
   // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
   // Для проверки на тип текущей операции
   const [isBalanceOperation, setIsBalanceOperation] = useState(false);
-  // берем баланс с бека
-  const balance = useSelector(({ ballance }) => ballance.ballanceData);
 
   const [curentBalance, setCurentBalance] = useState('');
 
