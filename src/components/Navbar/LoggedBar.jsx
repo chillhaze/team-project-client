@@ -8,6 +8,7 @@ import {
   confirmAction,
   isLogOut,
 } from 'redux/confirming/confirm-slice';
+import { logout } from 'redux/auth/auth-operations';
 
 export default function LoggedBar() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ export default function LoggedBar() {
   // Будет функция на выход, пока для теста алерт
   useEffect(() => {
     if (isConfirmed && isLogoutOperation) {
-      alert('ВЫ ВЫШЛИ ИЗ АККАУНТА (test)');
+      dispatch(logout());
       dispatch(confirmAction(false));
       setIsLogoutOperation(false);
     }

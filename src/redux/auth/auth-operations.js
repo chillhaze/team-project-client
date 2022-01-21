@@ -48,7 +48,7 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/signOut', async (_, thunkAPI) => {
   try {
-    const { data } = await axios.get(`/api/auth/logout`);
+    const { data } = await axios.post(`auth/logout`);
     toast.warning('You are logged out of your account');
 
     return data.data;
