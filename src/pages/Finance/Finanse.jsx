@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Ballance from '../../components/Ballance/Ballance';
 import { Wrapper } from './Finance.styled';
 
-const Transactions = () => {
+const Finanse = () => {
   return (
     <Wrapper>
       <Ballance />
@@ -11,4 +11,4 @@ const Transactions = () => {
   );
 };
 
-export default Transactions;
+export default Finanse;
