@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     isUserLoggedIn ? navigate('/expenses') : navigate('/login');
-  }, [isUserLoggedIn, navigate]);
+  }, [isUserLoggedIn]);
 
   return (
     <Wrapper>
