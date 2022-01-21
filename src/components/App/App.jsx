@@ -12,19 +12,35 @@ import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';
 import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
-  // const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
-
-  const isUserLoggedIn = true;
+  // Проверка залогинен или нет, для редиректа на правильный раут
+  const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
+  const navigate = useNavigate();
+  useEffect(() => {
+    isUserLoggedIn ? navigate('/') : navigate('/login');
+  }, [isUserLoggedIn]);
 
   return (
     <Wrapper>
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
       <Header>
         <Navbar />
       </Header>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {isUserLoggedIn && (
           <>

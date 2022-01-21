@@ -20,6 +20,9 @@ export const registerUser = createAsyncThunk(
     try {
       const { data } = await axios.post('auth/register', credentials);
       token.set(data.data.user.token);
+      toast.success(
+        'Вы успешно зарегистрировались. Перейдите на страницу входа',
+      );
       return data.data;
     } catch (error) {
       toast.warning('Such account already exists');
