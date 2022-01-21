@@ -18,9 +18,10 @@ function App() {
   // Проверка залогинен или нет, для редиректа на правильный раут
   const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
   const navigate = useNavigate();
+
   useEffect(() => {
-    isUserLoggedIn ? navigate('/') : navigate('/login');
-  }, [isUserLoggedIn]);
+    isUserLoggedIn ? navigate('/expenses') : navigate('/login');
+  }, [isUserLoggedIn, navigate]);
 
   return (
     <Wrapper>
