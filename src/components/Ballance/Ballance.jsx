@@ -109,9 +109,6 @@ const Ballance = () => {
             <BalanceText>
               {parseFloat(balance).toLocaleString('ru-RU') + ' UAH'}
             </BalanceText>
-            <Button disabled={true} type="submit">
-              Подтвердить
-            </Button>
           </>
         )}
       </BalanceWrapper>
