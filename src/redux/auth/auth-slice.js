@@ -21,7 +21,6 @@ export const authSlice = createSlice({
     },
     [authOperations.registerUser.fulfilled](state, action) {
       state.user = action.payload.user;
-      state.isUserLoggedIn = true;
       state.isLoadingUser = false;
     },
     [authOperations.registerUser.rejected](state, action) {

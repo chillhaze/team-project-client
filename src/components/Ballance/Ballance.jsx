@@ -11,38 +11,44 @@ import ToReports from './ToReports';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { setBalanceToState } from 'redux/transactions/transactions-slice';
 import { useMediaQuery } from 'react-responsive';
 import WellcomeMessage from './WellcomeMessage';
 import { openModal, confirmAction } from 'redux/confirming/confirm-slice';
+import {
+  createBallance,
+  getBallance,
+} from 'redux/ballance/ballance-operations';
+import { setBalanceToState } from 'redux/ballance/ballance-slice';
 
 const Ballance = () => {
-  const dispatch = useDispatch();
-
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBallance());
+  }, [dispatch]);
+
   // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
-
-  // берем баланс со стейта
-  const balance = useSelector(
-    ({ transactions }) => transactions.transactionsData.ballance,
-  );
-  const [curentBalance, setCurentBalance] = useState('');
-
   // Для проверки на тип текущей операции
   const [isBalanceOperation, setIsBalanceOperation] = useState(false);
+  // берем баланс с бека
+  const balance = useSelector(({ ballance }) => ballance.ballanceData);
+
+  const [curentBalance, setCurentBalance] = useState('');
 
   // проверка, первый раз вводится баланс или нет
   const [isBalanceEntered, setIsBalanceEntered] = useState(false);
+
   useEffect(() => {
     if (balance) {
       setIsBalanceEntered(true);
       setCurentBalance(balance);
     }
-  }, []);
+  }, [balance]);
 
   // Если подтвердили ввод, и это операция с балансом
   // забрасываем баланс в стейт и на бэк
@@ -50,6 +56,7 @@ const Ballance = () => {
   useEffect(() => {
     if (isConfirmed && isBalanceOperation) {
       dispatch(setBalanceToState(curentBalance));
+      dispatch(createBallance(curentBalance));
       setIsBalanceEntered(true);
       dispatch(confirmAction(false));
       setIsBalanceOperation(false);

@@ -15,6 +15,13 @@ export default function LoggedBar() {
     query: '(max-width: 767px)',
   });
 
+  const isModalOpened = useSelector(state => state.confirm.shoudModalOpen);
+  useEffect(() => {
+    if (!isModalOpened) {
+      setIsLogoutOperation(false);
+    }
+  }, [isModalOpened]);
+
   // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
 
