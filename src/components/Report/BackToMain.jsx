@@ -11,7 +11,7 @@ export default function BackToMain() {
   const navigate = useNavigate();
 
   return (
-    <BackBtn onClick={() => navigate('/')} type="button">
+    <BackBtn onClick={() => navigate('/expenses')} type="button">
       <svg width="24px" height="24px">
         <use href={icons + '#icon-back'}> </use>
       </svg>
