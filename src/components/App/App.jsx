@@ -41,7 +41,6 @@ function App() {
       <Header>
         <Navbar />
       </Header>
-      {/* <Transactions /> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

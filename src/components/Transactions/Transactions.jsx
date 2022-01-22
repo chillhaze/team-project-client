@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Wrapper } from './Transactions.styled';
 import DataInput from 'components/DataInput/DataInput';
-import TransactionsTable from 'components/Table/Table';
+import TransactionsTable from 'components/TransactionsTable/TransactionsTable';
+import Summary from '../Summary/Summary';
 import { setType } from '../../redux/transactions/transactions-slice';
 
 const EXPENCES_TYPE = 'credit';
@@ -10,7 +10,6 @@ const INCOME_TYPE = 'debit';
 const INCOMES_PAGE = 'Доход';
 
 const Transactions = () => {
-  const [period, setPeriod] = useState(new Date('02.01.2022'));
   const dispatch = useDispatch();
 
   const handleClick = e => {
@@ -30,13 +29,10 @@ const Transactions = () => {
         Доход
       </button>
       <div>
-        <DataInput
-          handlePeriodChange={value => {
-            setPeriod(value);
-          }}
-        />
-        <TransactionsTable period={period.toISOString()} />
+        <DataInput />
+        <TransactionsTable />
       </div>
+      <Summary />
     </Wrapper>
   );
 };
