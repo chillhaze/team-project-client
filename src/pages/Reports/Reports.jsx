@@ -5,8 +5,6 @@ import { Wrapper } from './Reports.styled';
 const Reports = () => {
   return (
     <Wrapper>
-       {/* Отчеты */}
-      {/* <BackToMain /> */}
       <Report />
     </Wrapper>
   );

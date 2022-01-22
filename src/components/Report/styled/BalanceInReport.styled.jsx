@@ -17,8 +17,6 @@ export const Wrapper = styled.div`
 `;
 
 export const BalanceTitle = styled.h3`
-font-family: Roboto;
-font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 1.1666;
@@ -52,13 +50,11 @@ margin-bottom: 40px;
 `;
 
 export const BalanceAmount = styled.p`
-font-family: Roboto;
-font-style: normal;
 font-weight: bold;
 font-size: 12px;
 line-height: 1.1666;
 letter-spacing: 0.02em;
 text-transform: uppercase;
 
-color: #000000;
+color: ${props => props.theme.colors.black};
 `;
