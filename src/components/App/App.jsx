@@ -10,9 +10,10 @@ import Transactions from '../../pages/Finance/Finanse';
 import Expences from '../../pages/Expences/Expences';
 import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';
-import { Header, Wrapper } from './App.styled';
+import { CabbageBottom, Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 import { ToastContainer } from 'react-toastify';
+import { Cabbage } from './App.styled';
 
 function App() {
   // Проверка залогинен или нет, для редиректа на правильный раут
@@ -25,6 +26,8 @@ function App() {
 
   return (
     <Wrapper>
+      <Cabbage></Cabbage>
+      <CabbageBottom></CabbageBottom>
       <ToastContainer
         position="top-right"
         autoClose={3500}

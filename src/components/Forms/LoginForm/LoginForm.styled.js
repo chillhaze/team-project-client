@@ -15,7 +15,7 @@ export const Wrap = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 132px;
+    margin-bottom: 35px;
   }
 `;
 

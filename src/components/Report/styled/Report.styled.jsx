@@ -29,21 +29,21 @@ flex-direction:column;
 align-items:center;
 width:320px;
 height:342px;
-background-image:URL(${bg});
-background-position-y:-55px;
-background-repeat:no-repeat;
+/* background-image:URL(${bg}); */
+/* background-position-y:-55px; */
+/* background-repeat:no-repeat; */
 
 @media screen and (min-width:768px){
 width:768px;
 height:527px;
-background-image:URL(${bgTablet});
+/* background-image:URL(${bgTablet}); */
 }
 
 @media screen and (min-width:1280px){
 width:1280px;
 height:583px;
 padding:40px 110px;
-background-image:URL(${bgDesktop});
+/* background-image:URL(${bgDesktop}); */
 }
 `;
 
