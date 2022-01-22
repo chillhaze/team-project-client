@@ -14,11 +14,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as transactionOperations from '../../redux/transactions/transactions-operations';
 import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
 import categories from '../../template/categories.json';
-import transactions from '../../template/transactions.json';
+// import transactions from '../../template/transactions.json';
 import transformDate from '../../utils/transformDate';
 import icons from '../../images/icons.svg';
+import { getType } from '../../redux/transactions/transactions-selectors';
 
-const TransactionsTable = () => {
+const TransactionsTable = ({ period }) => {
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -39,25 +40,18 @@ const TransactionsTable = () => {
     [],
   );
 
-  // const tableData =
+  const dispatch = useDispatch();
+  const transactions = useSelector(transactionSelectors.getTransactionsData);
+  const type = useSelector(getType);
 
-  // const dispatch = useDispatch();
-  // const transactions = useSelector(transactionSelectors.getTransactionsData);
+  useEffect(() => {
+    dispatch(transactionOperations.getTransactions({ type, period }));
+  }, [dispatch, period, type]);
 
-  // useEffect(() => {
-  //   dispatch(transactionOperations.getTransactions());
-  // }, [dispatch]);
-
-  // const handleDeleteTransaction = id => {
-  //   //transactions to delete id
-  //   dispatch(transactionOperations.deleteTransaction(id));
-  //   //get updated transactions
-  //   dispatch(transactionOperations.getTransactions());
-  //   return;
-  // };
-
-  //фильтр по дате
-  // const [selected, setSelected] = useState({ day: '', month: '', year: '' });
+  const handleDeleteTransaction = id => {
+    dispatch(transactionOperations.deleteTransaction(id));
+    return;
+  };
 
   return (
     <Wrapper>
@@ -75,7 +69,7 @@ const TransactionsTable = () => {
             </TableHead>
 
             <TableBody>
-              {transactions &&
+              {transactions.length !== 0 &&
                 transactions.map(
                   ({ _id, completedAt, description, category, amount }) => (
                     <TableRow key={_id}>
@@ -84,11 +78,14 @@ const TransactionsTable = () => {
                       <TableCell>
                         {categories.entities[category].name}
                       </TableCell>
-                      <TableCell>{amount}.00 грн.</TableCell>
+                      <TableCell>
+                        {type === 'credit' ? '-' : ''}
+                        {amount}.00 грн.
+                      </TableCell>
                       <TableCell>
                         <BtnDelete
                           type="button"
-                          // onClick={handleDeleteTransaction(_id)}
+                          onClick={() => handleDeleteTransaction(_id)}
                         >
                           <svg width="14.7px" height="18px">
                             <use href={icons + '#icon-delete'}></use>

@@ -1,2 +1,4 @@
-export const isLoadingBallance = state => state.ballance.isLoadingBallance;
-export const getBallance = state => state.ballance.ballanceData;
+export const isLoadingCategories = state =>
+  state.categories.isLoadingCategories;
+
+export const getCategories = state => state.categories.categoriesData;
