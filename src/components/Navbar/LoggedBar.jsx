@@ -8,12 +8,21 @@ import {
   confirmAction,
   isLogOut,
 } from 'redux/confirming/confirm-slice';
+import { logout } from 'redux/auth/auth-operations';
+import { ImgWrapper } from './styled/ImgWrapper.styled';
 
 export default function LoggedBar() {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+
+  const isModalOpened = useSelector(state => state.confirm.shoudModalOpen);
+  useEffect(() => {
+    if (!isModalOpened) {
+      setIsLogoutOperation(false);
+    }
+  }, [isModalOpened]);
 
   // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);
@@ -26,7 +35,7 @@ export default function LoggedBar() {
   // Будет функция на выход, пока для теста алерт
   useEffect(() => {
     if (isConfirmed && isLogoutOperation) {
-      alert('ВЫ ВЫШЛИ ИЗ АККАУНТА (test)');
+      dispatch(logout());
       dispatch(confirmAction(false));
       setIsLogoutOperation(false);
     }
@@ -40,10 +49,9 @@ export default function LoggedBar() {
   };
   return (
     <LoggedContainer>
-      <svg width="32px" height="32px">
-        <use href={icons + '#icon-user'}> </use>
-      </svg>
-
+      <ImgWrapper>
+        <img src={`http://${user.avatarURL}`} alt="" />
+      </ImgWrapper>
       {!isMobile && <UserName>{user.name}</UserName>}
 
       <ExitBtn type="button" name="logout" onClick={handlerOnClik}>

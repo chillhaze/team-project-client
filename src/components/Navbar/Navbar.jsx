@@ -5,8 +5,7 @@ import { Wrapper } from './styled/Navbar.styled';
 import * as authSelectors from '../../redux/auth/auth-selectors';
 
 const Navbar = () => {
-  // const isUserLoggedIn = useSelector(({ auth }) => auth.isUserLoggedIn);
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = useSelector(({ auth }) => auth.isUserLoggedIn);
 
   return (
     <Wrapper>

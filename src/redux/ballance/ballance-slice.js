@@ -13,26 +13,9 @@ export const ballanceSlice = createSlice({
   name: 'ballance',
   initialState,
   reducers: {
-    openModal: {
-      reducer: (state, _) => {
-        state.shoudModalOpen = true;
-      },
-    },
-    closeModal: {
-      reducer: (state, _) => {
-        state.shoudModalOpen = false;
-        state.isLogOut = false;
-      },
-    },
-    confirmAction: {
+    setBalanceToState: {
       reducer: (state, action) => {
-        state.isConfirmed = action.payload;
-        state.shoudModalOpen = false;
-      },
-    },
-    isLogOut: {
-      reducer: (state, action) => {
-        state.isLogOut = action.payload;
+        state.transactionsData = action.payload;
       },
     },
   },
@@ -45,5 +28,10 @@ export const ballanceSlice = createSlice({
       state.ballanceData = action.payload;
       state.isLoadingBallance = false;
     },
+    [ballanceOperations.createBallance.fulfilled](state, action) {
+      state.ballanceData = action.payload;
+      state.isLoadingBallance = false;
+    },
   },
 });
+export const { setBalanceToState } = ballanceSlice.actions;

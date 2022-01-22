@@ -20,6 +20,9 @@ export const registerUser = createAsyncThunk(
     try {
       const { data } = await axios.post('auth/register', credentials);
       token.set(data.data.user.token);
+      toast.success(
+        'Вы успешно зарегистрировались. Перейдите на страницу входа',
+      );
       return data.data;
     } catch (error) {
       toast.warning('Such account already exists');
@@ -45,7 +48,7 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk('auth/signOut', async (_, thunkAPI) => {
   try {
-    const { data } = await axios.get(`/api/auth/logout`);
+    const { data } = await axios.post(`auth/logout`);
     toast.warning('You are logged out of your account');
 
     return data.data;
@@ -56,10 +59,10 @@ export const logout = createAsyncThunk('auth/signOut', async (_, thunkAPI) => {
 });
 
 export const googleAuth = createAsyncThunk(
-  'auth/googleAuth',
+  'auth/google',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post(`/api/auth/user-google`, credentials);
+      const { data } = await axios.post(`/auth/google`, credentials);
       toast.success('Success Google authorization');
 
       return data.result;
