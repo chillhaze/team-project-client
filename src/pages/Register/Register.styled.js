@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+// import { Wrapper } from '../../pages/Login/Login.styled';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -30,14 +31,25 @@ export const TitleWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 100%;
+    /* width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     padding-left: 227px;
-    margin-bottom: 195px;
+    margin-bottom: 195px; */
+    width: 420px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* padding-left: 227px; */
+    margin-bottom: 95px;
+    margin-left: 175px;
+    margin-right: 127px;
+    padding: 0;
   }
 `;
 

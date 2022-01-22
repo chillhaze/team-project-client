@@ -1,12 +1,13 @@
 import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
+  width: 300px;
   display: flex;
   height: auto;
   background: ${props => props.theme.colors.white};
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
-  padding: 40px 29px 53px 29px;
+  padding: 40px 18px;
   font-weight: 400;
   font-size: 10px;
   @media screen and (min-width: 768px) {
