@@ -9,7 +9,7 @@ export const getReportsSummary = createAsyncThunk(
     try {
       const { data } = await axios.get('/reports/summary', credentials);
 
-      return data;
+      return data.result;
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +22,7 @@ export const getReportsDetailed = createAsyncThunk(
     try {
       const { data } = await axios.post('/reports/detailed', credentials);
 
-      return data;
+      return data.result;
     } catch (error) {
       console.log(error);
     }
