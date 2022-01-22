@@ -43,6 +43,7 @@ function App() {
       <Header>
         <Navbar />
       </Header>
+
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<Login />} />
