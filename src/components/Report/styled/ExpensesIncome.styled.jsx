@@ -52,13 +52,11 @@ justify-content:center;
 `;
 
 export const Text = styled.p`
-font-family: Roboto;
-font-style: normal;
 font-weight: bold;
 font-size: 14px;
 line-height: 1.1666;
 
-color: #52555F;
+color: ${props => props.theme.colors.mainTextColor}
 @media screen and (min-width:768px){
     margin-right:15px;;
 }
@@ -66,24 +64,20 @@ color: #52555F;
 `;
 
 export const AmountRed = styled.span`
-font-family: Roboto;
-font-style: normal;
 font-weight: bold;
 font-size: 14px;
-line-height: 16px;
+line-height: 1.1666;
 letter-spacing: 0.04em;
 
-color: #E53935;
+color: ${props => props.theme.colors.redBalance};
 `;
 
 export const AmountGreen = styled.span`
-font-family: Roboto;
-font-style: normal;
 font-weight: bold;
 font-size: 14px;
-line-height: 16px;
+line-height: 1.1666;
 letter-spacing: 0.04em;
-color: #407946;
+color: ${props => props.theme.colors.green};
 `;
 
 export const Bar = styled.svg`

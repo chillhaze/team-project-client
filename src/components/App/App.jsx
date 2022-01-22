@@ -6,10 +6,11 @@ import * as authOperations from '../../redux/auth/auth-operations';
 import Navbar from '../Navbar/Navbar';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Register/Register';
-import Transactions from '../../pages/Finance/Finanse';
+import Transactions from '../../components/Transactions/Transactions';
 import Expences from '../../pages/Expences/Expences';
 import Income from '../../pages/Income/Income';
 import Reports from '../../pages/Reports/Reports';
+import Finanse from '../../pages/Finance/Finanse';
 import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 import { ToastContainer } from 'react-toastify';
@@ -40,12 +41,13 @@ function App() {
       <Header>
         <Navbar />
       </Header>
+      {/* <Transactions /> */}
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {isUserLoggedIn && (
           <>
-            <Route path="/" exact element={<Transactions />}>
+            <Route path="/" exact element={<Finanse />}>
               <Route path="/expenses" exact element={<Expences />} />
               <Route path="/income" exact element={<Income />} />
             </Route>

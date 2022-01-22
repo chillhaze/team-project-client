@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import * as transactionsOperations from '../../redux/transactions/transactions-operations';
 import transformDate from '../../utils/transformDate';
@@ -17,14 +17,15 @@ import {
 } from './DataInput.styled';
 
 import categories from '../../template/categories.json';
+import { getType } from '../../redux/transactions/transactions-selectors';
 
 const DataInput = () => {
   const dispatch = useDispatch();
+  const type = useSelector(getType);
   const [period, setPeriod] = useState(new Date().toISOString());
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
-  // const [type, setType] = useState('credit');
 
   //getting form value to state
   const handleFormChange = e => {
@@ -47,25 +48,24 @@ const DataInput = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
+
     //Creating new transaction
-    dispatch(
+    await dispatch(
       transactionsOperations.addTransaction({
         period,
         description,
         category,
         amount: Number(amount),
-        type: 'credit',
+        type,
       }),
     );
-    //Updating transaction list with added new transaction
-    dispatch(transactionsOperations.getTransactions());
+
     formReset();
   };
 
   const formReset = () => {
-    setPeriod('');
     setDescription('');
     setCategory('');
     setAmount('');
@@ -89,7 +89,9 @@ const DataInput = () => {
         <InputWrapper>
           <DescriptionInput
             onChange={handleFormChange}
-            placeholder="Описание расхода"
+            placeholder={
+              type === 'credit' ? 'Описание товара' : 'Описание дохода'
+            }
             name="description"
             value={description}
           />
@@ -98,7 +100,9 @@ const DataInput = () => {
             value={category}
             onChange={handleFormChange}
           >
-            <CategoryItem value="">Выберите категорию</CategoryItem>
+            <CategoryItem value="">
+              {type === 'credit' ? 'Категория товара' : 'Категория дохода'}
+            </CategoryItem>
             {categories.ids.map(elem => {
               const { _id, name } = categories.entities[elem];
               return (
