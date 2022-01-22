@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from 'components/Forms/LoginForm/LoginForm';
-import { Wrapper, TitleWrapper, Title, TitleSpan, SubTitle } from './Login.styled';
+import { Wrapper, TitleWrapper, Title, TitleSpan, SubTitle, CabbageBottom, Cabbage } from './Login.styled';
 
 export default function Login () {
   return ( <Wrapper>
@@ -10,7 +10,8 @@ export default function Login () {
         </Title>
         <SubTitle>Smart Finance</SubTitle>
       </TitleWrapper>
-
+    <CabbageBottom />
+    <Cabbage/>
     <LoginForm />
   </Wrapper>);
 };
