@@ -50,7 +50,7 @@ export default function LoggedBar() {
   return (
     <LoggedContainer>
       <ImgWrapper>
-        <img src={`http://${user.avatarURL}`} alt="" />
+        <img src={`${user.avatarURL}`} alt="" />
       </ImgWrapper>
       {!isMobile && <UserName>{user.name}</UserName>}
 
