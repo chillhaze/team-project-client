@@ -86,13 +86,13 @@ const Report = () => {
       </CurrentPeriodWrapper>
       {isLoading && (
         <>
-          <CategoryList
+          {/* <CategoryList
             month={month}
             year={year}
             onHandlerChangeType={onHandlerChangeType}
             type={type}
             getSubcategories={getSubcategories}
-          />
+          /> */}
           <BarChart
             type={type}
             month={month}
