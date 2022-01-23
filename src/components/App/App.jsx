@@ -11,6 +11,7 @@ import GoogleAuth from 'components/GoogleAuth/GoogleAuth';
 import ProtectedRout from 'components/Routes/ProtectedRout';
 
 import Loader from 'components/Loader/Loader';
+import Finanse from 'pages/Finance/Finanse';
 
 const Login = lazy(() => import('../../pages/Login/Login'));
 const Register = lazy(() => import('../../pages/Register/Register'));
@@ -60,9 +61,10 @@ function App() {
           <Route path="/redirect" element={<GoogleAuth />} />
 
           <Route element={<ProtectedRout />}>
-            <Route path="/expenses" exact element={<Expences />} />
-            <Route path="/income" exact element={<Income />} />
-
+            <Route path="/" exact element={<Finanse />}>
+              <Route path="/expenses" exact element={<Expences />} />
+              <Route path="/income" exact element={<Income />} />
+            </Route>
             <Route path="/reports" exact element={<Reports />} />
           </Route>
           {/* any route below*/}
