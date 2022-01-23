@@ -10,6 +10,7 @@ import {
 } from 'redux/confirming/confirm-slice';
 import { logout } from 'redux/auth/auth-operations';
 import { ImgWrapper } from './styled/ImgWrapper.styled';
+import Setings from './Setings';
 
 export default function LoggedBar() {
   const dispatch = useDispatch();
@@ -50,9 +51,15 @@ export default function LoggedBar() {
   return (
     <LoggedContainer>
       <ImgWrapper>
-        <img src={`${user.avatarURL}`} alt="" />
+        <img src={user.avatarURL} alt="" />
       </ImgWrapper>
-      {!isMobile && <UserName>{user.name}</UserName>}
+
+      {!isMobile && (
+        <>
+          <UserName>{user.name}</UserName>
+          <Setings></Setings>
+        </>
+      )}
 
       <ExitBtn type="button" name="logout" onClick={handlerOnClik}>
         {isMobile ? (
