@@ -1,17 +1,27 @@
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import icons from '../../images/icons.svg';
-
+import { getPeriod } from '../../redux/transactions/transactions-selectors';
+import { setPeriod } from '../../redux/transactions/transactions-slice';
 import { Wrapper, CalendarButton, Svg } from './Calendar.styled';
 
 const Calender = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
+  const period = useSelector(getPeriod);
+
+  useEffect(() => {
+    dispatch(setPeriod(new Date().toISOString()));
+  }, [dispatch]);
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <CalendarButton
-      onClick={onClick}
+      onClick={e => {
+        e.preventDefault();
+        onClick();
+      }}
       className="example-custom-input"
       ref={ref}
     >
@@ -28,9 +38,9 @@ const Calender = () => {
         dateFormat="dd.MM.yyyy"
         locale={ru}
         customInput={<ExampleCustomInput />}
-        selected={startDate}
-        maxDate={new Date()}
-        onChange={date => setStartDate(date)}
+        selected={new Date(period)}
+        // maxDate={new Date()}
+        onChange={newPeriod => dispatch(setPeriod(newPeriod.toISOString()))}
       />
     </Wrapper>
   );

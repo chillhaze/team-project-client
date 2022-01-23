@@ -5,6 +5,8 @@ const initialState = {
   ballanceData: null,
   transactionsData: [],
   type: 'credit',
+  period: new Date().toISOString(),
+  token: null,
   isLoading: false,
 };
 
@@ -18,15 +20,16 @@ export const transactionsSlice = createSlice({
     setType: (state, action) => {
       state.type = action.payload;
     },
+    setPeriod: (state, action) => {
+      state.period = action.payload;
+    },
   },
   extraReducers: {
-    //------------------ Get Data
     [transactionsOperations.getTransactions.pending](state, _) {
       state.isLoading = true;
     },
     [transactionsOperations.getTransactions.fulfilled](state, action) {
       state.transactionsData = action.payload;
-      state.token = action.payload.token;
       state.isLoading = false;
     },
     //------------------ Get Data
@@ -46,17 +49,16 @@ export const transactionsSlice = createSlice({
         ...state.transactionsData,
         action.payload.transaction,
       ];
-      // state.ballance = action.payload.ballance;
-      // state.token = action.payload.token;
+      state.balance = action.payload.balance;
     },
     [transactionsOperations.deleteTransaction.fulfilled](state, action) {
       state.transactionsData = state.transactionsData.filter(
         ({ _id }) => _id !== action.payload._id,
       );
-      // state.ballance = action.payload.balance;
-      // state.token = action.payload.token;
+      state.balance = action.payload.balance;
     },
   },
 });
 
-export const { setBalanceToState, setType } = transactionsSlice.actions;
+export const { setBalanceToState, setType, setPeriod } = transactionsSlice.actions;
+ 
