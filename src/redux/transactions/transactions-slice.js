@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as transactionsOperations from './transactions-operations.js';
 
 const initialState = {
+  ballanceData: null,
   transactionsData: [],
-  balance: 0,
   type: 'credit',
   period: new Date().toISOString(),
   token: null,
@@ -14,6 +14,9 @@ export const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
   reducers: {
+    setBalanceToState: (state, action) => {
+      state.ballanceData = action.payload;
+    },
     setType: (state, action) => {
       state.type = action.payload;
     },
@@ -29,19 +32,17 @@ export const transactionsSlice = createSlice({
       state.transactionsData = action.payload;
       state.isLoading = false;
     },
-    [transactionsOperations.getBalance.pending](state, _) {
-      state.isLoading = true;
+    //------------------ Get Data
+    [transactionsOperations.getBallance.pending](state, _) {
+      state.isLoadingBallance = true;
     },
-    [transactionsOperations.getBalance.fulfilled](state, action) {
-      state.balance = action.payload;
-      state.isLoading = false;
+    [transactionsOperations.getBallance.fulfilled](state, action) {
+      state.ballanceData = action.payload;
+      state.isLoadingBallance = false;
     },
-    [transactionsOperations.setBalance.pending](state, _) {
-      state.isLoading = true;
-    },
-    [transactionsOperations.setBalance.fulfilled](state, action) {
-      state.transactionsData.balance = action.payload;
-      state.isLoading = false;
+    [transactionsOperations.createBallance.fulfilled](state, action) {
+      state.ballanceData = action.payload;
+      state.isLoadingBallance = false;
     },
     [transactionsOperations.addTransaction.fulfilled](state, action) {
       state.transactionsData = [
@@ -59,4 +60,5 @@ export const transactionsSlice = createSlice({
   },
 });
 
-export const { setType, setPeriod } = transactionsSlice.actions;
+export const { setBalanceToState, setType, setPeriod } = transactionsSlice.actions;
+ 

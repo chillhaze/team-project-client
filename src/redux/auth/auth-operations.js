@@ -74,21 +74,18 @@ export const googleAuth = createAsyncThunk(
 );
 
 export const getCurrentUser = createAsyncThunk(
-  'auth/current',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+  'users/current',
+  async (_, { getState, rejectWithValue }) => {
+    const tkn = getState().auth.user.token;
+    console.log(tkn);
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
-    token.set(persistedToken);
+    token.set(tkn);
     try {
-      const { data } = await axios.get(`/api/auth/current`);
-      return data;
+      const { data } = await axios.get(`users/current`);
+      return data.data.user;
     } catch (error) {
       toast.warning('Could not identify you');
-      return thunkAPI.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   },
 );
