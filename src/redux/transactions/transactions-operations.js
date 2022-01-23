@@ -1,20 +1,23 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://kapusta-app-teamproject.herokuapp.com/api/';
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
-// ДЛЯ ТЕСТОВ
-// axios.defaults.baseURL = 'http://localhost:8080/api';
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZTdkZTM2YjM4YWY5OGIyMzYxNDAzOCIsImlhdCI6MTY0MjgwNTA1OCwiZXhwIjoxNjQyODA4NjU4fQ.6KMqp30vM1jN7VtunjnUChgL6RJPluFC_Masqq1gV2E';
-axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+axios.defaults.baseURL = 'https://kapusta-app-teamproject.herokuapp.com/api/';
 
 export const getTransactions = createAsyncThunk(
   'transactions/get-transactions',
   async ({ type, period }) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/transactions?type=${type}&period=${period}`,
+        `transactions?type=${type}&period=${period}`,
       );
       return data.data.result;
     } catch (error) {
@@ -23,24 +26,29 @@ export const getTransactions = createAsyncThunk(
   },
 );
 
-export const getBalance = createAsyncThunk(
-  'transactions/getBalance',
-  async credentials => {
+export const getBallance = createAsyncThunk(
+  'ballance/get',
+  async (credentials, { getState }) => {
+    const tkn = getState().auth.user.token;
+    token.set(tkn);
     try {
-      const { data } = await axios.get('/transactions', credentials);
-      return data;
+      const { data } = await axios.get('/balance', credentials);
+      return data.result;
     } catch (error) {
       console.log(error);
     }
   },
 );
 
-export const setBalance = createAsyncThunk(
-  'transactions/setBalance',
-  async credentials => {
+export const createBallance = createAsyncThunk(
+  'ballance/post',
+  async (credentials, { getState }) => {
     try {
-      const { data } = await axios.post('/transactions', credentials);
-      return data;
+      const { data } = await axios.post('/balance', {
+        value: `${credentials}`,
+      });
+
+      return data.result;
     } catch (error) {
       console.log(error);
     }
@@ -51,10 +59,7 @@ export const addTransaction = createAsyncThunk(
   'transactions/add-transaction',
   async credentials => {
     try {
-      const { data } = await axios.post(
-        'http://localhost:8080/api/transactions',
-        credentials,
-      );
+      const { data } = await axios.post('transactions', credentials);
       return data.data.result;
     } catch (error) {
       console.log(error.message);
@@ -67,7 +72,7 @@ export const deleteTransaction = createAsyncThunk(
   async credentials => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:8080/api/transactions/${credentials}`,
+        `transactions/${credentials}`,
         credentials,
       );
       const result = { _id: credentials, ballance: data.data.result.balance };

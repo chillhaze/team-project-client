@@ -26,7 +26,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authSlice.reducer),
-    ballance: ballanceSlice.reducer,
+    // ballance: ballanceSlice.reducer,
     transactions: transactionsSlice.reducer,
     categories: categoriesSlice.reducer,
     reports: reportsSlice.reducer,
