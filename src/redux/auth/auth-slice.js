@@ -18,6 +18,11 @@ export const authSlice = createSlice({
         state.user = action.payload;
       },
     },
+    updateName: {
+      reducer: (state, action) => {
+        state.user.name = action.payload;
+      },
+    },
   },
   extraReducers: {
     //------------------ Register
@@ -63,7 +68,11 @@ export const authSlice = createSlice({
       state.user = action.payload;
       state.isUserLoggedIn = true;
     },
+    [authOperations.updateAvatar.fulfilled](state, action) {
+      state.user.avatarURL = action.payload;
+      state.isUserLoggedIn = true;
+    },
   },
 });
 
-export const { googleAuth } = authSlice.actions;
+export const { googleAuth, updateName } = authSlice.actions;

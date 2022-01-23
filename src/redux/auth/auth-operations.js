@@ -89,3 +89,17 @@ export const getCurrentUser = createAsyncThunk(
     }
   },
 );
+export const updateAvatar = createAsyncThunk(
+  'users/avatars',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`users/avatars`, credentials);
+      toast.success('Аватарка успешно обновлена');
+
+      return data.avatarURL;
+    } catch (error) {
+      toast.warning('Error with Google authorization');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
