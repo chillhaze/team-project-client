@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../redux/auth/auth-operations';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,6 +23,7 @@ import {
   Eye,
   Span,
 } from './LoginForm.styled';
+import { useSearchParams } from 'react-router-dom';
 import { CabbageBottom } from 'components/Wrappers/styled/StartPageWrapper.styled';
 
 const SignInSchema = Yup.object().shape({
@@ -45,7 +46,9 @@ export default function LoginForm() {
   });
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const onSubmit = newUser => dispatch(login(newUser));
+  const onSubmit = newUser => {
+    dispatch(login(newUser));
+  };
   const onRegisterBtnClick = () => navigate('/register');
 
   const togglePasswordVisiblity = () => {

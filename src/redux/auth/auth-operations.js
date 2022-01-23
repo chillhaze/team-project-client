@@ -62,7 +62,7 @@ export const googleAuth = createAsyncThunk(
   'auth/google',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post(`/auth/google`, credentials);
+      const { data } = await axios.get(`/auth/google`, credentials);
       toast.success('Success Google authorization');
 
       return data.result;

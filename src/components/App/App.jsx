@@ -7,6 +7,9 @@ import Navbar from '../Navbar/Navbar';
 import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 import { ToastContainer } from 'react-toastify';
+import GoogleAuth from 'components/GoogleAuth/GoogleAuth';
+import ProtectedRout from 'components/Routes/ProtectedRout';
+
 import Loader from 'components/Loader/Loader';
 
 const Login = lazy(() => import('../../pages/Login/Login'));
@@ -18,7 +21,6 @@ const Reports = lazy(() => import('../../pages/Reports/Reports'));
 
 function App() {
   // Проверка залогинен или нет, для редиректа на правильный раут
-  const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -26,9 +28,11 @@ function App() {
     dispatch(authOperations.getCurrentUser());
   }, []);
 
+  const isAuth = useSelector(state => state.auth.isUserLoggedIn);
+
   useEffect(() => {
-    isUserLoggedIn ? navigate('/expenses') : navigate('/login');
-  }, [isUserLoggedIn]);
+    isAuth && navigate('/expenses');
+  }, [isAuth]);
 
   return (
     <Wrapper>
@@ -48,24 +52,24 @@ function App() {
         <Navbar />
       </Header>
 
+      {/* <Transactions /> */}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {isUserLoggedIn && (
-            <>
-              <Route path="/" exact element={<Transactions />}>
-                <Route path="/expenses" exact element={<Expences />} />
-                <Route path="/income" exact element={<Income />} />
-              </Route>
-              <Route path="/reports" exact element={<Reports />} />
-            </>
-          )}
+          <Route path="/redirect" element={<GoogleAuth />} />
 
+          <Route element={<ProtectedRout />}>
+            <Route path="/expenses" exact element={<Expences />} />
+            <Route path="/income" exact element={<Income />} />
+
+            <Route path="/reports" exact element={<Reports />} />
+          </Route>
           {/* any route below*/}
           <Route path="*" element={<Navigate replace to={'/'} />} />
         </Routes>
       </Suspense>
+
       <ModalPortal />
     </Wrapper>
   );
