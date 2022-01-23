@@ -25,7 +25,7 @@ export const getReportsDetailed = createAsyncThunk(
         credentials,
       );
 
-      return data.result;
+      return data.data.result;
     } catch (error) {
       console.log(error);
     }

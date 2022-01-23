@@ -84,7 +84,7 @@ const Report = () => {
         <CurrentPeriod month={month} year={year} onClick={monthHandler} />
         <Ballance />
       </CurrentPeriodWrapper>
-      {isLoading && (
+      {!isLoading && (
         <>
           <CategoryList
             month={month}
@@ -93,13 +93,13 @@ const Report = () => {
             type={type}
             getSubcategories={getSubcategories}
           />
-          <BarChart
+          {/* <BarChart
             type={type}
             month={month}
             year={year}
             idSubcategory={idSubcategory}
             detailedReport={detailedReport}
-          />
+          /> */}
         </>
       )}
     </Wrapper>

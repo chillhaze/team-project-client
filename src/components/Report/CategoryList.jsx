@@ -9,6 +9,7 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
   const report = useSelector(
     ({ reports }) => reports.reportsDataDetailed.categories,
   );
+  console.log(report);
   const totalCost = useSelector(
     ({ reports }) => reports.reportsDataDetailed.totalCosts,
   );
