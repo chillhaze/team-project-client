@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk(
       );
       return data.data;
     } catch (error) {
-      toast.warning('Such account already exists');
+      toast.warning('Такой аккаунт уже существует');
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -40,7 +40,7 @@ export const login = createAsyncThunk(
 
       return data.data;
     } catch (error) {
-      toast.warning('Something went wrong! Check your the credentials');
+      toast.warning('Что-то пошло не так! Проверьте свои учетные данные');
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -49,29 +49,29 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk('auth/signOut', async (_, thunkAPI) => {
   try {
     const { data } = await axios.post(`auth/logout`);
-    toast.warning('You are logged out of your account');
+    toast.warning('Вы вышли из своей учетной записи');
 
     return data.data;
   } catch (error) {
-    toast.warning('Something went wrong!');
+    toast.warning('Что-то пошло не так!!');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-export const googleAuth = createAsyncThunk(
-  'auth/google',
-  async (credentials, thunkAPI) => {
-    try {
-      const { data } = await axios.get(`/auth/google`, credentials);
-      toast.success('Success Google authorization');
+// export const googleAuth = createAsyncThunk(
+//   'auth/google',
+//   async (credentials, thunkAPI) => {
+//     try {
+//       const { data } = await axios.get(`/auth/google`, credentials);
+//       toast.success('Success Google authorization');
 
-      return data.result;
-    } catch (error) {
-      toast.warning('Error with Google authorization');
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
+//       return data.result;
+//     } catch (error) {
+//       toast.warning('Error with Google authorization');
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   },
+// );
 
 export const getCurrentUser = createAsyncThunk(
   'users/current',
