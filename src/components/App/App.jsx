@@ -66,7 +66,7 @@ function App() {
             <Route path="/reports" exact element={<Reports />} />
           </Route>
           {/* any route below*/}
-          <Route path="*" element={<Navigate replace to={'/'} />} />
+          <Route path="*" element={<Navigate replace to={'/login'} />} />
         </Routes>
       </Suspense>
 

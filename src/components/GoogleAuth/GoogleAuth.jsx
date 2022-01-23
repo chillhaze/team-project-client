@@ -1,3 +1,4 @@
+import Loader from 'components/Loader/Loader';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -16,5 +17,9 @@ export default function GoogleAuth() {
       dispatch(googleAuth({ token }));
     }
   }, [token]);
-  return <div>ЛОАДЕР</div>;
+  return (
+    <div>
+      <Loader />
+    </div>
+  );
 }
