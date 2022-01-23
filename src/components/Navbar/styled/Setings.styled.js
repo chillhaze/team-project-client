@@ -37,3 +37,42 @@ export const SetingsBtn = styled.button`
     fill: inherit;
   }
 `;
+
+export const NameText = styled.span`
+  display: inline-block;
+  margin-top: ${props => props.theme.spacing(2)};
+  color: ${props => props.theme.colors.mainTextColor};
+  margin-right: ${props => props.theme.spacing(2.5)};
+`;
+
+export const ChangeNameInput = styled.input`
+  margin-top: ${props => props.theme.spacing(2)};
+  padding: ${props => props.theme.spacing(1)};
+  color: ${props => props.theme.colors.mainTextColor};
+  margin-right: ${props => props.theme.spacing(2.5)};
+`;
+
+export const UserNameText = styled.span`
+  color: ${props => props.theme.colors.mainTextColor};
+  margin-right: ${props => props.theme.spacing(2.5)};
+  font-weight: 700;
+`;
+
+export const EditBtn = styled.button`
+  width: 25px;
+  height: 25px;
+  border: none;
+
+  background-color: transparent;
+
+  cursor: pointer;
+  fill: ${props => props.theme.colors.black};
+
+  &:hover {
+    fill: ${props => props.theme.colors.accentColor};
+  }
+
+  svg {
+    fill: inherit;
+  }
+`;

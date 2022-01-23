@@ -3,7 +3,15 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { updateAvatar } from 'redux/auth/auth-operations';
 import { updateName } from 'redux/auth/auth-slice';
-import { SetingsBtn, SetingsWrapper, Wrapper } from './styled/Setings.styled';
+import {
+  ChangeNameInput,
+  EditBtn,
+  NameText,
+  SetingsBtn,
+  SetingsWrapper,
+  UserNameText,
+  Wrapper,
+} from './styled/Setings.styled';
 import icons from '../../images/icons.svg';
 
 export default function Setings() {
@@ -50,15 +58,23 @@ export default function Setings() {
         )}
       </SetingsBtn>
       <SetingsWrapper isOpen={isOpen}>
-        <span>Ваше имя: </span>{' '}
+        <NameText>Ваше имя: </NameText>{' '}
         {isEditing ? (
-          <input onChange={handlerChange} value={name} />
+          <ChangeNameInput onChange={handlerChange} value={name} />
         ) : (
-          <span>{name}</span>
+          <UserNameText>{name}</UserNameText>
         )}
-        <button onClick={editingHandler}>
-          {isEditing ? 'Подтвердить' : 'Изменить'}{' '}
-        </button>
+        <EditBtn onClick={editingHandler}>
+          {isEditing ? (
+            <svg width="15" height="15">
+              <use href={icons + '#icon-checkmark'}> </use>
+            </svg>
+          ) : (
+            <svg width="15" height="15">
+              <use href={icons + '#icon-pencil'}> </use>
+            </svg>
+          )}{' '}
+        </EditBtn>
         <br />
         <span>Обновить аватар: </span>
         <form onSubmit={handleOnSubmit} encType="multipart/from-data">
