@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as authSelectors from '../../redux/auth/auth-selectors';
 import * as authOperations from '../../redux/auth/auth-operations';
 import Navbar from '../Navbar/Navbar';
-
 import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 import { ToastContainer } from 'react-toastify';
@@ -21,6 +20,11 @@ function App() {
   // Проверка залогинен или нет, для редиректа на правильный раут
   const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, []);
 
   useEffect(() => {
     isUserLoggedIn ? navigate('/expenses') : navigate('/login');

@@ -15,10 +15,7 @@ export const Wrap = styled.div`
     padding: 50px 85px 53px 85px;
   }
   @media screen and (min-width: 1280px) {
-    // width: 436px;
-    // height: 635px;
-    // padding: 50px 85px 53px 85px;
-    margin-bottom: 50px;
+    margin-bottom: -58px;
   }
 `;
 

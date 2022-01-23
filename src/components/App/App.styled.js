@@ -1,16 +1,17 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
-  min-width: 320px;
-  max-width: 480px;
+  position: relative;
+  width: 320px;
   margin: 0 auto;
 
   @media only screen and (min-width: 768px) {
-    max-width: 768px;
+    width: 768px;
   }
 
-  @media only screen and (min-width: 1024px) {
-    max-width: 1280px;
+  @media only screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 851px;
   }
 `;
 

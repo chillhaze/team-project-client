@@ -1,6 +1,7 @@
 import React from 'react';
 import RegisterForm from 'components/Forms/RegisterForm/RegisterForm';
-import { Wrapper, TitleWrapper, Title, TitleSpan, SubTitle } from './Register.styled';
+import { TitleWrapper, Title, TitleSpan, SubTitle } from './Register.styled';
+import {Wrapper} from '../../pages/Login/Login.styled'
 
 export default function Register () {
   return ( <Wrapper>
