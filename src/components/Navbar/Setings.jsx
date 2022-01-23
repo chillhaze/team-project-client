@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { updateAvatar } from 'redux/auth/auth-operations';
 import { updateName } from 'redux/auth/auth-slice';
-import { SetingsWrapper, Wrapper } from './styled/Setings.styled';
+import { SetingsBtn, SetingsWrapper, Wrapper } from './styled/Setings.styled';
+import icons from '../../images/icons.svg';
 
 export default function Setings() {
   const userName = useSelector(({ auth }) => auth.user.name);
@@ -37,9 +38,17 @@ export default function Setings() {
 
   return (
     <Wrapper>
-      <button onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? 'Закрыть' : 'Настройки'}
-      </button>
+      <SetingsBtn onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? (
+          <svg width="20" height="20">
+            <use href={icons + '#icon-cross'}> </use>
+          </svg>
+        ) : (
+          <svg width="25" height="25">
+            <use href={icons + '#icon-setings'}> </use>
+          </svg>
+        )}
+      </SetingsBtn>
       <SetingsWrapper isOpen={isOpen}>
         <span>Ваше имя: </span>{' '}
         {isEditing ? (
