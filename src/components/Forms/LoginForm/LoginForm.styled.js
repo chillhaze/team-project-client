@@ -48,7 +48,6 @@ export const Text = styled.p`
     width: 265px;
     font-size: 12px;
     margin-bottom: 20px;
-    // text-align: start;
   }
 `;
 
@@ -60,13 +59,11 @@ export const Text1 = styled.p`
   text-align: start;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  // margin-bottom: 20px;
   color: ${props => props.theme.colors.mainTextColor};
 
   @media screen and (min-width: 768px) {
     width: 265px;
     font-size: 12px;
-    // text-align: start;
   }
 `;
 
@@ -75,7 +72,6 @@ export const GoogleBtn = styled.a`
   align-items: center;
   justify-content: center;
   width: 122px;
-  // padding: 10px 20px;
   padding: 10px 0px;
   margin-bottom: 30px;
   font-style: normal;
@@ -108,13 +104,11 @@ export const Label = styled.label`
   line-height: 1.2;
   letter-spacing: 0.04em;
   margin-top: 24px;
-  // margin-bottom: 12px;
   color: ${props => props.theme.colors.black};
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
     margin-top: 20px;
-    // margin-bottom: 10px;
     color: ${props => props.theme.colors.black};
   }
 `;
@@ -127,13 +121,10 @@ export const Label1 = styled.label`
   line-height: 1.2;
   letter-spacing: 0.04em;
   margin-top: 30px;
-  // margin-bottom: 12px;
   color: ${props => props.theme.colors.black};
 
   @media screen and (min-width: 768px) {
     font-size: 12px;
-    // margin-top: 20px;
-    // margin-bottom: 10px;
     color: ${props => props.theme.colors.black};
   }
 `;
