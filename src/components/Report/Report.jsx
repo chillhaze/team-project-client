@@ -93,13 +93,13 @@ const Report = () => {
             type={type}
             getSubcategories={getSubcategories}
           />
-          {/* <BarChart
+          <BarChart
             type={type}
             month={month}
             year={year}
             idSubcategory={idSubcategory}
             detailedReport={detailedReport}
-          /> */}
+          />
         </>
       )}
     </Wrapper>

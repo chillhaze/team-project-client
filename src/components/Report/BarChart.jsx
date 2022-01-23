@@ -13,6 +13,9 @@ import {
 import { Bar } from 'react-chartjs-2';
 
 function BarChart({ type, idSubcategory, detailedReport }) {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
   const reportChart = useSelector(
     ({ reports }) => reports.reportsDataDetailed.categories,
   );
@@ -28,14 +31,14 @@ function BarChart({ type, idSubcategory, detailedReport }) {
     return reportForChart;
   }
 
-  const sortedCategories = getCategoriesByTypeChar(
+  const reportForChart = getCategoriesByTypeChar(
     type,
     idSubcategory,
     detailedReport,
-  ).sort((a, b) => b.total - a.total);
-  const isMobile = useMediaQuery({
-    query: '(max-width: 320px)',
-  });
+  );
+  const sortedCategories = [...reportForChart].sort(
+    (a, b) => b.total - a.total,
+  );
   const indexAxis = isMobile ? 'y' : 'x';
   // ==========================================
   const labels = [];
