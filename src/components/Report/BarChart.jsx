@@ -16,7 +16,7 @@ function BarChart({ type, idSubcategory, detailedReport }) {
   const reportChart = useSelector(
     ({ reports }) => reports.reportsDataDetailed.categories,
   );
-  function getCategoriesByTypeChar(type, idSubcategory, detailedReport) {
+  function getCategoriesByTypeChart(type, idSubcategory, detailedReport) {
     let reportForChart = [];
     if (!detailedReport) {
       reportForChart = reportChart.filter(item => item.type === type);
@@ -28,11 +28,14 @@ function BarChart({ type, idSubcategory, detailedReport }) {
     return reportForChart;
   }
 
-  const sortedCategories = getCategoriesByTypeChar(
+  const reportForChart = getCategoriesByTypeChart(
     type,
     idSubcategory,
     detailedReport,
-  ).sort((a, b) => b.total - a.total);
+  );
+  const sortedCategories = [...reportForChart].sort(
+    (a, b) => b.total - a.total,
+  );
   const isMobile = useMediaQuery({
     query: '(max-width: 320px)',
   });
