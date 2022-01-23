@@ -5,7 +5,7 @@ import CurrentPeriod from './CurrentPeriod';
 import BackToMain from './BackToMain';
 import { Wrapper, CurrentPeriodWrapper } from './styled/Report.styled';
 import { useMediaQuery } from 'react-responsive';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getReportsDetailed } from 'redux/reports/reports-operations';
 import Ballance from 'components/Ballance/Ballance';
 
@@ -23,6 +23,9 @@ const Report = () => {
   const [type, setType] = useState('cost');
   const [idSubcategory, setIdSubcategory] = useState('');
   const [detailedReport, setDetailedReport] = useState(false);
+
+  const isLoading = useSelector(({ reports }) => reports.isLoadingReports);
+  console.log(isLoading);
 
   useEffect(() => {
     if ((month, year)) {
@@ -81,21 +84,24 @@ const Report = () => {
         <CurrentPeriod month={month} year={year} onClick={monthHandler} />
         <Ballance />
       </CurrentPeriodWrapper>
-      <CategoryList
-        month={month}
-        year={year}
-        onHandlerChangeType={onHandlerChangeType}
-        type={type}
-        getSubcategories={getSubcategories}
-      />
-      <BarChart
-        type={type}
-        month={month}
-        year={year}
-        idSubcategory={idSubcategory}
-        detailedReport={detailedReport}
-      />
-      {/* <BarChart month={month} year={year} /> */}
+      {isLoading && (
+        <>
+          <CategoryList
+            month={month}
+            year={year}
+            onHandlerChangeType={onHandlerChangeType}
+            type={type}
+            getSubcategories={getSubcategories}
+          />
+          <BarChart
+            type={type}
+            month={month}
+            year={year}
+            idSubcategory={idSubcategory}
+            detailedReport={detailedReport}
+          />
+        </>
+      )}
     </Wrapper>
   );
 };
