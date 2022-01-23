@@ -20,7 +20,10 @@ export const getReportsDetailed = createAsyncThunk(
   'reports',
   async credentials => {
     try {
-      const { data } = await axios.post('/reports/detailed', credentials);
+      const { data } = await axios.post(
+        `/reports/detailed?year=${credentials.year}&month=${credentials.month}`,
+        credentials,
+      );
 
       return data.result;
     } catch (error) {

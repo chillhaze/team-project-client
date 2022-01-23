@@ -3,7 +3,11 @@ import * as reportsOperations from './reports-operations';
 
 const initialState = {
   reportsDataSummary: null,
-  reportsDataDetailed: null,
+  reportsDataDetailed: {
+    totalIncome: null,
+    totalCosts: null,
+    categories: null,
+  },
   isLoadingReports: false,
 };
 

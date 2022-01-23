@@ -6,10 +6,19 @@ import {
 } from './styled/ToReports.styled';
 
 import icons from '../../images/icons.svg';
+import { getReportsDetailed } from 'redux/reports/reports-operations';
+import { useDispatch } from 'react-redux';
 
 export default function ToReports() {
+  const year = new Date().getFullYear();
+  const month = new Date().getMonth();
+  const dispatch = useDispatch();
+  function handlerReport(e) {
+    e.preventDefault();
+    dispatch(getReportsDetailed({ year, month }));
+  }
   return (
-    <ToReportsWrapper>
+    <ToReportsWrapper onClick={handlerReport}>
       <StyledNavLink to={'/reports'}>
         <Text>Перейти к отчетам</Text>
         <svg width="24px" height="24px">
