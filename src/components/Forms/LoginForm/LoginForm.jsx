@@ -24,6 +24,7 @@ import {
   Span,
 } from './LoginForm.styled';
 import { useSearchParams } from 'react-router-dom';
+import { CabbageBottom } from 'components/Wrappers/styled/StartPageWrapper.styled';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email().required('Valid mail required'),
@@ -108,6 +109,7 @@ export default function LoginForm() {
           ></ButtonBlock>
         </TextWrap>
       </form>
+      <CabbageBottom/>
     </Wrap>
   );
 }

@@ -17,8 +17,8 @@ import { openModal, confirmAction } from 'redux/confirming/confirm-slice';
 import {
   createBallance,
   getBallance,
-} from 'redux/ballance/ballance-operations';
-import { setBalanceToState } from 'redux/ballance/ballance-slice';
+} from 'redux/transactions/transactions-operations';
+import { setBalanceToState } from 'redux/transactions/transactions-slice';
 
 const Ballance = () => {
   const isMobile = useMediaQuery({
@@ -32,7 +32,7 @@ const Ballance = () => {
     dispatch(getBallance());
   }, [dispatch]);
 
-  const balance = useSelector(({ ballance }) => ballance.ballanceData);
+  const balance = useSelector(({ transactions }) => transactions.ballanceData);
 
   // Для проверки подтверждено ли дейтсвие в модалке
   const isConfirmed = useSelector(state => state.confirm.isConfirmed);

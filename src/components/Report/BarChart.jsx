@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,11 +11,28 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-// db это на время создания компонентов
-import category from './db/db.json';
 
-function BarChart() {
-  const sortedCategories = category.sort((a, b) => b.summ - a.summ);
+function BarChart({ type, idSubcategory, detailedReport }) {
+  const reportChart = useSelector(
+    ({ reports }) => reports.reportsDataDetailed.categories,
+  );
+  function getCategoriesByTypeChar(type, idSubcategory, detailedReport) {
+    let reportForChart = [];
+    if (!detailedReport) {
+      reportForChart = reportChart.filter(item => item.type === type);
+    } else {
+      reportForChart = reportChart.find(
+        option => option._id === idSubcategory,
+      ).subcategories;
+    }
+    return reportForChart;
+  }
+
+  const sortedCategories = getCategoriesByTypeChar(
+    type,
+    idSubcategory,
+    detailedReport,
+  ).sort((a, b) => b.total - a.total);
   const isMobile = useMediaQuery({
     query: '(max-width: 320px)',
   });
@@ -23,7 +41,7 @@ function BarChart() {
   const labels = [];
   sortedCategories.map(({ name }) => labels.push(name));
   const dataSumm = [];
-  sortedCategories.map(({ summ }) => dataSumm.push(summ));
+  sortedCategories.map(({ total }) => dataSumm.push(total));
 
   ChartJS.register(
     CategoryScale,
@@ -58,7 +76,11 @@ function BarChart() {
       },
     ],
   };
-  return <Bar options={options} data={data} />;
+  return (
+    <>
+      <Bar options={options} data={data} />
+    </>
+  );
 }
 
 export default BarChart;

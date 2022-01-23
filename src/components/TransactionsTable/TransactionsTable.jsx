@@ -1,4 +1,4 @@
-import { Wrapper, BtnDelete } from './Table.styled';
+import { Wrapper, BtnDelete } from './TransactionsTable.styled';
 import * as React from 'react';
 import { useEffect } from 'react';
 import Table from '@mui/material/Table';
@@ -14,12 +14,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as transactionOperations from '../../redux/transactions/transactions-operations';
 import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
 import categories from '../../template/categories.json';
-// import transactions from '../../template/transactions.json';
 import transformDate from '../../utils/transformDate';
 import icons from '../../images/icons.svg';
-import { getType } from '../../redux/transactions/transactions-selectors';
+import {
+  getType,
+  getPeriod,
+} from '../../redux/transactions/transactions-selectors';
 
-const TransactionsTable = ({ period }) => {
+const TransactionsTable = () => {
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -43,6 +45,7 @@ const TransactionsTable = ({ period }) => {
   const dispatch = useDispatch();
   const transactions = useSelector(transactionSelectors.getTransactionsData);
   const type = useSelector(getType);
+  const period = useSelector(getPeriod);
 
   useEffect(() => {
     dispatch(transactionOperations.getTransactions({ type, period }));

@@ -1,12 +1,10 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as transactionsOperations from '../../redux/transactions/transactions-operations';
-import transformDate from '../../utils/transformDate';
+import Calendar from '../Calendar/Calendar';
 import {
   Wrapper,
   Form,
-  TodayDate,
   InputWrapper,
   DescriptionInput,
   SelectList,
@@ -17,23 +15,22 @@ import {
 } from './DataInput.styled';
 
 import categories from '../../template/categories.json';
-import { getType } from '../../redux/transactions/transactions-selectors';
+import {
+  getType,
+  getPeriod,
+} from '../../redux/transactions/transactions-selectors';
 
 const DataInput = () => {
   const dispatch = useDispatch();
   const type = useSelector(getType);
-  const [period, setPeriod] = useState(new Date().toISOString());
+  const period = useSelector(getPeriod);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
 
-  //getting form value to state
   const handleFormChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
-      case 'period':
-        setPeriod(value);
-        break;
       case 'description':
         setDescription(value);
         break;
@@ -51,7 +48,6 @@ const DataInput = () => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    //Creating new transaction
     await dispatch(
       transactionsOperations.addTransaction({
         period,
@@ -71,21 +67,10 @@ const DataInput = () => {
     setAmount('');
   };
 
-  // let activateSubmitBtn = true;
-  // if (period && description && category && amount) {
-  //   activateSubmitBtn = false;
-  // }
-
   return (
     <Wrapper>
       <Form onSubmit={handleSubmit} autoComplete="off">
-        <TodayDate
-          onChange={handleFormChange}
-          name="completedAt"
-          value={period}
-        >
-          {transformDate(period)}
-        </TodayDate>
+        <Calendar />
         <InputWrapper>
           <DescriptionInput
             onChange={handleFormChange}

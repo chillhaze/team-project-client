@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
+  width: 300px;
   display: flex;
   height: auto;
   background: ${props => props.theme.colors.white};
