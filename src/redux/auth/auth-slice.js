@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as authOperations from './auth-operations';
 
 const initialState = {
-  user: { name: 'aaa' },
+  user: { name: '', email: '', avatarURL: '', token: '' },
   isUserLoggedIn: false,
   isLoadingUser: false,
   getCurrentUser: false,
@@ -12,6 +12,13 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    googleAuth: {
+      reducer: (state, action) => {
+        state.user = action.payload;
+      },
+    },
+  },
   extraReducers: {
     //------------------ Register
     [authOperations.registerUser.pending](state, action) {
@@ -50,11 +57,7 @@ export const authSlice = createSlice({
       state.isUserLoggedIn = false;
     },
     //------------------ Google Auth
-    [authOperations.googleAuth.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.user.token;
-      state.isUserLoggedIn = true;
-    },
+
     //------------------ Get Current User
     [authOperations.getCurrentUser.fulfilled](state, action) {
       state.user = action.payload;
@@ -62,6 +65,8 @@ export const authSlice = createSlice({
     },
   },
 });
+
+export const { googleAuth } = authSlice.actions;
 
 // import { createSlice } from '@reduxjs/toolkit';
 // import * as authOperations from './auth-operations';

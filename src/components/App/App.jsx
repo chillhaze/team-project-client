@@ -14,10 +14,11 @@ import Finanse from '../../pages/Finance/Finanse';
 import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 import { ToastContainer } from 'react-toastify';
+import GoogleTest from 'components/GoogleTest';
+import ProtectedRout from 'components/Routes/ProtectedRout';
 
 function App() {
   // Проверка залогинен или нет, для редиректа на правильный раут
-  const isUserLoggedIn = useSelector(authSelectors.isUserLoggedIn);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,9 +26,11 @@ function App() {
     dispatch(authOperations.getCurrentUser());
   }, []);
 
+  const isAuth = useSelector(state => state.auth.isUserLoggedIn);
+
   useEffect(() => {
-    isUserLoggedIn ? navigate('/expenses') : navigate('/login');
-  }, [isUserLoggedIn]);
+    isAuth && navigate('/expenses');
+  }, [isAuth]);
 
   return (
     <Wrapper>
@@ -50,16 +53,14 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        {isUserLoggedIn && (
-          <>
-            <Route path="/" exact element={<Finanse />}>
-              <Route path="/expenses" exact element={<Expences />} />
-              <Route path="/income" exact element={<Income />} />
-            </Route>
-            <Route path="/reports" exact element={<Reports />} />
-          </>
-        )}
+        <Route path="/redirect" element={<GoogleTest />} />
 
+        <Route element={<ProtectedRout />}>
+          <Route path="/expenses" exact element={<Expences />} />
+          <Route path="/income" exact element={<Income />} />
+
+          <Route path="/reports" exact element={<Reports />} />
+        </Route>
         {/* any route below*/}
         <Route path="*" element={<Navigate replace to={'/'} />} />
       </Routes>
