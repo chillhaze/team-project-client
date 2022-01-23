@@ -14,7 +14,7 @@ import Finanse from '../../pages/Finance/Finanse';
 import { Header, Wrapper } from './App.styled';
 import { ModalPortal } from 'components/LogoutModal/Modal';
 import { ToastContainer } from 'react-toastify';
-import GoogleTest from 'components/GoogleTest';
+import GoogleAuth from 'components/GoogleAuth/GoogleAuth';
 import ProtectedRout from 'components/Routes/ProtectedRout';
 
 function App() {
@@ -53,7 +53,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/redirect" element={<GoogleTest />} />
+        <Route path="/redirect" element={<GoogleAuth />} />
 
         <Route element={<ProtectedRout />}>
           <Route path="/expenses" exact element={<Expences />} />

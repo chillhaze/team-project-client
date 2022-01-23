@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useSearchParams } from 'react-router-dom';
 import { googleAuth } from 'redux/auth/auth-slice';
 
-export default function GoogleTest() {
+export default function GoogleAuth() {
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
