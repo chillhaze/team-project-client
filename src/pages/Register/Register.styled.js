@@ -1,17 +1,23 @@
 import styled from '@emotion/styled';
-// import { Wrapper } from '../../pages/Login/Login.styled';
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
   width: 100%;
   height: 100vh;
 
+  @media only screen and (min-width: 768px) {
+    width: 768px;
+  }
+
   @media screen and (min-width: 1280px) {
+    width: 1280px;
+    height: 851px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start;
   }
 `;
 
@@ -31,22 +37,13 @@ export const TitleWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    /* width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 227px;
-    margin-bottom: 195px; */
     width: 420px;
     height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* padding-left: 227px; */
-    margin-bottom: 95px;
+    margin-bottom: 65px;
     margin-left: 175px;
     margin-right: 127px;
     padding: 0;
