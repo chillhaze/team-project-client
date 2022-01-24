@@ -3,11 +3,12 @@ import * as transactionsOperations from './transactions-operations.js';
 
 const initialState = {
   ballanceData: null,
+  isLoadingBallance: null,
   transactionsData: [],
+  isLoadingTransactions: false,
   type: 'credit',
   period: new Date().toISOString(),
   token: null,
-  isLoading: false,
 };
 
 export const transactionsSlice = createSlice({
@@ -25,14 +26,30 @@ export const transactionsSlice = createSlice({
     },
   },
   extraReducers: {
+    //------------------ Get Transactions Data
     [transactionsOperations.getTransactions.pending](state, _) {
-      state.isLoading = true;
+      state.isLoadingTransactions = true;
     },
     [transactionsOperations.getTransactions.fulfilled](state, action) {
       state.transactionsData = action.payload;
-      state.isLoading = false;
+      state.isLoadingTransactions = false;
     },
-    //------------------ Get Data
+    //------------------ Add Transaction
+    [transactionsOperations.addTransaction.fulfilled](state, action) {
+      state.transactionsData = [
+        ...state.transactionsData,
+        action.payload.transaction,
+      ];
+      state.ballanceData = action.payload.balance;
+    },
+    //------------------ Delete Transaction
+    [transactionsOperations.deleteTransaction.fulfilled](state, action) {
+      state.transactionsData = state.transactionsData.filter(
+        ({ _id }) => _id !== action.payload._id,
+      );
+      state.ballanceData = action.payload.balance;
+    },
+    //------------------ Get Balance Data
     [transactionsOperations.getBallance.pending](state, _) {
       state.isLoadingBallance = true;
     },
@@ -40,25 +57,13 @@ export const transactionsSlice = createSlice({
       state.ballanceData = action.payload;
       state.isLoadingBallance = false;
     },
+    //------------------ Create Balance Data
     [transactionsOperations.createBallance.fulfilled](state, action) {
       state.ballanceData = action.payload;
       state.isLoadingBallance = false;
     },
-    [transactionsOperations.addTransaction.fulfilled](state, action) {
-      state.transactionsData = [
-        ...state.transactionsData,
-        action.payload.transaction,
-      ];
-      state.balance = action.payload.balance;
-    },
-    [transactionsOperations.deleteTransaction.fulfilled](state, action) {
-      state.transactionsData = state.transactionsData.filter(
-        ({ _id }) => _id !== action.payload._id,
-      );
-      state.balance = action.payload.balance;
-    },
   },
 });
 
-export const { setBalanceToState, setType, setPeriod } = transactionsSlice.actions;
- 
+export const { setBalanceToState, setType, setPeriod } =
+  transactionsSlice.actions;

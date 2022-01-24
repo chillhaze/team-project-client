@@ -39,7 +39,7 @@ export const TableHeader = styled.div`
 export const TableLine = styled.tr`
   border: 2px solid ${props => props.theme.colors.white};
   height: 38px;
-  &:first-child {
+  &:first-of-type {
     border-top: none;
   }
   text-align: left;

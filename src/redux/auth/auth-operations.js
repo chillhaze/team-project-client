@@ -77,7 +77,6 @@ export const getCurrentUser = createAsyncThunk(
   'users/current',
   async (_, { getState, rejectWithValue }) => {
     const tkn = getState().auth.user.token;
-    console.log(tkn);
 
     token.set(tkn);
     try {

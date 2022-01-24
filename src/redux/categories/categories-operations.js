@@ -9,7 +9,7 @@ export const getCategories = createAsyncThunk(
     try {
       const { data } = await axios.get('/categories', credentials);
 
-      return data;
+      return data.data.result;
     } catch (error) {
       console.log(error);
     }
@@ -20,7 +20,7 @@ export const addCategory = createAsyncThunk('categories', async credentials => {
   try {
     const { data } = await axios.post('/categories', credentials);
 
-    return data;
+    return data.data.result;
   } catch (error) {
     console.log(error);
   }
