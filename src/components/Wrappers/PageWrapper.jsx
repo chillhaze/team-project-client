@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, Cabbage, CabbageBottom } from '../Wrappers/styled/PageWrapper.styled';
+import { Wrapper } from '../Wrappers/styled/PageWrapper.styled';
 
 export default function PageWrapper(props){
     return (

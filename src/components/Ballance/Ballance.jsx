@@ -25,6 +25,8 @@ const Ballance = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+
+  //Определяем что мы на странице с отчетами и рендерим ниже ссылку "Перейти к отчетам" по условию
   const location = useLocation();
   const onReportsPage = location.pathname === '/reports';
   

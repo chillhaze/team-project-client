@@ -1,7 +1,4 @@
 import styled from '@emotion/styled';
-import bg from '../../../images/mobile-bg-current-period.png';
-import bgTablet from '../../../images/background-tablet.png';
-import bgDesktop from '../../../images/background-desktop.png'
 
 export const Wrapper = styled.div`
 position:relative;
