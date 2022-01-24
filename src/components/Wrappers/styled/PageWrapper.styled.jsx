@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
   background-image: URL(${bg});
   background-repeat: no-repeat;
   background-position-y: -55px;
+  position:relative;
+display:flex;
+flex-direction:column;
+align-items:center;
 
     @media only screen and (min-width: 768px) {
     width: 768px;
