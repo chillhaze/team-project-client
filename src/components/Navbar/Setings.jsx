@@ -4,11 +4,15 @@ import { useSelector } from 'react-redux';
 import { updateAvatar } from 'redux/auth/auth-operations';
 import { updateName } from 'redux/auth/auth-operations';
 import {
+  AvatarChangeWrapper,
   ChangeNameInput,
   EditBtn,
+  NameChangeWrapper,
   NameText,
   SetingsBtn,
   SetingsWrapper,
+  UpdateAvatarBtn,
+  UpdateAvatarInput,
   UserNameText,
   Wrapper,
 } from './styled/Setings.styled';
@@ -64,40 +68,48 @@ export default function Setings() {
         )}
       </SetingsBtn>
       <SetingsWrapper isOpen={isOpen}>
-        <NameText>Ваше имя: </NameText>{' '}
-        <form type="submit" onSubmit={onNameSubmit}>
-          {isEditing ? (
-            <ChangeNameInput onChange={handlerChange} value={name} />
-          ) : (
-            <UserNameText>{name}</UserNameText>
-          )}
-          {isEditing ? (
-            <>
-              <EditBtn type="submit">
-                <svg width="15" height="15">
-                  <use href={icons + '#icon-checkmark'}> </use>
-                </svg>
-              </EditBtn>
+        <NameChangeWrapper>
+          <NameText>Ваше имя: </NameText>{' '}
+          <form type="submit" onSubmit={onNameSubmit}>
+            {isEditing ? (
+              <ChangeNameInput onChange={handlerChange} value={name} />
+            ) : (
+              <UserNameText>{name}</UserNameText>
+            )}
+            {isEditing ? (
+              <>
+                <EditBtn type="submit">
+                  <svg width="15" height="15">
+                    <use href={icons + '#icon-checkmark'}> </use>
+                  </svg>
+                </EditBtn>
+                <EditBtn type="button" onClick={editingHandler}>
+                  <svg width="15" height="15">
+                    <use href={icons + '#icon-cross'}> </use>
+                  </svg>
+                </EditBtn>
+              </>
+            ) : (
               <EditBtn type="button" onClick={editingHandler}>
                 <svg width="15" height="15">
-                  <use href={icons + '#icon-cross'}> </use>
+                  <use href={icons + '#icon-pencil'}> </use>
                 </svg>
               </EditBtn>
-            </>
-          ) : (
-            <EditBtn type="button" onClick={editingHandler}>
+            )}
+          </form>
+        </NameChangeWrapper>
+
+        <AvatarChangeWrapper>
+          <NameText>Обновить аватар: </NameText>
+          <form onSubmit={onAvatarSubmit} encType="multipart/from-data">
+            <UpdateAvatarInput type="file" name="avatar" />
+            <EditBtn type="submit">
               <svg width="15" height="15">
-                <use href={icons + '#icon-pencil'}> </use>
+                <use href={icons + '#icon-checkmark'}> </use>
               </svg>
             </EditBtn>
-          )}
-        </form>
-        <br />
-        <span>Обновить аватар: </span>
-        <form onSubmit={onAvatarSubmit} encType="multipart/from-data">
-          <input type="file" name="avatar" />
-          <button type="submit">Обновить аватарку</button>
-        </form>
+          </form>
+        </AvatarChangeWrapper>
       </SetingsWrapper>
     </Wrapper>
   );

@@ -4,6 +4,19 @@ export const Wrapper = styled.div`
   position: relative;
   margin-right: 15px;
 `;
+
+export const NameChangeWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 10px;
+`;
+
+export const AvatarChangeWrapper = styled.div`
+  margin-top: 10px;
+  text-align: center;
+`;
+
 export const SetingsWrapper = styled.div`
   height: ${props => (props.isOpen ? '150px' : '0')};
   padding: 0 ${props => props.theme.spacing(4)};
@@ -15,6 +28,7 @@ export const SetingsWrapper = styled.div`
   top: 23;
   right: 0;
   border: ${props => (props.isOpen ? '1px black solid' : 'none')};
+  border-radius: 15px;
   background-color: ${props => props.theme.colors.MainBgColor};
   z-index: 111;
   transition: height, 0.7s;
@@ -40,13 +54,13 @@ export const SetingsBtn = styled.button`
 
 export const NameText = styled.span`
   display: inline-block;
+
   margin-top: ${props => props.theme.spacing(2)};
   color: ${props => props.theme.colors.mainTextColor};
   margin-right: ${props => props.theme.spacing(2.5)};
 `;
 
 export const ChangeNameInput = styled.input`
-  margin-top: ${props => props.theme.spacing(2)};
   padding: ${props => props.theme.spacing(1)};
   color: ${props => props.theme.colors.mainTextColor};
   margin-right: ${props => props.theme.spacing(2.5)};
@@ -56,6 +70,7 @@ export const UserNameText = styled.span`
   color: ${props => props.theme.colors.mainTextColor};
   margin-right: ${props => props.theme.spacing(2.5)};
   font-weight: 700;
+  margin-right: 10px;
 `;
 
 export const EditBtn = styled.button`
@@ -75,4 +90,8 @@ export const EditBtn = styled.button`
   svg {
     fill: inherit;
   }
+`;
+
+export const UpdateAvatarInput = styled.input`
+  margin-top: 10px;
 `;
