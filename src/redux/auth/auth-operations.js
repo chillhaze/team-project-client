@@ -77,7 +77,6 @@ export const getCurrentUser = createAsyncThunk(
   'users/current',
   async (_, { getState, rejectWithValue }) => {
     const tkn = getState().auth.user.token;
-    console.log(tkn);
 
     token.set(tkn);
     try {
@@ -98,7 +97,24 @@ export const updateAvatar = createAsyncThunk(
 
       return data.avatarURL;
     } catch (error) {
-      toast.warning('Error with Google authorization');
+      toast.warning('Невозможно обновить автар');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
+
+export const updateName = createAsyncThunk(
+  'users/name',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`users/name`, {
+        name: `${credentials}`,
+      });
+      toast.success('Имя пользователя успешно обновлено');
+
+      return data.data.user;
+    } catch (error) {
+      toast.warning('Невозможно изменить имя пользователя');
       return thunkAPI.rejectWithValue(error.message);
     }
   },
