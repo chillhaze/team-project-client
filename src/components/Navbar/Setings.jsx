@@ -47,6 +47,7 @@ export default function Setings() {
   const onNameSubmit = e => {
     e.preventDefault();
     dispatch(updateName(name));
+    setIsEditing(!isEditing);
   };
 
   return (
