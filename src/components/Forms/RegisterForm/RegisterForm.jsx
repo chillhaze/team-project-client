@@ -24,10 +24,11 @@ import {
   Span,
 } from './RegisterForm.styled';
 
-
 const registerSchema = Yup.object().shape({
   name: Yup.string().max(30, 'Слишком длинный').required('Обязательно'),
-  email: Yup.string().email().required('Требуется действительный адрес электронной почты'),
+  email: Yup.string()
+    .email()
+    .required('Требуется действительный адрес электронной почты'),
   password: Yup.string()
     .min(6, 'Пароль короткий - должен быть не менее 6 символов')
     .required('Обязательно'),
@@ -47,7 +48,10 @@ export default function RegisterForm() {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const onSubmit = newUser => dispatch(registerUser(newUser));
+  const onSubmit = newUser => {
+    dispatch(registerUser(newUser));
+    navigate('/login');
+  };
 
   const onLoginBtnClick = () => navigate('/login');
   const togglePasswordVisiblity = () => {
@@ -116,4 +120,3 @@ export default function RegisterForm() {
     </Wrap>
   );
 }
-
