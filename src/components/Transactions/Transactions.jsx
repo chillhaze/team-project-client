@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Wrapper } from './Transactions.styled';
 import DataInput from 'components/DataInput/DataInput';
 import TransactionsTable from 'components/TransactionsTable/TransactionsTable';
+import Calendar from '../Calendar/Calendar';
 import Summary from '../Summary/Summary';
 import { setType } from '../../redux/transactions/transactions-slice';
 
@@ -29,6 +30,7 @@ const Transactions = () => {
         Доход
       </button>
       <div>
+        <Calendar />
         <DataInput />
         <TransactionsTable />
       </div>

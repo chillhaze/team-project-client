@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import Ballance from '../../components/Ballance/Ballance';
-import Transactions from '../../components/Transactions/Transactions';
+import DataInput from '../../components/Transactions/Transactions';
 import { Wrapper } from './Finance.styled';
 import { getCategories } from '../../redux/categories/categories-operations';
 
-const Finanse = () => {
+const MobileFinanse = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,11 +14,10 @@ const Finanse = () => {
 
   return (
     <Wrapper>
-      <Ballance />
-      <Transactions />
+      <DataInput />
       {/* <Outlet /> */}
     </Wrapper>
   );
 };
 
-export default Finanse;
+export default MobileFinanse;
