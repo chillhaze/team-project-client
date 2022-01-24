@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.MainBgColor};
-  margin-top: ${props => props.theme.spacing(9)};
+  padding-top: ${props => props.theme.spacing(9)};
   text-align: center;
+  margin-bottom: ${props => props.theme.spacing(7.5)};
 
   @media only screen and (min-width: 768px) {
     display: flex;
@@ -107,7 +108,8 @@ export const BalanceText = styled.span`
   color: ${props => props.theme.colors.black};
   border: 2px solid ${props => props.theme.colors.white};
   box-sizing: border-box;
-  border-radius: 22px 0px 0px 22px;
+  border-radius: 22px;
+  /* 0px 0px 22px; */
 
   @media only screen and (min-width: 768px) {
     margin-right: ${props => props.theme.spacing(4)};

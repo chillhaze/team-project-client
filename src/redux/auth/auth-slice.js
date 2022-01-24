@@ -77,7 +77,9 @@ export const authSlice = createSlice({
     },
     [authOperations.updateAvatar.fulfilled](state, action) {
       state.user.avatarURL = action.payload;
-      state.isUserLoggedIn = true;
+    },
+    [authOperations.updateName.fulfilled](state, action) {
+      state.user = action.payload;
     },
   },
 });
