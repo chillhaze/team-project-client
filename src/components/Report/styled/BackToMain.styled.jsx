@@ -10,8 +10,8 @@ export const BackBtn = styled.button`
   z-index:1;
 
   @media only screen and (min-width: 768px) {
-    top:47px;
-    left:47px;
+    top:9px;
+    left:-2px;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.04em;

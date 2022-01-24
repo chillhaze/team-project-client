@@ -79,7 +79,7 @@ const Report = () => {
       <CurrentPeriodWrapper>
         <CurrentPeriod month={month} year={year} onClick={monthHandler} />
         <Ballance />
-      {/* </CurrentPeriodWrapper> */}
+      </CurrentPeriodWrapper>
       {!isLoading && (
         <>
           <CategoryList
@@ -98,7 +98,7 @@ const Report = () => {
           />
         </>
         )}
-        </CurrentPeriodWrapper>
+        {/* </CurrentPeriodWrapper> */}
     </Wrapper>
   );
 };
