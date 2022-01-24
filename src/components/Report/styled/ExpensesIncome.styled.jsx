@@ -91,7 +91,7 @@ left:140px;
     left:334px;
     height:36px;
 }
-@media screen and (min-width:768px){
+@media screen and (min-width:1280px){
     left:530px;
     height:36px;
 }
