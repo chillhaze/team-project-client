@@ -10,10 +10,9 @@ export default function GoogleAuth() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const token = searchParams.get('token');
-  console.log(token);
+
   useEffect(() => {
     if (token) {
-      console.log('token in dispatch', token);
       dispatch(googleAuth({ token }));
     }
   }, [token]);
