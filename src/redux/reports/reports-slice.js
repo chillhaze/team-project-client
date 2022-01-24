@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as reportsOperations from './reports-operations';
 
 const initialState = {
-  reportsDataSummary: null,
+  reportsDataSummary: [],
   reportsDataDetailed: {
     totalIncome: null,
     totalCosts: null,
-    categories: null,
+    categories: [],
   },
   isLoadingReports: false,
 };
