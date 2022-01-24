@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper } from './styled/ItemСategory.styled';
-import Icon from '../AnimatedIcon/Icon/Icon';
+import Icon from '../AnimatedIcon';
 
 function ItemCategory({ id, summItemCategory, icon, name, getSubcategories }) {
   return (
