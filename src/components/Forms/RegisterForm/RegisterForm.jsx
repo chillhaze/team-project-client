@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../../redux/auth/auth-operations';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,6 +23,7 @@ import {
   Eye,
   Span,
 } from './RegisterForm.styled';
+import { ConnectingAirportsOutlined } from '@mui/icons-material';
 
 const registerSchema = Yup.object().shape({
   name: Yup.string().max(30, 'Слишком длинный').required('Обязательно'),
@@ -48,9 +49,13 @@ export default function RegisterForm() {
 
   const [passwordShown, setPasswordShown] = useState(false);
 
+  const isRegistred = useSelector(state => state.auth.isRegistred);
+  useEffect(() => {
+    isRegistred && navigate('/login');
+  }, [isRegistred]);
+
   const onSubmit = newUser => {
     dispatch(registerUser(newUser));
-    navigate('/login');
   };
 
   const onLoginBtnClick = () => navigate('/login');

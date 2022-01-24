@@ -4,6 +4,7 @@ import * as authOperations from './auth-operations';
 const initialState = {
   user: { name: '', email: '', avatarURL: '', token: '' },
   isUserLoggedIn: false,
+  isRegistred: false,
   isLoadingUser: false,
   getCurrentUser: false,
   error: '',
@@ -23,20 +24,26 @@ export const authSlice = createSlice({
         state.user.name = action.payload;
       },
     },
+    updateIsRegistred: {
+      reducer: (state, action) => {
+        state.isRegistred = action.payload;
+      },
+    },
   },
   extraReducers: {
     //------------------ Register
     [authOperations.registerUser.pending](state, action) {
-      state.isUserLoggedIn = false;
+      state.isRegistred = false;
       state.isLoadingUser = true;
       state.error = '';
     },
     [authOperations.registerUser.fulfilled](state, action) {
       state.user = action.payload.user;
       state.isLoadingUser = false;
+      state.isRegistred = true;
     },
     [authOperations.registerUser.rejected](state, action) {
-      state.isUserLoggedIn = false;
+      state.isRegistred = false;
       state.isLoadingUser = false;
       state.error = action.payload.message;
     },
@@ -75,4 +82,4 @@ export const authSlice = createSlice({
   },
 });
 
-export const { googleAuth, updateName } = authSlice.actions;
+export const { googleAuth, updateName, updateIsRegistred } = authSlice.actions;
