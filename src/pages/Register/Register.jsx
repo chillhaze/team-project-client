@@ -3,7 +3,7 @@ import RegisterForm from 'components/Forms/RegisterForm/RegisterForm';
 import { TitleWrapper, Title, TitleSpan, SubTitle } from './Register.styled';
 import { Wrapper } from './Register.styled';
 import StartPageWrapper from 'components/Wrappers/StartPageWrapper';
-import { CabbageBottom } from 'components/Wrappers/styled/StartPageWrapper.styled';
+// import { CabbageBottom } from 'components/Wrappers/styled/StartPageWrapper.styled';
 
 export default function Register () {
   return (
