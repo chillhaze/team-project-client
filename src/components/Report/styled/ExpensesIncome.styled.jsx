@@ -9,6 +9,7 @@ background-color:${props => props.theme.colors.white};
 box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 border-radius: 20px;
 align-items:center;
+margin-bottom: 30px;
 
 @media screen and (min-width:768px){
     width:668px;

@@ -1,12 +1,14 @@
 import Report from 'components/Report/Report';
-// import BackToMain from './BackToMain';
 import { Wrapper } from './Reports.styled';
+import PageWrapper from 'components/Wrappers/PageWrapper';
 
 const Reports = () => {
   return (
-    <Wrapper>
+    <PageWrapper>
+    {/* <Wrapper> */}
       <Report />
-    </Wrapper>
+      {/* </Wrapper> */}
+      </PageWrapper>
   );
 };
 

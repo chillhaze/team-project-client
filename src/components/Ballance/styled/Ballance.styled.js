@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.MainBgColor};
   margin-top: ${props => props.theme.spacing(9)};
   text-align: center;
+  margin-bottom: ${props => props.theme.spacing(7.5)};
 
   @media only screen and (min-width: 768px) {
     display: flex;

@@ -19,11 +19,16 @@ import {
   getBallance,
 } from 'redux/transactions/transactions-operations';
 import { setBalanceToState } from 'redux/transactions/transactions-slice';
+import { useLocation } from 'react-router-dom';
 
 const Ballance = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+  const location = useLocation();
+  const onReportsPage = location.pathname === '/reports';
+  
+ 
 
   const dispatch = useDispatch();
 
@@ -83,7 +88,7 @@ const Ballance = () => {
 
   return (
     <Wrapper>
-      {isMobile && <ToReports />}
+      {isMobile && !onReportsPage && <ToReports />}
 
       <BalanceWrapper>
         <Text>Баланс:</Text>
@@ -112,8 +117,8 @@ const Ballance = () => {
           </>
         )}
       </BalanceWrapper>
-      {!isMobile && <ToReports />}
-    </Wrapper>
+      {!isMobile && !onReportsPage &&<ToReports />}
+      </Wrapper>
   );
 };
 
