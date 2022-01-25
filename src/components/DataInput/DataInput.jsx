@@ -11,7 +11,9 @@ import {
   DescriptionInput,
   SelectList,
   CategoryItem,
+  AmountWrapper,
   AmountInput,
+  CalcConteiner,
   Svg,
   BtnWrapper,
   EnterButton,
@@ -32,7 +34,6 @@ const DataInput = () => {
   const type = useSelector(getType);
   const period = useSelector(getPeriod);
   const categories = useSelector(getFilteredCategories);
-  console.log(categories);
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
@@ -101,7 +102,6 @@ const DataInput = () => {
               </CategoryItem>
               {categories.length !== 0 &&
                 categories.map(({ _id, name }) => {
-                  console.log(_id, name);
                   return (
                     <CategoryItem value={_id} key={_id}>
                       {name}
@@ -110,17 +110,19 @@ const DataInput = () => {
                 })}
             </SelectList>
           </InputWrapper>
-          <div>
+          <AmountWrapper>
             <AmountInput
               onChange={handleFormChange}
               placeholder="0.00"
               name="amount"
               value={amount}
             />
-            <Svg width="20" height="20">
-              <use href={icons + '#icon-calculator'}></use>
-            </Svg>
-          </div>
+            <CalcConteiner>
+              <Svg width="20" height="20">
+                <use href={icons + '#icon-calculator'}></use>
+              </Svg>
+            </CalcConteiner>
+          </AmountWrapper>
         </BGImage>
         <BtnWrapper>
           <EnterButton type="submit">ввод</EnterButton>

@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     display: block;
+    width: 104px;
+    margin-right: 33px;
+    padding-top: 15px;
   }
 `;
 
