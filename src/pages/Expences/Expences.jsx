@@ -1,14 +1,27 @@
 import { Wrapper } from './Expences.styled';
-import DataInput from '../../components/DataInput/DataInput';
-import TransactionsTable from '../../components/TransactionsTable/TransactionsTable';
+import { useEffect } from 'react';
+import Ballance from 'components/Ballance/Ballance';
+import Transactions from 'components/Transactions/Transactions';
+import PageWrapper from 'components/Wrappers/PageWrapper';
+import { getCategories } from '../../redux/categories/categories-operations';
+import { useDispatch } from 'react-redux';
 
 const Expences = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
   return (
-    <Wrapper>
-      <DataInput />
-      <TransactionsTable />
-      {/* СВОДКА - добавляем компонент сюда */}
+    <PageWrapper>
+      <Wrapper>
+        <Ballance />
+        <Transactions />
+        {/* <Outlet /> */}
+        {/* СВОДКА - добавляем компонент сюда */}
       </Wrapper>
+    </PageWrapper>
   );
 };
 
