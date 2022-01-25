@@ -15,7 +15,6 @@ export const categoriesSlice = createSlice({
       state.isLoadingCategories = true;
     },
     [categoriesOperations.getCategories.fulfilled](state, action) {
-      console.log(action.payload);
       state.categoriesData = action.payload;
       state.isLoadingCategories = false;
     },
