@@ -68,12 +68,18 @@ export const authSlice = createSlice({
       state.user = null;
       state.isUserLoggedIn = false;
     },
+
     //------------------ Google Auth
 
     //------------------ Get Current User
     [authOperations.getCurrentUser.fulfilled](state, action) {
       state.user = action.payload;
       state.isUserLoggedIn = true;
+    },
+
+    [authOperations.getCurrentUser.rejected](state, action) {
+      state.user = null;
+      state.isUserLoggedIn = false;
     },
     [authOperations.updateAvatar.fulfilled](state, action) {
       state.user.avatarURL = action.payload;
