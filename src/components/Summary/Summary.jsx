@@ -1,37 +1,67 @@
 import { Wrapper, Table, TableHeader, TableLine, Month } from './Summary.styled';
-// import { useEffect } from 'react';
-// import дописать функцию сводки за 6 месяцев в redux/transactions (summarySixMonths);
-// import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import * as reportsSelectors from '../../redux/reports/reports-selectors';
+import * as reportsOperations from '../../redux/reports/reports-operations';
+import * as transactionsSelectors from '../../redux/transactions/transactions-selectors';
+import { monthSelectors } from '../../redux/reports/reports-slice';
+// import * as transactionOperations from '../../redux/transactions/transactions-operations';
+// import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
+
+// import { getSixMonthsBalance } from '../../redux/transactions/transactions-operations';
 // import { getToken } from '../../redux/auth/auth-selectors';
-// import { getSummary } from '../../redux/transactions/transactions-selectors';
+// import { getType, getPeriod } from '../../redux/transactions/transactions-selectors';
+// import { MonthName } from './Month';
+// import { getReportsDetailed } from 'redux/reports/reports-operations';
 
 export default function Summary() {
- 
-  // const token = useSelector(getToken);
-  // const summary = useSelector(getSummary);
-  // const dispatch = useDispatch();
-  // let type="expense";
+  const dispatch = useDispatch();
+  const date = new Date();
+  const currMonth = date.getMonth();
+  console.log(currMonth);
+  // const currYear = date.getFullYear();
+  
+  // const monthToday = MonthName(currMonth);
 
-  // useEffect(() => dispatch(summarySixMonths(type,token)),[token,type,dispatch]);
+  let type = useSelector(transactionsSelectors.getType);
+  let period = new Date().getFullYear();
 
-  // В таблицу будут добавляться максимум 6 месяцев.
-  // Если, например, будет доступно всего 3 месяца, то половина табл. будет серой без горизонтальн. линий.
-  // Позже добавлю логику отрисовки вовнутрь табл.
+  useEffect(() => {
+    dispatch(reportsOperations.getReportsSummary({ type, period }));
+  }, [dispatch, period, type]);
+
+  const summary = useSelector(reportsSelectors.getReportsSummary);
+  console.log(summary);
+
+
+  const month = useSelector(state =>
+    monthSelectors.selectById(state, Number(currMonth)),
+  );
+  
+
+  // const sum = summary.entities;
+  // console.log(sum);
+
+  // const month = useSelector(state =>
+  //   summary.selectById(state, Number(currMonth)));
+  
+  console.log(month);
+
+
   return (
     <Wrapper>
       <TableHeader>Сводка</TableHeader>
       <Table>
         <tbody>
-          <TableLine
-          >
-            <Month>
-            </Month>
-            <td>
-            </td>
-            </TableLine>
+          <TableLine >
+            <Month></Month>
+            <td></td>
+          </TableLine>
+          
+            
         </tbody>
       </Table>
     </Wrapper>
   );
 }
-

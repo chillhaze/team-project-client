@@ -3,9 +3,20 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://kapusta-app-teamproject.herokuapp.com/api/';
 
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+
 export const getReportsSummary = createAsyncThunk(
   'reports/summary',
-  async credentials => {
+  async (credentials, { getState }) => {
+    const tkn = getState().auth.user.token;
+    token.set(tkn);
     try {
       const { data } = await axios.get('/reports/summary', {
         params: credentials,

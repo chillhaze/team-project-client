@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import * as reportsOperations from './reports-operations';
 
 const initialState = {
@@ -11,6 +11,10 @@ const initialState = {
   isLoadingReports: false,
 };
 
+const monthsAdapter = createEntityAdapter({
+  selectId: summary => summary.id,
+});
+
 export const reportsSlice = createSlice({
   name: 'reports',
   initialState,
@@ -22,6 +26,7 @@ export const reportsSlice = createSlice({
     [reportsOperations.getReportsSummary.fulfilled](state, action) {
       state.reportsDataSummary = action.payload;
       state.isLoadingReports = false;
+      monthsAdapter.setAll(state, action.payload);
     },
     //------------------ Get Detailed Data
     [reportsOperations.getReportsDetailed.pending](state, _) {
@@ -33,3 +38,7 @@ export const reportsSlice = createSlice({
     },
   },
 });
+
+export const monthSelectors = monthsAdapter.getSelectors(
+  state => state.summary,
+);
