@@ -14,16 +14,15 @@ const token = {
 
 export const getReportsSummary = createAsyncThunk(
   'reports/summary',
-  async (credentials, { getState }) => {
-    const tkn = getState().auth.user.token;
-    token.set(tkn);
+  async (credentials) => {
     try {
       const { data } = await axios.get('/reports/summary', {
         params: credentials,
       });
 
-      return data.data.result;
+     return data.data.result;
     } catch (error) {
+      return { ids: [], entities: null}
       console.log(error);
     }
   },

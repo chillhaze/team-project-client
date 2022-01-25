@@ -1,67 +1,40 @@
-import { Wrapper, Table, TableHeader, TableLine, Month } from './Summary.styled';
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import * as reportsSelectors from '../../redux/reports/reports-selectors';
+import { Wrapper, Table, TableHeader, TableLine } from './Summary.styled';
 import * as reportsOperations from '../../redux/reports/reports-operations';
-import * as transactionsSelectors from '../../redux/transactions/transactions-selectors';
-import { monthSelectors } from '../../redux/reports/reports-slice';
-// import * as transactionOperations from '../../redux/transactions/transactions-operations';
-// import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
+import * as reportsSelectors from '../../redux/reports/reports-selectors';
+import {getType, getPeriod} from '../../redux/transactions/transactions-selectors';
 
-// import { getSixMonthsBalance } from '../../redux/transactions/transactions-operations';
-// import { getToken } from '../../redux/auth/auth-selectors';
-// import { getType, getPeriod } from '../../redux/transactions/transactions-selectors';
-// import { MonthName } from './Month';
-// import { getReportsDetailed } from 'redux/reports/reports-operations';
-
-export default function Summary() {
+const Summary =()=>  {
+  const summary = useSelector(reportsSelectors.getReportsSummary);
+  const type = useSelector(getType);
+  const period = useSelector(getPeriod);
   const dispatch = useDispatch();
-  const date = new Date();
-  const currMonth = date.getMonth();
-  console.log(currMonth);
-  // const currYear = date.getFullYear();
-  
-  // const monthToday = MonthName(currMonth);
-
-  let type = useSelector(transactionsSelectors.getType);
-  let period = new Date().getFullYear();
 
   useEffect(() => {
-    dispatch(reportsOperations.getReportsSummary({ type, period }));
-  }, [dispatch, period, type]);
+    dispatch(reportsOperations.getReportsSummary({ type, period:new Date(period).getFullYear() }));
+  }, [dispatch, period, type]); 
 
-  const summary = useSelector(reportsSelectors.getReportsSummary);
-  console.log(summary);
-
-
-  const month = useSelector(state =>
-    monthSelectors.selectById(state, Number(currMonth)),
-  );
-  
-
-  // const sum = summary.entities;
-  // console.log(sum);
-
-  // const month = useSelector(state =>
-  //   summary.selectById(state, Number(currMonth)));
-  
-  console.log(month);
-
+  const { ids, entities: months } = summary;
+  const filteredIds = [...ids].reverse().filter((elem, i) => i < 6)
 
   return (
     <Wrapper>
       <TableHeader>Сводка</TableHeader>
       <Table>
         <tbody>
-          <TableLine >
-            <Month></Month>
-            <td></td>
-          </TableLine>
-          
-            
+          {filteredIds.length!==0 && filteredIds.map(id => {
+            return (
+              <TableLine key={id}>
+                <td>{filteredIds.length!==0 && months[id]?.name}</td> 
+                <td>{filteredIds.length!==0 && months[id]?.amount}</td>
+              </TableLine>)
+            })}
         </tbody>
       </Table>
     </Wrapper>
   );
 }
+
+export default Summary

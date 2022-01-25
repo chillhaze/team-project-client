@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { Wrapper } from './Transactions.styled';
 import DataInput from 'components/DataInput/DataInput';
 import TransactionsTable from 'components/TransactionsTable/TransactionsTable';
-import Summary from '../Summary/Summary';
+import Summary from '../Summary';
 import { setType } from '../../redux/transactions/transactions-slice';
 
 const EXPENCES_TYPE = 'credit';
