@@ -8,7 +8,7 @@ export const getCategories = createAsyncThunk(
   async credentials => {
     try {
       const { data } = await axios.get('/categories', credentials);
-
+      console.log(data.data.result);
       return data.data.result;
     } catch (error) {
       console.log(error);
