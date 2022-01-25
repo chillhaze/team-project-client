@@ -4,10 +4,15 @@ import bgTablet from '../../../images/background-tablet.png';
 import bgDesktop from '../../../images/background-desktop.png';
 
 export const Wrapper = styled.div`
+  width:280px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width:768px){
+    width:100%;
+  }
 `;
 
 export const CurrentPeriodWrapper = styled.div`
@@ -20,7 +25,6 @@ export const CurrentPeriodWrapper = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 30px;
   }
 `;
 

@@ -6,7 +6,10 @@ margin-top:50px;
 @media screen and (min-width:768px){
     order:2;
     margin-top:0px;
-}
+    margin-bottom:0px;
+    flex-direction:row;
+    margin-left:auto;
+};
 
 @media screen and (min-width:1280px){
 margin-left:auto;
@@ -27,7 +30,7 @@ align-items:center;
 margin-bottom:30px;
 
 @media screen and (min-width:768px){
-margin-bottom:0;
+margin-bottom:0px;
 }
 `;
 
