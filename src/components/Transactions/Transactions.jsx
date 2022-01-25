@@ -9,8 +9,9 @@ import {
 } from './Transactions.styled';
 import DataInput from 'components/DataInput/DataInput';
 import TransactionsTable from 'components/TransactionsTable/TransactionsTable';
+
+import Summary from '../Summary';
 import Calendar from '../Calendar/Calendar';
-import Summary from '../Summary/Summary';
 import { setType } from '../../redux/transactions/transactions-slice';
 
 const EXPENCES_TYPE = 'credit';
