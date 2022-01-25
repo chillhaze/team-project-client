@@ -11,11 +11,12 @@ export const ToReportsWrapper = styled.div`
   @media only screen and (max-width: 767px) {
     margin-bottom: ${props => props.theme.spacing(11)};
   }
+  @media only screen and (min-width: 768px) {
+    margin-left: auto;
+  }
 
-  @media only screen and (min-width: 1024px) {
-    position: absolute;
-    right: 60px;
-    top: 14px;
+  @media only screen and (min-width: 1280px) {
+    margin-left: auto;
   }
 `;
 

@@ -8,7 +8,7 @@ const Expences = () => {
       <DataInput />
       <TransactionsTable />
       {/* СВОДКА - добавляем компонент сюда */}
-    </Wrapper>
+      </Wrapper>
   );
 };
 

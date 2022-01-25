@@ -4,15 +4,11 @@ import BarChart from './BarChart';
 import CurrentPeriod from './CurrentPeriod';
 import BackToMain from './BackToMain';
 import { Wrapper, CurrentPeriodWrapper } from './styled/Report.styled';
-import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReportsDetailed } from 'redux/reports/reports-operations';
 import Ballance from 'components/Ballance/Ballance';
 
 const Report = () => {
-  const isMobile = useMediaQuery({
-    query: '(max-width: 767px)',
-  });
 
   const date = new Date();
   const currMonth = date.getMonth();
@@ -101,7 +97,8 @@ const Report = () => {
             detailedReport={detailedReport}
           />
         </>
-      )}
+        )}
+        {/* </CurrentPeriodWrapper> */}
     </Wrapper>
   );
 };

@@ -1,19 +1,17 @@
 import styled from '@emotion/styled';
-// import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.MainBgColor};
-  margin-top: ${props => props.theme.spacing(9)};
+  padding-top: ${props => props.theme.spacing(9)};
   text-align: center;
+  margin-bottom: ${props => props.theme.spacing(7.5)};
 
   @media only screen and (min-width: 768px) {
+    padding-top: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: baseline;
-  }
-  @media only screen and (min-width: 1024px) {
-    justify-content: center;
-    position: relative;
+    margin-bottom: 0;
   }
 `;
 
@@ -22,6 +20,10 @@ export const BalanceWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     align-items: center;
+    margin-left: 220px;
+  }
+  @media only screen and (min-width: 1280px) {
+    margin-left: 377px;
   }
 `;
 
@@ -107,14 +109,15 @@ export const BalanceText = styled.span`
   color: ${props => props.theme.colors.black};
   border: 2px solid ${props => props.theme.colors.white};
   box-sizing: border-box;
-  border-radius: 22px 0px 0px 22px;
+  border-radius: 22px;
+  /* 0px 0px 22px; */
 
   @media only screen and (min-width: 768px) {
     margin-right: ${props => props.theme.spacing(4)};
     border-radius: 16px;
   }
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1280px) {
     margin-right: ${props => props.theme.spacing(5)};
   }
 `;

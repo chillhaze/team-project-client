@@ -23,7 +23,6 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
 
   return (
     <Wrapper>
-      Категории
       <ExpensesIncome totalCost={totalCost} totalIncome={totalIncome} />
       <SwitchType
         name={type === 'cost' ? 'Расходы' : 'Доходы'}
