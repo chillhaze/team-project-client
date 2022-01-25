@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import CategoryList from './CategoryList';
-import BarChart from './BarChart';
+import ReportBarChart from './BarChart';
 import CurrentPeriod from './CurrentPeriod';
 import BackToMain from './BackToMain';
 import {
@@ -107,7 +107,7 @@ const Report = () => {
             type={type}
             getSubcategories={getSubcategories}
           />
-          <BarChart
+          <ReportBarChart
             type={type}
             month={month}
             year={year}
