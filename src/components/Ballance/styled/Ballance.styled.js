@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.MainBgColor};
@@ -13,11 +12,6 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0;
-    margin-left: 220px;
-  }
-  @media only screen and (min-width: 1024px) {
-    justify-content: center;
-    position: relative;
   }
 `;
 
@@ -26,6 +20,10 @@ export const BalanceWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     align-items: center;
+    margin-left: 220px;
+  }
+  @media only screen and (min-width: 1280px) {
+    margin-left: 377px;
   }
 `;
 
@@ -119,7 +117,7 @@ export const BalanceText = styled.span`
     border-radius: 16px;
   }
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1280px) {
     margin-right: ${props => props.theme.spacing(5)};
   }
 `;

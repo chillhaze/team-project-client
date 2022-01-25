@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as categoriesOperations from './categories-operations';
 
 const initialState = {
-  categoriesData: null,
+  categoriesData: [],
   isLoadingCategories: false,
 };
 

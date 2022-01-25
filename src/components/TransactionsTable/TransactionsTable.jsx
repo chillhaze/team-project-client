@@ -1,11 +1,19 @@
-import { Wrapper, BtnDelete } from './TransactionsTable.styled';
+import {
+  Wrapper,
+  BtnDelete,
+  TableStyled,
+  TableHeadStyled,
+  TableBodyStyled,
+  TableCellStyled,
+  TableContainerStyled,
+} from './TransactionsTable.styled';
 import * as React from 'react';
 import { useEffect } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
+// import Table from '@mui/material/Table';
+// import TableBody from '@mui/material/TableBody';
+// import TableCell from '@mui/material/TableCell';
+// import TableContainer from '@mui/material/TableContainer';
+// import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -13,7 +21,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import * as transactionOperations from '../../redux/transactions/transactions-operations';
 import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
-import categories from '../../template/categories.json';
+import { getCategories } from '../../redux/categories/categories-selectors';
 import transformDate from '../../utils/transformDate';
 import icons from '../../images/icons.svg';
 import {
@@ -45,6 +53,8 @@ const TransactionsTable = () => {
   const dispatch = useDispatch();
   const transactions = useSelector(transactionSelectors.getTransactionsData);
   const type = useSelector(getType);
+  const allCategories = useSelector(getCategories);
+
   const period = useSelector(getPeriod);
 
   useEffect(() => {
@@ -56,51 +66,72 @@ const TransactionsTable = () => {
     return;
   };
 
+  const tableList = [
+    ...transactions,
+    ...new Array(20 - transactions.length).fill(null),
+  ];
+
   return (
     <Wrapper>
       <ThemeProvider theme={theme}>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+        <TableContainerStyled component={Paper}>
+          <TableStyled aria-label="simple table" stickyHeader>
+            <TableHeadStyled>
               <TableRow>
-                <TableCell>дата</TableCell>
-                <TableCell>описание</TableCell>
-                <TableCell>категория</TableCell>
-                <TableCell>сумма</TableCell>
-                <TableCell>&nbsp;</TableCell>
+                <TableCellStyled>дата</TableCellStyled>
+                <TableCellStyled>описание</TableCellStyled>
+                <TableCellStyled>категория</TableCellStyled>
+                <TableCellStyled>сумма</TableCellStyled>
+                <TableCellStyled>&nbsp;</TableCellStyled>
               </TableRow>
-            </TableHead>
+            </TableHeadStyled>
 
-            <TableBody>
-              {transactions.length !== 0 &&
-                transactions.map(
-                  ({ _id, completedAt, description, category, amount }) => (
-                    <TableRow key={_id}>
-                      <TableCell>{transformDate(completedAt)}</TableCell>
-                      <TableCell>{description}</TableCell>
-                      <TableCell>
-                        {categories.entities[category].name}
-                      </TableCell>
-                      <TableCell>
+            <TableBodyStyled>
+              {tableList.length !== 0 &&
+                tableList.map((elem, i) => {
+                  if (!elem) {
+                    return (
+                      <TableRow key={i}>
+                        <TableCellStyled></TableCellStyled>
+                        <TableCellStyled></TableCellStyled>
+                        <TableCellStyled></TableCellStyled>
+                        <TableCellStyled></TableCellStyled>
+                        <TableCellStyled></TableCellStyled>
+                      </TableRow>
+                    );
+                  }
+                  return (
+                    <TableRow key={i}>
+                      <TableCellStyled>
+                        {transformDate(elem.completedAt)}
+                      </TableCellStyled>
+                      <TableCellStyled>{elem.description}</TableCellStyled>
+                      <TableCellStyled>
+                        {allCategories.length !== 0 &&
+                          allCategories.find(el => {
+                            return el._id === elem.category;
+                          }).name}
+                      </TableCellStyled>
+                      <TableCellStyled>
                         {type === 'credit' ? '-' : ''}
-                        {amount}.00 грн.
-                      </TableCell>
-                      <TableCell>
+                        {elem.amount}.00 грн.
+                      </TableCellStyled>
+                      <TableCellStyled>
                         <BtnDelete
                           type="button"
-                          onClick={() => handleDeleteTransaction(_id)}
+                          onClick={() => handleDeleteTransaction(elem._id)}
                         >
                           <svg width="14.7px" height="18px">
                             <use href={icons + '#icon-delete'}></use>
                           </svg>
                         </BtnDelete>
-                      </TableCell>
+                      </TableCellStyled>
                     </TableRow>
-                  ),
-                )}
-            </TableBody>
-          </Table>
-        </TableContainer>
+                  );
+                })}
+            </TableBodyStyled>
+          </TableStyled>
+        </TableContainerStyled>
       </ThemeProvider>
     </Wrapper>
   );

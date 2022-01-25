@@ -28,6 +28,7 @@ align-items:center;
   @media only screen and (min-width: 1280px) {
     width: 1280px;
     height: 1134px;
+    padding:40px 110px;
     background-image: URL(${cabbageDesk}), URL(${bgDesktop}); 
     background-position: bottom 0px left 10px, top -10px left 0px;
   }

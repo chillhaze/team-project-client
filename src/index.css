@@ -1,6 +1,5 @@
 @import-normalize;
 
-
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -61,5 +60,5 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  justify-content: space-around;
 }
-

@@ -19,11 +19,17 @@ function ExpensesIncome({ totalCost, totalIncome }) {
       <List>
         <Item>
           <Text>Расходы:</Text>
-          <AmountRed>-{totalCost}</AmountRed>
+          <AmountRed>
+            {totalCost !== 0 && <span>-</span>}
+            {totalCost}
+          </AmountRed>
         </Item>
         <Item>
           <Text>Доходы:</Text>
-          <AmountGreen>+{totalIncome}</AmountGreen>
+          <AmountGreen>
+            {totalIncome !== 0 && <span>+</span>}
+            {totalIncome}
+          </AmountGreen>
         </Item>
       </List>
     </Wrapper>

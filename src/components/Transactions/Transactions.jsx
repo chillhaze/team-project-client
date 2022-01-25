@@ -1,8 +1,17 @@
 import { useDispatch } from 'react-redux';
-import { Wrapper } from './Transactions.styled';
+import {
+  Wrapper,
+  TabletForm,
+  ButtonsWrapper,
+  BtnExpences,
+  BtnIncome,
+  Thumb,
+} from './Transactions.styled';
 import DataInput from 'components/DataInput/DataInput';
 import TransactionsTable from 'components/TransactionsTable/TransactionsTable';
+
 import Summary from '../Summary';
+import Calendar from '../Calendar/Calendar';
 import { setType } from '../../redux/transactions/transactions-slice';
 
 const EXPENCES_TYPE = 'credit';
@@ -22,17 +31,22 @@ const Transactions = () => {
 
   return (
     <Wrapper>
-      <button type="button" onClick={handleClick}>
-        Расход
-      </button>
-      <button type="button" onClick={handleClick}>
-        Доход
-      </button>
-      <div>
+      <ButtonsWrapper>
+        <BtnExpences type="button" onClick={handleClick}>
+          Расход
+        </BtnExpences>
+        <BtnIncome type="button" onClick={handleClick}>
+          Доход
+        </BtnIncome>
+      </ButtonsWrapper>
+      <TabletForm>
+        <Calendar />
         <DataInput />
+      </TabletForm>
+      <Thumb>
         <TransactionsTable />
-      </div>
-      <Summary />
+        <Summary />
+      </Thumb>
     </Wrapper>
   );
 };

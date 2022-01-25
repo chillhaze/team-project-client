@@ -1,6 +1,15 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    width: 104px;
+    margin-right: 33px;
+    padding-top: 15px;
+  }
+`;
 
 export const CalendarButton = styled.button`
   display: flex;
