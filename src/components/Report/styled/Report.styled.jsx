@@ -4,39 +4,51 @@ import bgTablet from '../../../images/background-tablet.png';
 import bgDesktop from '../../../images/background-desktop.png'
 
 export const Wrapper = styled.div`
-position:relative;
-display:flex;
-flex-direction:column;
-align-items:center;
 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const CurrentPeriodWrapper = styled.div`
-position:relative;
-display:flex;
-flex-direction:column;
-align-items:center;
-width:100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
 @media screen and (min-width:768px){
     flex-direction:row;
     justify-content:space-between;
     margin-bottom:30px;
 }
-
-
 `;
 
 export const TabletWrapper = styled.div`
-display:flex;
-align-items:center;
-margin-top:40px;
-margin-bottom:30px;
-width:664px;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  width: 664px;
+
+  @media screen and (min-width: 1280px) {
+    width: 1060px;
+    height: 44px;
+    margin-top: 0;
+  }
+`;
+
+export const HederReport = styled.div`
+@media screen and (min-width: 767px) {
+   display:flex;
+   margin-left: auto;
+   align-items: center;`;
 
 @media screen and (min-width:1280px){
 width:1060px;
 height:44px;
 margin-top:0;
-
 }
 `;
+

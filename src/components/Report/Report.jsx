@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import CategoryList from './CategoryList';
 import BarChart from './BarChart';
 import CurrentPeriod from './CurrentPeriod';
 import BackToMain from './BackToMain';
-import { Wrapper, CurrentPeriodWrapper } from './styled/Report.styled';
+import {
+  Wrapper,
+  CurrentPeriodWrapper,
+  HederReport,
+} from './styled/Report.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReportsDetailed } from 'redux/reports/reports-operations';
 import Ballance from 'components/Ballance/Ballance';
 
 const Report = () => {
-
   const date = new Date();
   const currMonth = date.getMonth();
   const currYear = date.getFullYear();
@@ -19,6 +23,9 @@ const Report = () => {
   const [type, setType] = useState('cost');
   const [idSubcategory, setIdSubcategory] = useState('');
   const [detailedReport, setDetailedReport] = useState(false);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   const isLoading = useSelector(({ reports }) => reports.isLoadingReports);
   console.log(isLoading);
@@ -76,10 +83,21 @@ const Report = () => {
   return (
     <Wrapper>
       <BackToMain />
-      <CurrentPeriodWrapper>
-        <CurrentPeriod month={month} year={year} onClick={monthHandler} />
+      {isMobile && (
+        <div>
+          <CurrentPeriodWrapper>
+            <CurrentPeriod month={month} year={year} onClick={monthHandler} />
+          </CurrentPeriodWrapper>
+          <Ballance />
+        </div>
+      )}
+      <HederReport>
         <Ballance />
-      </CurrentPeriodWrapper>
+        <CurrentPeriodWrapper>
+          <CurrentPeriod month={month} year={year} onClick={monthHandler} />
+        </CurrentPeriodWrapper>
+      </HederReport>
+
       {!isLoading && (
         <>
           <CategoryList
@@ -97,8 +115,7 @@ const Report = () => {
             detailedReport={detailedReport}
           />
         </>
-        )}
-        {/* </CurrentPeriodWrapper> */}
+      )}
     </Wrapper>
   );
 };
