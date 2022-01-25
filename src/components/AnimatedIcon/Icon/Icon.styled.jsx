@@ -7,7 +7,7 @@ const IconThumb = styled.div`
   align-items:center;
      
     & div:first-of-type{
-        position:absolute;
+        /* position:absolute; */
         z-index:1;
         color:#F5F6FB;
     }      
