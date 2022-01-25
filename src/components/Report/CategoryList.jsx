@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Wrapper } from './styled/CategoryList.styled';
+import { Wrapper,List,CategoriesWrapper,Item } from './styled/CategoryList.styled';
 import ExpensesIncome from './ExpensesIncome';
 import ItemCategory from './ItemСategory';
 import SwitchType from './SwitchTypeTransaction';
@@ -24,14 +24,16 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
   return (
     <Wrapper>
       <ExpensesIncome totalCost={totalCost} totalIncome={totalIncome} />
-      <SwitchType
+      <CategoriesWrapper>
+              <SwitchType
         name={type === 'cost' ? 'Расходы' : 'Доходы'}
         onHandlerChangeType={onHandlerChangeType}
       />
-      <ul>
+
+      <List>
         {report !== null &&
           getCategoriesByType(type).map(({ _id, name, total, iconUrl }) => (
-            <li>
+            <Item key={_id}>
               <ItemCategory
                 id={_id}
                 summItemCategory={total}
@@ -39,9 +41,11 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
                 icon={iconUrl}
                 getSubcategories={getSubcategories}
               />
-            </li>
+          
+            </Item>
           ))}
-      </ul>
+        </List>
+        </CategoriesWrapper>
     </Wrapper>
   );
 }

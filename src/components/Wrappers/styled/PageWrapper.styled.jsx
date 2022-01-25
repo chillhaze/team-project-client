@@ -22,7 +22,7 @@ align-items:center;
     height:auto;
     padding: 40px 50px 75px;
     background-image: url(${twoCabagesDesk}),URL(${bgTablet});
-    background-position: bottom 64px right 88px, top 0px left 0px;
+    background-position: bottom 64px right 88px, top -55px left 0px;
   }
 
   @media only screen and (min-width: 1280px) {
@@ -30,6 +30,6 @@ align-items:center;
     height: 1134px;
     padding:40px 110px;
     background-image: URL(${cabbageDesk}), URL(${bgDesktop}); 
-    background-position: bottom 0px left 10px, top -10px left 0px;
+    background-position: bottom 0px left 10px, top -55px left 0px;
   }
   `;
