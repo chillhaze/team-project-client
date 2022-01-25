@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../redux/auth/auth-operations';
 import { useForm } from 'react-hook-form';
@@ -24,9 +24,12 @@ import {
   Span,
 } from './LoginForm.styled';
 import { CabbageBottom } from 'components/Wrappers/styled/StartPageWrapper.styled';
+import { updateIsRegistred } from 'redux/auth/auth-slice';
 
 const SignInSchema = Yup.object().shape({
-  email: Yup.string().email().required('Требуется действительный адрес электронной почты'),
+  email: Yup.string()
+    .email()
+    .required('Требуется действительный адрес электронной почты'),
   password: Yup.string()
     .min(6, 'Пароль короткий - должен быть не менее 6 символов')
     .required('Обязательно'),
@@ -35,6 +38,10 @@ const SignInSchema = Yup.object().shape({
 export default function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(updateIsRegistred(false));
+  }, []);
 
   const {
     register,
@@ -108,8 +115,7 @@ export default function LoginForm() {
           ></ButtonBlock>
         </TextWrap>
       </form>
-      <CabbageBottom/>
+      <CabbageBottom />
     </Wrap>
   );
 }
-

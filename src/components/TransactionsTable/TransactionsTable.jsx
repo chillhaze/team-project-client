@@ -13,7 +13,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import * as transactionOperations from '../../redux/transactions/transactions-operations';
 import * as transactionSelectors from '../../redux/transactions/transactions-selectors';
-import categories from '../../template/categories.json';
+// import categories from '../../template/categories.json';
+import { getFilteredCategories } from '../../redux/categories/categories-selectors';
+import { getCategories } from '../../redux/categories/categories-selectors';
 import transformDate from '../../utils/transformDate';
 import icons from '../../images/icons.svg';
 import {
@@ -45,6 +47,9 @@ const TransactionsTable = () => {
   const dispatch = useDispatch();
   const transactions = useSelector(transactionSelectors.getTransactionsData);
   const type = useSelector(getType);
+  const filteredCategories = useSelector(getFilteredCategories);
+  const allCategories = useSelector(getCategories);
+
   const period = useSelector(getPeriod);
 
   useEffect(() => {
@@ -55,6 +60,9 @@ const TransactionsTable = () => {
     dispatch(transactionOperations.deleteTransaction(id));
     return;
   };
+
+  console.log('categories', filteredCategories);
+  console.log('transactions', transactions);
 
   return (
     <Wrapper>
@@ -79,7 +87,14 @@ const TransactionsTable = () => {
                       <TableCell>{transformDate(completedAt)}</TableCell>
                       <TableCell>{description}</TableCell>
                       <TableCell>
-                        {categories.entities[category].name}
+                        {allCategories.length !== 0 &&
+                          allCategories.find(elem => {
+                            // console.log('elem', elem._id);
+                            // console.log('elem', elem._id === category);
+                            // console.log('category', category);
+
+                            return elem._id === category;
+                          }).name}
                       </TableCell>
                       <TableCell>
                         {type === 'credit' ? '-' : ''}

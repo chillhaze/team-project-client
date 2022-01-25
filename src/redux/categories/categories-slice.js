@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as categoriesOperations from './categories-operations';
 
 const initialState = {
-  categoriesData: null,
+  categoriesData: [],
   isLoadingCategories: false,
 };
 
@@ -15,6 +15,7 @@ export const categoriesSlice = createSlice({
       state.isLoadingCategories = true;
     },
     [categoriesOperations.getCategories.fulfilled](state, action) {
+      console.log(action.payload);
       state.categoriesData = action.payload;
       state.isLoadingCategories = false;
     },

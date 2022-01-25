@@ -97,6 +97,7 @@ const Report = () => {
           <CurrentPeriod month={month} year={year} onClick={monthHandler} />
         </CurrentPeriodWrapper>
       </HederReport>
+
       {!isLoading && (
         <>
           <CategoryList
