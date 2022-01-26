@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as transactionsOperations from './transactions-operations.js';
 
 const initialState = {
-  ballanceData: null,
+  ballanceData: 0,
   isLoadingBallance: null,
   transactionsData: [],
   isLoadingTransactions: false,

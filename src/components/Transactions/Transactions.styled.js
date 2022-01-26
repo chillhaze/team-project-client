@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
     background: transparent;
     border-radius: 0; */
     margin-top: 60px;
+
     background-color: white;
   }
 
@@ -31,7 +32,7 @@ export const Wrapper = styled.div`
 export const TabletForm = styled.div`
   display: flex;
   justify-content: center;
-  background-image: URL(${props => props.isMobile && bg});
+  /* background-image: URL(${props => props.isMobile && bg}); */
 
   /* background-image: URL(${bg}); */
   background-size: 100%;
