@@ -148,7 +148,8 @@ const TransactionsTable = () => {
             </TableHeadStyled>
 
             <TableBodyStyled>
-              {tableList.length !== 0 &&
+              {tableList &&
+                tableList.length !== 0 &&
                 tableList.map((elem, i) => {
                   if (!elem) {
                     return (

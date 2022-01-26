@@ -8,7 +8,13 @@ export const Wrapper = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     align-items: baseline;
-    margin-bottom: 0;
+    margin-bottom: 58px;
+    padding-top: 0;
+  }
+  @media only screen and (min-width: 1280px) {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 48px;
     padding-top: 0;
   }
 `;
