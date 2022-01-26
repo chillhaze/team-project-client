@@ -5,27 +5,12 @@ import {
   BarChart,
   Bar,
   Cell,
-  Area,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
   ResponsiveContainer,
   LabelList,
 } from 'recharts';
-import { Wrapper } from 'components/Chart/Chart.styled';
-import { BgrReport, WrapperReportMobile } from './styled/Chart.styled';
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from 'chart.js';
-// import { Bar } from 'react-chartjs-2';
+import { BgrReport } from './styled/Chart.styled';
 
 function ReportBarChart({ type, idSubcategory, detailedReport }) {
   const reportChart = useSelector(
