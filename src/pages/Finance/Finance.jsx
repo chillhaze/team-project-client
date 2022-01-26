@@ -33,11 +33,11 @@ const Finance = () => {
 
         {location.pathname === '/finance' && isMobile && <Ballance />}
 
-        {location.pathname === '/finance' && isMobile && (
+        {/* {location.pathname === '/finance' && isMobile && (
           <TransactionsMobileTable />
-        )}
+        )} */}
         <ProtectedRout />
-        {isMobile &&  <SwitchBtns />}
+        {isMobile && <SwitchBtns />}
       </Wrapper>
     </PageWrapper>
   );
