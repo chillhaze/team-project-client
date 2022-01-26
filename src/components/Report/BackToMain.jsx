@@ -8,6 +8,7 @@ export default function BackToMain() {
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
   });
+  
   const navigate = useNavigate();
 
   const handleBtnClick = () => {
