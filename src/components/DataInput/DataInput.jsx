@@ -6,7 +6,6 @@ import {
   Form,
   BGImage,
   InputWrapper,
-  DescriptionWrapper,
   DescriptionInput,
   SelectList,
   CategoryItem,
@@ -19,7 +18,6 @@ import {
   ClearButton,
 } from './DataInput.styled';
 
-// import categories from '../../template/categories.json';
 import { getFilteredCategories } from '../../redux/categories/categories-selectors';
 
 import {
@@ -100,13 +98,11 @@ const DataInput = () => {
   };
 
   return (
-    // <Wrapper>
     <Form
       onSubmit={isMobile ? handleMobileSubmit : handleSubmit}
       autoComplete="off"
     >
       <Wrapper>
-        {/* <Calendar /> */}
         <BGImage>
           <InputWrapper>
             <DescriptionInput
@@ -143,9 +139,9 @@ const DataInput = () => {
               value={amount}
             />
             <CalcConteiner>
-              <Svg width="20" height="20">
+              <svg width="20" height="20">
                 <use href={icons + '#icon-calculator'}></use>
-              </Svg>
+              </svg>
             </CalcConteiner>
           </AmountWrapper>
         </BGImage>

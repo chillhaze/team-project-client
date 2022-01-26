@@ -8,14 +8,17 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const ToReportsWrapper = styled.div`
+  margin-top: 50px;
   @media only screen and (max-width: 767px) {
     margin-bottom: ${props => props.theme.spacing(11)};
   }
   @media only screen and (min-width: 768px) {
+    margin-top: 0px;
     margin-left: auto;
   }
 
   @media only screen and (min-width: 1280px) {
+    margin-top: 0px;
     margin-left: auto;
   }
 `;

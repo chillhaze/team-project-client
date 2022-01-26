@@ -1,37 +1,40 @@
-import { Wrapper, Table, TableHeader, TableLine, Month } from './Summary.styled';
-// import { useEffect } from 'react';
-// import дописать функцию сводки за 6 месяцев в redux/transactions (summarySixMonths);
-// import { useSelector, useDispatch } from 'react-redux';
-// import { getToken } from '../../redux/auth/auth-selectors';
-// import { getSummary } from '../../redux/transactions/transactions-selectors';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function Summary() {
- 
-  // const token = useSelector(getToken);
-  // const summary = useSelector(getSummary);
-  // const dispatch = useDispatch();
-  // let type="expense";
+import { Wrapper, Table, TableHeader, TableLine, Month, Amount } from './Summary.styled';
+import * as reportsOperations from '../../redux/reports/reports-operations';
+import * as reportsSelectors from '../../redux/reports/reports-selectors';
+import {getType, getPeriod} from '../../redux/transactions/transactions-selectors';
 
-  // useEffect(() => dispatch(summarySixMonths(type,token)),[token,type,dispatch]);
+const Summary =()=>  {
+  const summary = useSelector(reportsSelectors.getReportsSummary);
+  const type = useSelector(getType);
+  const period = useSelector(getPeriod);
+  const dispatch = useDispatch();
 
-  // В таблицу будут добавляться максимум 6 месяцев.
-  // Если, например, будет доступно всего 3 месяца, то половина табл. будет серой без горизонтальн. линий.
-  // Позже добавлю логику отрисовки вовнутрь табл.
+  useEffect(() => {
+    dispatch(reportsOperations.getReportsSummary({ type, period:new Date(period).getFullYear() }));
+  }, [dispatch, period, type]); 
+
+  const { ids, entities: months } = summary;
+  const filteredIds = [...ids].reverse().filter((elem, i) => i < 6)
+
   return (
     <Wrapper>
       <TableHeader>Сводка</TableHeader>
       <Table>
         <tbody>
-          <TableLine
-          >
-            <Month>
-            </Month>
-            <td>
-            </td>
-            </TableLine>
+          {filteredIds.length!==0 && filteredIds.map(id => {
+            return (
+              <TableLine key={id}>
+                <Month>{filteredIds.length!==0 && months[id]?.name}</Month> 
+                <Amount>{filteredIds.length!==0 && months[id]?.amount}</Amount>
+              </TableLine>)
+            })}
         </tbody>
       </Table>
     </Wrapper>
   );
 }
 
+export default Summary

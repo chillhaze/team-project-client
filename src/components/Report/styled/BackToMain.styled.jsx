@@ -6,12 +6,12 @@ export const BackBtn = styled.button`
   cursor: pointer;
   position:absolute;
   top:22px;
-  left:22px;
+  left:0px;
   z-index:1;
 
   @media only screen and (min-width: 768px) {
     top:9px;
-    left:10px;
+    left:-2px;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.04em;

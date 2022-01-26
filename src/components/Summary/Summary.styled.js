@@ -3,11 +3,11 @@ import styled from '@emotion/styled';
 export const Wrapper = styled.div`
   display: none;
   background-color: ${props => props.theme.colors.MainBgColor};
+  border: 2px solid ${props => props.theme.colors.white};
   border-radius: 20px 20px 20px 0;
   overflow: hidden;
   width: 230px;
-  height: 266px;
-  font-family: Roboto;
+  /* font-family: Roboto; */
   font-size: 12px;
   line-height: 1.16;
   align-items: center;
@@ -27,24 +27,26 @@ export const Table = styled.table`
 
 export const TableHeader = styled.div`
   display: flex;
-  border: 2px solid ${props => props.theme.colors.white};
   height: 38px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: ${props => props.theme.colors.black};
   align-items: center;
   justify-content: center;
 `;
 
 export const TableLine = styled.tr`
-  border: 2px solid ${props => props.theme.colors.white};
+  border-top: 2px solid ${props => props.theme.colors.white};
   height: 38px;
-  &:first-of-type {
-    border-top: none;
-  }
-  text-align: left;
 `;
 
 export const Month = styled.td`
+  text-transform: uppercase;
   padding-left: 20px;
+  text-align: left;
 `;
+
+export const Amount = styled.td`
+  padding-right: 20px;
+  text-align: center;
+`

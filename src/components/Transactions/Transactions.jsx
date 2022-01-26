@@ -5,6 +5,12 @@ import Calendar from '../Calendar/Calendar';
 import Summary from '../Summary/Summary';
 import SwitchBtns from '../SwitchBtns/SwitchBtns';
 import { useMediaQuery } from 'react-responsive';
+import { setType } from '../../redux/transactions/transactions-slice';
+
+const EXPENCES_TYPE = 'credit';
+const INCOME_TYPE = 'debit';
+const INCOMES_PAGE = 'Доход';
+
 
 const Transactions = () => {
   const isMobile = useMediaQuery({

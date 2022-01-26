@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 0px 30px 30px 30px;
 
+  @media screen and (max-width: 767px) {
+    padding: 0;
+  }
+
   @media screen and (min-width: 1280px) {
     width: 1060px;
     height: 579px;
@@ -20,6 +24,12 @@ export const TabletForm = styled.div`
 `;
 
 export const ButtonsWrapper = styled.div`
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+  }
+
   @media screen and (min-width: 768px) {
     position: absolute;
     top: -40px;
