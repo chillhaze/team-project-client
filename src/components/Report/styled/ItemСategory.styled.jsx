@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const ButtonCategory = styled.button`
   max-width: 102px;
-  height: 122px;
+  height: 120px;
   border: none;
 
   background-color: ${props => props.theme.colors.white};
