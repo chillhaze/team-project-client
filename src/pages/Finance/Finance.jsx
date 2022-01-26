@@ -37,7 +37,7 @@ const Finance = () => {
           <TransactionsMobileTable />
         )}
         <ProtectedRout />
-        {isMobile && <SwitchBtns />}
+        {isMobile &&  <SwitchBtns />}
       </Wrapper>
     </PageWrapper>
   );

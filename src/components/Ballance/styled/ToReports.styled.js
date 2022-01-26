@@ -26,7 +26,7 @@ export const ToReportsWrapper = styled.div`
 export const Text = styled.span`
   display: inline-block;
   font-family: Roboto;
-  font-weight: 500px;
+  font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.04em;
