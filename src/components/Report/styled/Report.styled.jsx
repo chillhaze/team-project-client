@@ -4,14 +4,14 @@ import bgTablet from '../../../images/background-tablet.png';
 import bgDesktop from '../../../images/background-desktop.png';
 
 export const Wrapper = styled.div`
-  width:280px;
+  width: 280px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @media screen and (min-width:768px){
-    width:100%;
+  @media screen and (min-width: 768px) {
+    width: 100%;
   }
 `;
 
@@ -54,4 +54,12 @@ export const HederReport = styled.div`
     height: 44px;
     margin-top: 0;
   }
+`;
+
+export const Message = styled.p`
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.1666;
+  text-transform: uppercase;
+  color: ${props => props.theme.colors.mainTextColor};
 `;

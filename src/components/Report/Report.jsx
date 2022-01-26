@@ -8,10 +8,12 @@ import {
   Wrapper,
   CurrentPeriodWrapper,
   HederReport,
+  Message,
 } from './styled/Report.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReportsDetailed } from 'redux/reports/reports-operations';
 import Ballance from 'components/Ballance/Ballance';
+import Loader from 'components/Loader/Loader';
 
 const Report = () => {
   const date = new Date();
@@ -28,8 +30,10 @@ const Report = () => {
   });
 
   const isLoading = useSelector(({ reports }) => reports.isLoadingReports);
-  // console.log(isLoading);
-
+  const report = useSelector(
+    ({ reports }) => reports.reportsDataDetailed.categories,
+  );
+  console.log(report);
   useEffect(() => {
     if ((month, year)) {
       dispatch(getReportsDetailed({ year, month }));
@@ -83,12 +87,12 @@ const Report = () => {
   return (
     <Wrapper>
       <BackToMain />
-
+      {/* {isLoading && <Loader />} */}
       {isMobile ? (
-          <CurrentPeriodWrapper>
-            <CurrentPeriod month={month} year={year} onClick={monthHandler} />
-            <Ballance />
-          </CurrentPeriodWrapper>
+        <CurrentPeriodWrapper>
+          <CurrentPeriod month={month} year={year} onClick={monthHandler} />
+          <Ballance />
+        </CurrentPeriodWrapper>
       ) : (
         <HederReport>
           <Ballance />
@@ -97,8 +101,10 @@ const Report = () => {
           </CurrentPeriodWrapper>
         </HederReport>
       )}
-
-      {!isLoading && (
+      {report.length === 0 && (
+        <Message>За этот период у Вас нет отчета.</Message>
+      )}
+      {report.length !== 0 && (
         <>
           <CategoryList
             month={month}

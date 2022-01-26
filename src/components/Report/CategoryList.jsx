@@ -4,6 +4,7 @@ import {
   Wrapper,
   WrapperReport,
   WrapperCategories,
+  ListItem,
 } from './styled/CategoryList.styled';
 import ExpensesIncome from './ExpensesIncome';
 import ItemCategory from './ItemСategory';
@@ -35,7 +36,7 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
         <WrapperCategories>
           {report !== null &&
             getCategoriesByType(type).map(({ _id, name, total, iconUrl }) => (
-              <li key={_id}>
+              <ListItem key={_id}>
                 <ItemCategory
                   id={_id}
                   summItemCategory={total}
@@ -43,7 +44,7 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
                   icon={iconUrl}
                   getSubcategories={getSubcategories}
                 />
-              </li>
+              </ListItem>
             ))}
         </WrapperCategories>
       </WrapperReport>
