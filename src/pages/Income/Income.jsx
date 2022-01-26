@@ -1,14 +1,13 @@
 import { Wrapper } from './Income.styled';
 import DataInput from '../../components/DataInput/DataInput';
 import TransactionsTable from '../../components/TransactionsTable/TransactionsTable';
-import Summary from '../../components/Summary';
+import Summary from '../../components/Summary/Summary';
+import Transactions from 'components/Transactions/Transactions';
 
 const Income = () => {
   return (
     <Wrapper>
-      <DataInput />
-      <TransactionsTable />
-      <Summary />
+      <Transactions />
     </Wrapper>
   );
 };

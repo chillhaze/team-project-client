@@ -25,8 +25,13 @@ import {
   getPeriod,
 } from '../../redux/transactions/transactions-selectors';
 import icons from '../../images/icons.svg';
+import { useMediaQuery } from 'react-responsive';
+import { useNavigate } from 'react-router-dom';
 
 const DataInput = () => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
   const dispatch = useDispatch();
   const type = useSelector(getType);
   const period = useSelector(getPeriod);
@@ -34,6 +39,7 @@ const DataInput = () => {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
+  const navigate = useNavigate();
 
   const handleFormChange = e => {
     const { name, value } = e.currentTarget;
@@ -68,6 +74,23 @@ const DataInput = () => {
     formReset();
   };
 
+  const handleMobileSubmit = async e => {
+    e.preventDefault();
+
+    await dispatch(
+      transactionsOperations.addTransaction({
+        period,
+        description,
+        category,
+        amount: Number(amount),
+        type,
+      }),
+    );
+
+    formReset();
+    navigate('/finance');
+  };
+
   const formReset = () => {
     setDescription('');
     setCategory('');
@@ -75,7 +98,10 @@ const DataInput = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
+    <Form
+      onSubmit={isMobile ? handleMobileSubmit : handleSubmit}
+      autoComplete="off"
+    >
       <Wrapper>
         <BGImage>
           <InputWrapper>

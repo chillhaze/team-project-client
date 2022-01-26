@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 import bg from 'images/mobile-bg-current-period.png';
 import bgTablet from 'images/background-tablet.png';
 import bgDesktop from 'images/background-desktop.png';
@@ -7,17 +7,18 @@ import twoCabagesDesk from 'images/two-cabbages-desk.png';
 
 export const Wrapper = styled.div`
   width: 320px;
+  height: 100%;
   margin: 0 auto;
-  padding: 0 20px 50px;
+  padding: ${props => (props.isMobile ? '0px 0px 0px 0px' : '0 20px 50px ')};
   background-image: URL(${bg});
   background-repeat: no-repeat;
   background-position-y: -60px;
-  position:relative;
-display:flex;
-flex-direction:column;
-align-items:center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     width: 768px;
     height:1136px;
     padding: 40px 50px 75px;
@@ -32,4 +33,4 @@ align-items:center;
     background-image: URL(${cabbageDesk}), URL(${bgDesktop}); 
     background-position: bottom 0px left 10px, top -60px left 0px;
   }
-  `;
+`;

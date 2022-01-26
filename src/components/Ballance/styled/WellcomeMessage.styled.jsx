@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   max-width: 282px;
   max-height: 163px;
   transform: translate(6%, 7%);
+  z-index: 100;
 
   @media only screen and (min-width: 768px) {
     transform: translate(10%, 95%);

@@ -29,8 +29,6 @@ const Ballance = () => {
   //Определяем что мы на странице с отчетами и рендерим ниже ссылку "Перейти к отчетам" по условию
   const location = useLocation();
   const onReportsPage = location.pathname === '/reports';
-  
- 
 
   const dispatch = useDispatch();
 
@@ -119,8 +117,8 @@ const Ballance = () => {
           </>
         )}
       </BalanceWrapper>
-      {!isMobile && !onReportsPage &&<ToReports />}
-      </Wrapper>
+      {!isMobile && !onReportsPage && <ToReports />}
+    </Wrapper>
   );
 };
 

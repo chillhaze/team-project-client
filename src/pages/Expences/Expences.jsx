@@ -1,14 +1,13 @@
 import { Wrapper } from './Expences.styled';
 import DataInput from '../../components/DataInput/DataInput';
-import TransactionsTable from '../../components/TransactionsTable/TransactionsTable';
+import Summary from 'components/Summary/Summary';
+import Transactions from 'components/Transactions/Transactions';
 
 const Expences = () => {
   return (
     <Wrapper>
-      <DataInput />
-      <TransactionsTable />
-      {/* СВОДКА - добавляем компонент сюда */}
-      </Wrapper>
+      <Transactions />
+    </Wrapper>
   );
 };
 

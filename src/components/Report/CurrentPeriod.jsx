@@ -34,7 +34,6 @@ function CurrentPeriod({ month, year, onClick }) {
           </svg>
         </ArrowBackBtn>
         <BalancePeriodWrapper>
-          {' '}
           <BalancePeriod>
             {monthArr[month]}
              {year}

@@ -28,7 +28,7 @@ const Report = () => {
   });
 
   const isLoading = useSelector(({ reports }) => reports.isLoadingReports);
-  console.log(isLoading);
+  // console.log(isLoading);
 
   useEffect(() => {
     if ((month, year)) {
@@ -83,10 +83,21 @@ const Report = () => {
   return (
     <Wrapper>
       <BackToMain />
+
+      {isMobile ? (
           <CurrentPeriodWrapper>
             <CurrentPeriod month={month} year={year} onClick={monthHandler} />
             <Ballance />
           </CurrentPeriodWrapper>
+      ) : (
+        <HederReport>
+          <Ballance />
+          <CurrentPeriodWrapper>
+            <CurrentPeriod month={month} year={year} onClick={monthHandler} />
+          </CurrentPeriodWrapper>
+        </HederReport>
+      )}
+
       {!isLoading && (
         <>
           <CategoryList

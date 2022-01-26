@@ -11,8 +11,10 @@ import {
 import { logout } from 'redux/auth/auth-operations';
 import { ImgWrapper } from './styled/ImgWrapper.styled';
 import Setings from './Setings';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoggedBar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({
     query: '(max-width: 767px)',
@@ -39,6 +41,7 @@ export default function LoggedBar() {
       dispatch(logout());
       dispatch(confirmAction(false));
       setIsLogoutOperation(false);
+      navigate('/login');
     }
   }, [isConfirmed, isLogoutOperation]);
 

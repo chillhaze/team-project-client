@@ -35,7 +35,7 @@ function CategoryList({ type, getSubcategories, onHandlerChangeType }) {
         <WrapperCategories>
           {report !== null &&
             getCategoriesByType(type).map(({ _id, name, total, iconUrl }) => (
-              <li>
+              <li key={_id}>
                 <ItemCategory
                   id={_id}
                   summItemCategory={total}
