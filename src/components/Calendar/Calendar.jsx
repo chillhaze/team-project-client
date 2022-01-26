@@ -39,7 +39,6 @@ const Calender = () => {
         locale={ru}
         customInput={<ExampleCustomInput />}
         selected={new Date(period)}
-        // maxDate={new Date()}
         onChange={newPeriod => dispatch(setPeriod(newPeriod.toISOString()))}
       />
     </Wrapper>

@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   padding: 0;
 
   @media screen and (min-width: 768px) {
+    align-items: flex-start;
   }
 
   @media screen and (min-width: 1280px) {
@@ -73,7 +74,7 @@ export const DescriptionInput = styled.input`
   padding-left: 20px;
   margin: 0;
 
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-size: 12px;
   line-height: 1.17;
@@ -104,7 +105,7 @@ export const SelectList = styled.select`
   padding-left: 20px;
   margin: 0;
 
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-size: 12px;
   line-height: 1.17;
@@ -151,6 +152,12 @@ export const AmountInput = styled.input`
   width: 125px;
   padding-right: 17px;
 
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: #c7ccdc;
   outline: none;
   text-align: end;
   border: 2px solid #ffffff;
@@ -205,18 +212,18 @@ export const CalcConteiner = styled.div`
   }
 `;
 
-export const Svg = styled.svg``;
-
 export const BtnWrapper = styled.div`
   display: flex;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 48px;
+    padding-left: 30px;
   }
 
   @media screen and (min-width: 1280px) {
     margin: 0;
+    padding: 0;
   }
 `;
 
@@ -237,7 +244,6 @@ export const EnterButton = styled.button`
   letter-spacing: 0.02em;
   color: #ffffff;
   background-color: #ff751d;
-  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
 
   &:hover,
   &:focus {
@@ -257,7 +263,7 @@ export const ClearButton = styled.button`
   width: 125px;
   height: 44px;
   padding: 12px 25px;
-  border: 2px solid #f5f6fb;
+  border: 2px solid #f6f7fc;
   border-radius: 16px;
 
   text-transform: uppercase;
@@ -269,7 +275,6 @@ export const ClearButton = styled.button`
   letter-spacing: 0.02em;
   color: #52555f;
   background-color: transparent;
-  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
 
   &:hover,
   &:focus {

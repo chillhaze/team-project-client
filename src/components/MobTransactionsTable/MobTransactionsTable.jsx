@@ -33,8 +33,12 @@ import {
   getType,
   getPeriod,
 } from '../../redux/transactions/transactions-selectors';
+import { useMediaQuery } from 'react-responsive';
 
 const TransactionsTable = () => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
   const theme = React.useMemo(
     () =>
       createTheme({
@@ -81,22 +85,17 @@ const TransactionsTable = () => {
       <ThemeProvider theme={theme}>
         <TableContainerStyled
           component={Paper}
-          sx={{
-            border: '2px solid #F5F6FB',
-            boxShadow: 'none',
-            borderRadius: '20px 20px 0 0',
-          }}
+          sx={{ border: '2px solid #F5F6FB', boxShadow: 'none' }}
         >
           <TableStyled
             aria-label="simple table"
             stickyHeader
             sx={{ borderColor: '#F5F6FB' }}
           >
-            <TableHeadStyled sx={{ paddingLeft: '20px', height: '38px' }}>
+            <TableHeadStyled sx={{ paddingLeft: '20px' }}>
               <TableRow>
                 <TableCellStyled
                   sx={{
-                    width: '104px',
                     fontFamily: 'Roboto, sans-serif',
                     fontWeight: 'bold',
                     fontSize: '12px',
@@ -107,7 +106,7 @@ const TransactionsTable = () => {
                 >
                   дата
                 </TableCellStyled>
-                <TableCellDesc
+                <TableCellStyled
                   sx={{
                     fontWeight: 'bold',
                     fontFamily: 'Roboto, sans-serif',
@@ -118,10 +117,9 @@ const TransactionsTable = () => {
                   }}
                 >
                   описание
-                </TableCellDesc>
+                </TableCellStyled>
                 <TableCellStyled
                   sx={{
-                    width: '172px',
                     fontWeight: 'bold',
                     fontFamily: 'Roboto, sans-serif',
                     fontSize: '12px',
@@ -169,25 +167,26 @@ const TransactionsTable = () => {
                     );
                   }
                   return (
-                    <TableRow key={i} sx={{ height: '40px' }}>
-                      <TableCellStyled
-                        sx={{
-                          color: '#52555F',
-                          borderBottom: '2px solid #F5F6FB',
-                        }}
-                      >
-                        {transformDate(elem.completedAt)}
-                      </TableCellStyled>
-                      <TableCellStyled
-                        sx={{
-                          color: '#52555F',
-                          borderBottom: '2px solid #F5F6FB',
-                        }}
-                      >
-                        {elem.description}
-                      </TableCellStyled>
-
-                      <TableCellStyled
+                    <TableRow key={i}>
+                      <MobDiv>
+                        <TableCellDate
+                          sx={{
+                            color: '#52555F',
+                            borderBottom: '2px solid #F5F6FB',
+                          }}
+                        >
+                          {transformDate(elem.completedAt)}
+                        </TableCellDate>
+                        <TableCellDesc
+                          sx={{
+                            color: '#52555F',
+                            borderBottom: '2px solid #F5F6FB',
+                          }}
+                        >
+                          {elem.description}
+                        </TableCellDesc>
+                      </MobDiv>
+                      <TableCellCategory
                         sx={{
                           color: '#52555F',
                           borderBottom: '2px solid #F5F6FB',
@@ -197,7 +196,7 @@ const TransactionsTable = () => {
                           allCategories.find(el => {
                             return el._id === elem.category;
                           }).name}
-                      </TableCellStyled>
+                      </TableCellCategory>
                       <TableCellAmount
                         sx={{
                           color: '#52555F',
