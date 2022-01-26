@@ -84,7 +84,8 @@ export const DescriptionInput = styled.input`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.02em;
-  color: #c7ccdc;
+  // color: #c7ccdc;
+  color: #52555f;
   outline: none;
 
   border: 2px solid #ffffff;
@@ -115,7 +116,8 @@ export const SelectList = styled.select`
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.02em;
-  color: #c7ccdc;
+  // color: #c7ccdc;
+  color: #52555f;
   outline: none;
 
   border: 2px solid #ffffff;
@@ -133,7 +135,8 @@ export const SelectList = styled.select`
 
   @media screen and (min-width: 1280px) {
     width: 188px;
-    color: #c7ccdc;
+    // color: #c7ccdc;
+    color: #52555f;
   }
 
   // border: 2px solid #f5f6fb;
@@ -168,7 +171,8 @@ export const AmountInput = styled.input`
   border: 2px solid #ffffff;
   border-radius: 16px 0 0 16px;
   background-color: inherit;
-  color: #000000;
+  // color: #000000;
+  color: #52555f;
 
   @media screen and (min-width: 768px) {
     width: 64px;
@@ -176,7 +180,7 @@ export const AmountInput = styled.input`
     border-radius: 0;
     border-right: none;
 
-    color: #c7ccdc;
+    // color: #c7ccdc;
   }
 
   @media screen and (min-width: 1280px) {
