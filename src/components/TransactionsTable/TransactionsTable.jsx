@@ -36,7 +36,7 @@ const TransactionsTable = () => {
         palette: {
           mode: 'light',
           background: {
-            default: '#f60d0d',
+            default: '#F5F6FB',
             paper: '#fbfbfbfb',
           },
           primary: {

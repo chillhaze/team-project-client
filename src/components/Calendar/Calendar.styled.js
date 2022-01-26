@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     width: 104px;
     margin-right: 33px;
     padding-top: 15px;
+    z-index: 100;
   }
 `;
 

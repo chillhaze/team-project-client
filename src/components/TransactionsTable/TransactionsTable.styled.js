@@ -37,6 +37,7 @@ export const TableContainerStyled = styled(TableContainer)`
     width: 605px;
     max-height: 384px;
     margin-bottom: 40px;
+    border-radius: 15px 15px 0px 0px;
   }
 
   @media screen and (min-width: 1280px) {

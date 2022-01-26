@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 import bg from '../../../images/mobile-bg-current-period.png';
 import bgTablet from '../../../images/background-tablet.png';
 import bgDesktop from '../../../images/background-desktop.png';
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   background-image: URL(${bg});
   background-repeat: no-repeat;
 
-    @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     width: 768px;
     background-image: URL(${cabbageDesk}), URL(${bgTablet});
     background-position: top 35px left 0px, top 0px left 0px;
@@ -27,9 +27,9 @@ export const Wrapper = styled.div`
     background-position: top 50px left 10px, top -10px left 0px,
       bottom 0px left 200px;
   }
-  `;
+`;
 
-  export const Cabbage = styled.div`
+export const Cabbage = styled.div`
   @media screen and (max-width: 767px) {
     position: absolute;
     width: 55px;
@@ -49,7 +49,7 @@ export const Wrapper = styled.div`
     background-image: url(${twoCabagesDesk});
     background-repeat: no-repeat;
     background-position: center;
-    z-index:1;
+    z-index: 1;
   }
   @media screen and (min-width: 1280px) {
     width: 0;
@@ -68,8 +68,8 @@ export const CabbageBottom = styled.div`
   z-index: -1;
   background-image: url(${smallCabbage});
   background-repeat: no-repeat;
-background - position: center;
-  
+  background-position: center;
+
   @media screen and (min-width: 768px) {
     display: none;
     width: 0;

@@ -5,7 +5,7 @@ const Reports = () => {
   return (
     <PageWrapper>
       <Report />
-      </PageWrapper>
+    </PageWrapper>
   );
 };
 
