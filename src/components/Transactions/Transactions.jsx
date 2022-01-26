@@ -14,7 +14,7 @@ const Transactions = () => {
   return (
     <Wrapper isMobile={isMobile}>
       {!isMobile && <SwitchBtns />}
-      <TabletForm>
+      <TabletForm isMobile={isMobile}>
         <Calendar />
         <DataInput />
       </TabletForm>

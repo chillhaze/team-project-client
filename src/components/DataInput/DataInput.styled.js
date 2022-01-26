@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import bg from '../../images/mobile-bg-current-period.png';
 
+export const Form = styled.form``;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,8 +21,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Form = styled.form``;
-
 export const BGImage = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,13 +29,14 @@ export const BGImage = styled.div`
   padding-bottom: 43px;
   margin-bottom: 40px;
 
-  background-image: URL(${bg});
+  /* background-image: URL(${bg}); */
   // background-size: 100%;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     padding: 0;
     margin-bottom: 30px;
 
@@ -115,7 +116,7 @@ export const SelectList = styled.select`
 
   border: 2px solid #ffffff;
   border-top: transparent;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 16px 0px;
   background-color: inherit;
 
   @media screen and (min-width: 768px) {

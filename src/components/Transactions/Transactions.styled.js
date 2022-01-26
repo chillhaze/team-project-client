@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Calendar from '../Calendar/Calendar';
+import bg from '../../images/mobile-bg-current-period.png';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -21,6 +22,12 @@ export const Wrapper = styled.div`
 
 export const TabletForm = styled.div`
   display: flex;
+  justify-content: center;
+  background-image: URL(${props => props.isMobile && bg});
+
+  /* background-image: URL(${bg}); */
+  background-size: 100%;
+  background-repeat: no-repeat;
 `;
 
 export const ButtonsWrapper = styled.div`
