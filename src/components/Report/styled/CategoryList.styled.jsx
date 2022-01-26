@@ -20,7 +20,7 @@ export const WrapperCategories = styled.ul`
   justify-content: space-around;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     padding-right: 219px;
     padding-left: 219px;
   }
