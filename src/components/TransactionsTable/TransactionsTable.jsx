@@ -205,12 +205,12 @@ const TransactionsTable = () => {
                           borderBottom: '2px solid #F5F6FB',
                         }}
                       >
-                        {type === 'debit' && (
+                        {elem.type === 'debit' && (
                           <span style={{ color: 'green' }}>
                             {elem.amount} грн.
                           </span>
                         )}
-                        {type === 'credit' && (
+                        {elem.type === 'credit' && (
                           <span style={{ color: 'red' }}>
                             -{elem.amount} грн.
                           </span>
