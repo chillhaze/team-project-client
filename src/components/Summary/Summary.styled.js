@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   border-radius: 20px 20px 20px 0;
   overflow: hidden;
   width: 230px;
+  height:min-content;
   /* font-family: Roboto; */
   font-size: 12px;
   line-height: 1.16;
@@ -14,8 +15,9 @@ export const Wrapper = styled.div`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: ${props => props.theme.colors.mainTextColor};
-  @media screen and (min-width: 768px) {
-    display: block;
+
+  @media screen and (min-width:768px){
+    display:block;
   }
 `;
 
