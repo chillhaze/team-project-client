@@ -54,7 +54,7 @@ export const transactionsSlice = createSlice({
       state.isLoadingBallance = true;
     },
     [transactionsOperations.getBallance.fulfilled](state, action) {
-      state.ballanceData = action.payload;
+      state.ballanceData = parseInt(action.payload);
       state.isLoadingBallance = false;
     },
     //------------------ Create Balance Data
