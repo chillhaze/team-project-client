@@ -24,14 +24,25 @@ const SwitchBtns = () => {
   const location = useLocation();
 
   const handleClick = e => {
-    dispatch(
-      setType(
-        e.target.textContent === INCOMES_PAGE ? INCOME_TYPE : EXPENCES_TYPE,
-      ),
-      type === 'credit'
-        ? navigate('/finance/income')
-        : navigate('/finance/expenses'),
-    );
+    // dispatch(
+    //   setType(
+    //     e.target.textContent === INCOMES_PAGE ? INCOME_TYPE : EXPENCES_TYPE,
+    //   ),
+    //   type === 'credit'
+    //     ? navigate('/finance/income')
+    //     : navigate('/finance/expenses'),
+    // );
+      dispatch(setType(
+        e.target.textContent === INCOMES_PAGE
+          ? INCOME_TYPE
+          : EXPENCES_TYPE,
+        )
+      );
+    
+    // type === 'credit'
+    //   ? navigate('/finance/income')
+    //   : navigate('/finance/expenses');
+    
   };
 
   return (
@@ -42,7 +53,8 @@ const SwitchBtns = () => {
           type="button"
           onClick={handleClick}
           location={location}
-          disabled={location.pathname === '/finance/expenses' ? true : false}
+          // disabled={type === '/finance/expenses' ? true : false}
+          disabled={type === 'credit' ? true : false}
         >
           Расход
         </BtnExpences>
@@ -51,7 +63,8 @@ const SwitchBtns = () => {
           type="button"
           onClick={handleClick}
           location={location}
-          disabled={location.pathname === '/finance/income' ? true : false}
+          // disabled={type === '/finance/income' ? true : false}
+          disabled={type === 'debit' ? true : false}
         >
           Доход
         </BtnIncome>
