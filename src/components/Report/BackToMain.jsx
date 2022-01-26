@@ -3,27 +3,17 @@ import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../images/icons.svg';
 import { BackBtn } from '../Report/styled/BackToMain.styled';
-import { setType } from 'redux/transactions/transactions-slice';
 
 export default function BackToMain() {
-  const isMobile = useMediaQuery({
-    query: '(max-width: 767px)',
-  });
   const navigate = useNavigate();
 
   const handleBtnClick = () => {
-    setType('credit');
     navigate('/finance/expenses');
-  };
-
-  const handleMobileBtnClick = () => {
-    setType('');
-    navigate('/finance');
   };
 
   return (
     <BackBtn
-      onClick={isMobile ? handleMobileBtnClick : handleBtnClick}
+      onClick={handleBtnClick}
       type="button"
     >
       <svg width="24px" height="24px">
