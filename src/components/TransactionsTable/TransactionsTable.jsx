@@ -33,6 +33,7 @@ import {
   getType,
   getPeriod,
 } from '../../redux/transactions/transactions-selectors';
+import { useMediaQuery } from 'react-responsive';
 
 const TransactionsTable = () => {
   const theme = React.useMemo(
@@ -54,6 +55,10 @@ const TransactionsTable = () => {
       }),
     [],
   );
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
 
   const dispatch = useDispatch();
   const transactions = useSelector(transactionSelectors.getTransactionsData);
@@ -85,6 +90,7 @@ const TransactionsTable = () => {
             border: '2px solid #F5F6FB',
             boxShadow: 'none',
             borderRadius: '20px 20px 0 0',
+            marginTop: `${isMobile && '12px'}`,
           }}
         >
           <TableStyled
@@ -92,14 +98,19 @@ const TransactionsTable = () => {
             stickyHeader
             sx={{ borderColor: '#F5F6FB' }}
           >
-            <TableHeadStyled sx={{ paddingLeft: '20px', height: '38px' }}>
+            <TableHeadStyled
+              sx={{
+                paddingLeft: '20px',
+                height: '38px',
+              }}
+            >
               <TableRow>
                 <TableCellStyled
                   sx={{
                     width: '104px',
                     fontFamily: 'Roboto, sans-serif',
                     fontWeight: 'bold',
-                    fontSize: '12px',
+                    fontSize: `${isMobile ? '9px' : '12px'}`,
                     lineHeight: '1.67',
                     letterSpacing: '0.02em',
                     border: '2px solid #F5F6FB',
@@ -111,7 +122,7 @@ const TransactionsTable = () => {
                   sx={{
                     fontWeight: 'bold',
                     fontFamily: 'Roboto, sans-serif',
-                    fontSize: '12px',
+                    fontSize: `${isMobile ? '9px' : '12px'}`,
                     lineHeight: '1.67',
                     letterSpacing: '0.02em',
                     border: '2px solid #F5F6FB',
@@ -124,7 +135,7 @@ const TransactionsTable = () => {
                     width: '172px',
                     fontWeight: 'bold',
                     fontFamily: 'Roboto, sans-serif',
-                    fontSize: '12px',
+                    fontSize: `${isMobile ? '9px' : '12px'}`,
                     lineHeight: '1.67',
                     letterSpacing: '0.02em',
                     border: '2px solid #F5F6FB',
@@ -136,7 +147,7 @@ const TransactionsTable = () => {
                   sx={{
                     fontFamily: 'Roboto, sans-serif',
                     fontWeight: 'bold',
-                    fontSize: '12px',
+                    fontSize: `${isMobile ? '9px' : '12px'}`,
                     lineHeight: '1.67',
                     letterSpacing: '0.02em',
                     border: '2px solid #F5F6FB',
@@ -175,6 +186,7 @@ const TransactionsTable = () => {
                         sx={{
                           color: '#52555F',
                           borderBottom: '2px solid #F5F6FB',
+                          fontSize: `${isMobile && '9px'}`,
                         }}
                       >
                         {transformDate(elem.completedAt)}
@@ -183,6 +195,7 @@ const TransactionsTable = () => {
                         sx={{
                           color: '#52555F',
                           borderBottom: '2px solid #F5F6FB',
+                          fontSize: `${isMobile && '9px'}`,
                         }}
                       >
                         {elem.description}
@@ -192,6 +205,7 @@ const TransactionsTable = () => {
                         sx={{
                           color: '#52555F',
                           borderBottom: '2px solid #F5F6FB',
+                          fontSize: `${isMobile && '9px'}`,
                         }}
                       >
                         {allCategories.length !== 0 &&
@@ -203,6 +217,7 @@ const TransactionsTable = () => {
                         sx={{
                           color: '#52555F',
                           borderBottom: '2px solid #F5F6FB',
+                          fontSize: `${isMobile && '9px'}`,
                         }}
                       >
                         {elem.type === 'debit' && (

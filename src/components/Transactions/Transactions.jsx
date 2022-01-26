@@ -5,6 +5,7 @@ import Calendar from '../Calendar/Calendar';
 import Summary from '../Summary/Summary';
 import SwitchBtns from '../SwitchBtns/SwitchBtns';
 import { useMediaQuery } from 'react-responsive';
+import TransactionsMobileTable from 'components/TransactionsMobileTable/TransactionsMobileTable';
 
 const Transactions = () => {
   const isMobile = useMediaQuery({
