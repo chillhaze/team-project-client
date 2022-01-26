@@ -3,6 +3,7 @@ import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
 import TableContainer from '@mui/material/TableContainer';
 
 export const Wrapper = styled.div`
@@ -10,15 +11,26 @@ export const Wrapper = styled.div`
 `;
 
 export const BtnDelete = styled.button`
+  // margin-left: 52px;
+  background-color: transparent;
   border-radius: 50%;
   border: transparent;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #f5f6fb;
+  }
 `;
 
 export const TableHeadStyled = styled(TableHead)`
   height: 38px;
   background-color: #f5f6fb;
+
   color: #000000;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
 `;
 
 export const TableBodyStyled = styled(TableBody)`
@@ -28,11 +40,27 @@ export const TableBodyStyled = styled(TableBody)`
 
 export const TableCellStyled = styled(TableCell)`
   height: 40px;
+  padding: 0;
+  padding-left: 20px;
+  font-family: Roboto, sans-serif;
 `;
 
 export const TableStyled = styled(Table)``;
 
 export const TableContainerStyled = styled(TableContainer)`
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: #f5f6fb;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ff751d;
+    border-radius: 2px;
+  }
+
   @media screen and (min-width: 768px) {
     width: 605px;
     max-height: 384px;
@@ -45,6 +73,41 @@ export const TableContainerStyled = styled(TableContainer)`
   }
 `;
 
-export const svgDelete = styled.svg`
-  background-color: transparent;
+// export const TableCellDate = styled(TableCell)`
+//   height: 40px;
+//   padding: 0;
+//   padding-left: 20px;
+//   font-family: Roboto, sans-serif;
+// `;
+
+export const TableCellDesc = styled(TableCell)`
+  padding: 0;
+  padding-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 168px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 252px;
+  }
+`;
+
+// export const TableCellCategory = styled(TableCell)`
+//   height: 40px;
+//   padding: 0;
+//   padding-left: 20px;
+//   font-family: Roboto, sans-serif;
+// `;
+
+export const TableCellAmount = styled(TableCell)`
+  display: flex;
+
+  justify-content: space-around;
+  align-items: center;
+
+  height: 40px;
+  padding: 0;
+
+  font-family: Roboto, sans-serif;
 `;
