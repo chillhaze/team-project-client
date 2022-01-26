@@ -4,18 +4,22 @@ export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.MainBgColor};
   margin-bottom: ${props => props.theme.spacing(7.5)};
   text-align: center;
+  position: relative;
 
   @media only screen and (min-width: 768px) {
     display: flex;
     align-items: baseline;
-    margin-bottom: 58px;
+    margin-bottom: 0px;
     padding-top: 0;
+    margin-left: 255px;
+    margin-right: auto;
   }
   @media only screen and (min-width: 1280px) {
     display: flex;
     align-items: baseline;
-    margin-bottom: 48px;
+    margin-bottom: 0px;
     padding-top: 0;
+    margin-left: 0;
   }
 `;
 
@@ -24,7 +28,6 @@ export const BalanceWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    margin-left: 255px;
   }
   @media only screen and (min-width: 1280px) {
     margin-left: 390px;

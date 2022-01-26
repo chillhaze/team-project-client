@@ -14,12 +14,12 @@ export const ToReportsWrapper = styled.div`
   }
   @media only screen and (min-width: 768px) {
     margin-top: 0px;
-    margin-left: auto;
+    margin-left: 50px;
   }
 
   @media only screen and (min-width: 1280px) {
     margin-top: 0px;
-    margin-left: auto;
+    margin-left: 328px;
   }
 `;
 

@@ -19,7 +19,9 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  width: 100%;
+`;
 
 export const BGImage = styled.div`
   display: flex;
@@ -29,9 +31,9 @@ export const BGImage = styled.div`
   padding-bottom: 43px;
   margin-bottom: 40px;
 
-  background-image: URL(${bg});
+  /* background-image: URL(${bg}); */
   // background-size: 100%;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

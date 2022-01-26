@@ -27,6 +27,7 @@ import {
 import icons from '../../images/icons.svg';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate } from 'react-router-dom';
+import PageWrapper from 'components/Wrappers/PageWrapper';
 
 const DataInput = () => {
   const isMobile = useMediaQuery({
@@ -152,7 +153,7 @@ const DataInput = () => {
           </ClearButton>
         </BtnWrapper>
       </Wrapper>
-    </Form>
+      </Form>
   );
 };
 
