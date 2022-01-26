@@ -28,7 +28,10 @@ const Finance = () => {
         {location.pathname !== '/finance' &&
           location.pathname !== '/reports' &&
           isMobile && <BackToMain />}
-        <Ballance />
+
+        {!isMobile && <Ballance />}
+
+        {location.pathname === '/finance' && isMobile && <Ballance />}
 
         {location.pathname === '/finance' && isMobile && (
           <TransactionsMobileTable />
