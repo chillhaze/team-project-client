@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Wrapper, Table, TableHeader, TableLine } from './Summary.styled';
+import { Wrapper, Table, TableHeader, TableLine, Month, Amount } from './Summary.styled';
 import * as reportsOperations from '../../redux/reports/reports-operations';
 import * as reportsSelectors from '../../redux/reports/reports-selectors';
 import {getType, getPeriod} from '../../redux/transactions/transactions-selectors';
@@ -27,8 +27,8 @@ const Summary =()=>  {
           {filteredIds.length!==0 && filteredIds.map(id => {
             return (
               <TableLine key={id}>
-                <td>{filteredIds.length!==0 && months[id]?.name}</td> 
-                <td>{filteredIds.length!==0 && months[id]?.amount}</td>
+                <Month>{filteredIds.length!==0 && months[id]?.name}</Month> 
+                <Amount>{filteredIds.length!==0 && months[id]?.amount}</Amount>
               </TableLine>)
             })}
         </tbody>
