@@ -53,12 +53,18 @@ export const TableContainerStyled = styled(TableContainer)`
   }
 
   &::-webkit-scrollbar-track {
+    margin-top:12px;
     box-shadow: #f5f6fb;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #ff751d;
+    background-color: #e3e3e3;
     border-radius: 2px;
+
+    &:hover{
+      background-color: #ff751d;
+      transition: background-color 250ms linear;
+    }
   }
 
   @media screen and (min-width: 768px) {

@@ -1,7 +1,18 @@
 import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
+  padding-top: 34px;
+  padding-bottom: 51px;
   @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 666px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 30px;
+    background-color: ${props => props.theme.colors.white};
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
   @media screen and (min-width: 1280px) {
     width: 1060px;
@@ -11,16 +22,7 @@ export const Wrapper = styled.div`
 export const BgrReport = styled.div`
 width: 320px;
   @media screen and (min-width: 768px) {
-   width: 666px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  margin-top: 30px;
-  background-color: #fff;
-  border-radius: 30px;
-  padding-top: 25px;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+   width: 635px;
   background-color: ${props => props.theme.colors.white};
   background: linear-gradient(
     to top,
@@ -59,6 +61,8 @@ width: 320px;
     ${props => props.theme.colors.white} 89%,
     ${props => props.theme.colors.white} 100%
   );
-  @media screen and (min-width: 1024px) {
-   width: 758px;
+  @media screen and (min-width: 1280px) {
+    width: 758px;
+    padding-left: 77px;
+  }
 `;

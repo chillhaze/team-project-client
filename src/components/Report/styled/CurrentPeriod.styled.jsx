@@ -59,3 +59,7 @@ color: ${props=>props.theme.colors.black};
 export const BalancePeriodWrapper = styled.div`
 width:120px;
 `;
+
+export const Span = styled.span`
+margin-left:5px;
+`;
