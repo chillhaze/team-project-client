@@ -17,12 +17,14 @@ export const Wrapper = styled.div`
     background: transparent;
     border-radius: 0; */
     margin-top: 60px;
+    background-color: white;
   }
 
   @media screen and (min-width: 1280px) {
     width: 1060px;
     height: 579px;
     padding: 33px 20px 33px 20px;
+    background-color: white;
   }
 `;
 
