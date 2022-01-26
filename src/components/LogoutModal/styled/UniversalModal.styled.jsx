@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
   border-radius: 30px;
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
   background-color: ${props => props.theme.colors.white};
-  z-index:10;
+  z-index:115;
   @media screen and (min-width: 768px) {
     width: 380px;
     padding: 50px 58px;
