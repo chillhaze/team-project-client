@@ -7,6 +7,7 @@ import {
   PeriodTitle,
   BalancePeriod,
   BalancePeriodWrapper,
+  Span
 } from './styled/CurrentPeriod.styled';
 
 function CurrentPeriod({ month, year, onClick }) {
@@ -36,7 +37,7 @@ function CurrentPeriod({ month, year, onClick }) {
         <BalancePeriodWrapper>
           <BalancePeriod>
             {monthArr[month]}
-             {year}
+            <Span>{year}</Span>
           </BalancePeriod>
         </BalancePeriodWrapper>
         <ArrowBackBtn type="button" name="next" onClick={onClick}>
