@@ -243,14 +243,16 @@ export const EnterButton = styled.button`
   font-weight: bold;
   line-height: 14px;
   letter-spacing: 0.02em;
-  color: #ffffff;
-  background-color: #ff751d;
+  color: #52555f;
+  background-color: transparent;
+  border: 2px solid #f5f6fb;
+  transition: background-color 250ms linear, color 250ms linear, border 250ms linear;
 
   &:hover,
   &:focus {
-    color: #52555f;
-    background-color: transparent;
-    border: 2px solid #f5f6fb;
+    color: #fff;
+    background-color: #ff751d;
+    border: 2px solid #ff751d;
   }
 
   @media screen and (min-width: 768px) {
@@ -276,6 +278,7 @@ export const ClearButton = styled.button`
   letter-spacing: 0.02em;
   color: #52555f;
   background-color: transparent;
+  transition: background-color 250ms linear, color 250ms linear, border 250ms linear;
 
   &:hover,
   &:focus {
