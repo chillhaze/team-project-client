@@ -86,7 +86,7 @@ const Report = () => {
 
   return (
     <Wrapper>
-      <BackToMain />
+      {/* <BackToMain /> */}
       {/* {isLoading && <Loader />} */}
       {isMobile ? (
         <CurrentPeriodWrapper>
@@ -95,13 +95,11 @@ const Report = () => {
           <Ballance />
         </CurrentPeriodWrapper>
       ) : (
-        <HederReport>
+        <CurrentPeriodWrapper>
+          <BackToMain />
           <Ballance />
-          <CurrentPeriodWrapper>
-            <BackToMain />
-            <CurrentPeriod month={month} year={year} onClick={monthHandler} />
-          </CurrentPeriodWrapper>
-        </HederReport>
+          <CurrentPeriod month={month} year={year} onClick={monthHandler} />
+        </CurrentPeriodWrapper>
       )}
       {report.length === 0 && (
         <Message>За этот период у Вас нет отчета.</Message>
