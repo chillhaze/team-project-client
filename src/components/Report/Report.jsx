@@ -90,6 +90,7 @@ const Report = () => {
       {/* {isLoading && <Loader />} */}
       {isMobile ? (
         <CurrentPeriodWrapper>
+          <BackToMain />
           <CurrentPeriod month={month} year={year} onClick={monthHandler} />
           <Ballance />
         </CurrentPeriodWrapper>
@@ -97,6 +98,7 @@ const Report = () => {
         <HederReport>
           <Ballance />
           <CurrentPeriodWrapper>
+            <BackToMain />
             <CurrentPeriod month={month} year={year} onClick={monthHandler} />
           </CurrentPeriodWrapper>
         </HederReport>
