@@ -2,16 +2,14 @@ import styled from '@emotion/styled';
 
 export const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.MainBgColor};
-  padding-top: ${props => props.theme.spacing(9)};
-  text-align: center;
   margin-bottom: ${props => props.theme.spacing(7.5)};
+  text-align: center;
 
   @media only screen and (min-width: 768px) {
-    padding-top: 0;
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
     margin-bottom: 0;
+    padding-top: 0;
   }
 `;
 
@@ -20,18 +18,17 @@ export const BalanceWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    margin-left: 220px;
+    margin-left: 255px;
   }
   @media only screen and (min-width: 1280px) {
-    margin-left: 377px;
+    margin-left: 390px;
   }
 `;
 
 export const Text = styled.span`
-  font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.1666;
   display: block;
   letter-spacing: 0.02em;
   color: ${props => props.theme.colors.mainTextColor};
@@ -46,10 +43,9 @@ export const Form = styled.form``;
 
 export const Input = styled.input`
   width: 125px;
-  font-family: Roboto;
   font-weight: bold;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.1666;
   text-align: right;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -66,22 +62,20 @@ export const Input = styled.input`
     border-radius: 16px;
   }
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1280px) {
     margin-right: ${props => props.theme.spacing(5)};
   }
 `;
 
 export const Button = styled.button`
   width: 125px;
-  font-family: Roboto;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 1.1666;
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   padding: ${props => props.theme.spacing(4)};
   border: 2px solid ${props => props.theme.colors.white};
-  box-sizing: border-box;
   border-radius: 0px 22px 22px 0px;
   background-color: transparent;
   color: ${props => props.theme.colors.mainTextColor};
@@ -98,26 +92,18 @@ export const Button = styled.button`
 export const BalanceText = styled.span`
   width: 125px;
   display: inline-block;
-  font-family: Roboto;
   font-weight: bold;
   font-size: 12px;
-  line-height: 14px;
-  text-align: right;
+  line-height: 1.1666;
+  text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   padding: ${props => props.theme.spacing(4)};
   color: ${props => props.theme.colors.black};
   border: 2px solid ${props => props.theme.colors.white};
-  box-sizing: border-box;
   border-radius: 22px;
-  /* 0px 0px 22px; */
 
   @media only screen and (min-width: 768px) {
-    margin-right: ${props => props.theme.spacing(4)};
     border-radius: 16px;
-  }
-
-  @media only screen and (min-width: 1280px) {
-    margin-right: ${props => props.theme.spacing(5)};
   }
 `;

@@ -37,7 +37,7 @@ function CurrentPeriod({ month, year, onClick }) {
           {' '}
           <BalancePeriod>
             {monthArr[month]}
-            {year}
+             {year}
           </BalancePeriod>
         </BalancePeriodWrapper>
         <ArrowBackBtn type="button" name="next" onClick={onClick}>
