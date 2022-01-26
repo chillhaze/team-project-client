@@ -24,7 +24,6 @@ export const CurrentPeriodWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 
@@ -43,9 +42,8 @@ export const TabletWrapper = styled.div`
 `;
 
 export const HederReport = styled.div`
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     display: flex;
-    margin-left: auto;
     align-items: center;
   }
 

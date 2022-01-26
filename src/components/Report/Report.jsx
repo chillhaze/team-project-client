@@ -87,7 +87,7 @@ const Report = () => {
   return (
     <Wrapper>
       {/* <BackToMain /> */}
-      {/* {isLoading && <Loader />} */}
+    
       {isMobile ? (
         <CurrentPeriodWrapper>
           <BackToMain />
