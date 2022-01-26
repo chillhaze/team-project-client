@@ -22,7 +22,7 @@ export const NameReport = styled.p`
   text-transform: uppercase;
 `;
 export const SwitcherReport = styled.button`
-  border: none;
+border: none;
   background-color: ${props => props.theme.colors.white};
 display:flex;
 justify-content:center;

@@ -8,11 +8,10 @@ margin-top:50px;
     margin-top:0px;
     margin-bottom:0px;
     flex-direction:row;
-    margin-left:auto;
+    margin-left:50px;
 };
 
 @media screen and (min-width:1280px){
-margin-left:auto;
 }
  `;
 

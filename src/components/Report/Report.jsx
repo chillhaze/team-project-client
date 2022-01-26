@@ -82,20 +82,22 @@ const Report = () => {
 
   return (
     <Wrapper>
-      <BackToMain />
+      {/* <BackToMain /> */}
 
       {isMobile ? (
-          <CurrentPeriodWrapper>
+        <CurrentPeriodWrapper>
+          <BackToMain />
             <CurrentPeriod month={month} year={year} onClick={monthHandler} />
             <Ballance />
           </CurrentPeriodWrapper>
       ) : (
-        <HederReport>
-          <Ballance />
+        // <HederReport>
           <CurrentPeriodWrapper>
+            <BackToMain />
+          <Ballance />
             <CurrentPeriod month={month} year={year} onClick={monthHandler} />
           </CurrentPeriodWrapper>
-        </HederReport>
+        // </HederReport>
       )}
 
       {!isLoading && (

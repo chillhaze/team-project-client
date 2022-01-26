@@ -6,11 +6,17 @@ export const Wrapper = styled.div`
   position: relative;
   padding: ${props => (props.isMobile ? '0px' : '30px')};
   background: #ffffff;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  /* box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2); */
   border-radius: 0px 30px 30px 30px;
+  /* padding: 0; */
+  background: transparent;
+  border-radius: 0;
 
-  @media screen and (max-width: 767px) {
-    padding: 0;
+  @media screen and (min-width: 768px) {
+    /* padding: 0;
+    background: transparent;
+    border-radius: 0; */
+    margin-top: 60px;
   }
 
   @media screen and (min-width: 1280px) {

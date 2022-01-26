@@ -21,6 +21,10 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const Form = styled.form`
+  width: 100%;
+`;
+
 export const BGImage = styled.div`
   display: flex;
   flex-direction: column;
