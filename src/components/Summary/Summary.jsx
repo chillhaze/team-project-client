@@ -4,17 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Wrapper, Table, TableHeader, TableLine, Month, Amount } from './Summary.styled';
 import * as reportsOperations from '../../redux/reports/reports-operations';
 import * as reportsSelectors from '../../redux/reports/reports-selectors';
-import {getType, getPeriod} from '../../redux/transactions/transactions-selectors';
+import {getType, getPeriod, getTransactionsData} from '../../redux/transactions/transactions-selectors';
 
 const Summary =()=>  {
   const summary = useSelector(reportsSelectors.getReportsSummary);
   const type = useSelector(getType);
   const period = useSelector(getPeriod);
+  const transactions = useSelector(getTransactionsData);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(reportsOperations.getReportsSummary({ type, period:new Date(period).getFullYear() }));
-  }, [dispatch, period, type]); 
+  }, [dispatch, period, type, transactions]); 
 
   const { ids, entities: months } = summary;
   const filteredIds = [...ids].reverse().filter((elem, i) => i < 6)
