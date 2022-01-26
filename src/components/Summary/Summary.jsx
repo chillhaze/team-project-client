@@ -14,7 +14,7 @@ const Summary =()=>  {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(reportsOperations.getReportsSummary({ type, period:new Date(period).getFullYear() }));
+    dispatch(reportsOperations.getReportsSummary({ type, period:new Date(period).toISOString() }));
   }, [dispatch, period, type, transactions]); 
 
   const { ids, entities: months } = summary;
