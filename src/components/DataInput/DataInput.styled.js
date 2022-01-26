@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import bg from '../../images/mobile-bg-current-period.png';
 
-export const Form = styled.form``;
+// export const Form = styled.form``;
 
 export const Wrapper = styled.div`
   display: flex;
