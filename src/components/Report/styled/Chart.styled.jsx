@@ -61,7 +61,7 @@ width: 320px;
     ${props => props.theme.colors.white} 89%,
     ${props => props.theme.colors.white} 100%
   );
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1280px) {
     width: 758px;
     padding-left: 77px;
   }
