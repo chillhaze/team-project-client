@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   @media only screen and (min-width: 768px) {
     transform: translate(10%, 95%);
   }
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1280px) {
     transform: translate(12%, 75%);
   }
 `;

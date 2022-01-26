@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
   LabelList,
 } from 'recharts';
-import { BgrReport } from './styled/Chart.styled';
+import { Wrapper, BgrReport } from './styled/Chart.styled';
 
 function ReportBarChart({ type, idSubcategory, detailedReport }) {
   const reportChart = useSelector(
@@ -23,7 +23,7 @@ function ReportBarChart({ type, idSubcategory, detailedReport }) {
     } else {
       reportForChart = reportChart.find(
         option => option._id === idSubcategory,
-      ).subcategories;
+      )?.subcategories;
     }
     return reportForChart;
   }
@@ -33,7 +33,7 @@ function ReportBarChart({ type, idSubcategory, detailedReport }) {
     idSubcategory,
     detailedReport,
   );
-  const sortedCategories = [...reportForChart].sort(
+  const sortedCategories = [...reportForChart]?.sort(
     (a, b) => b.total - a.total,
   );
   const isMobile = useMediaQuery({
@@ -78,61 +78,29 @@ function ReportBarChart({ type, idSubcategory, detailedReport }) {
   return (
     <>
       {!isMobile && (
-        <BgrReport>
-          <BarChart
-            width={605}
-            height={328}
-            data={getReportForChart(sortedCategories)}
-            margin={{ top: 50, right: 20, bottom: 9, left: 20 }}
-            barCategoryGap={20}
-          >
-            <XAxis
-              dataKey="name"
-              axisLine={false}
-              tickLine={false}
-              dy={5}
-            ></XAxis>
-
-            <Bar
-              dataKey="total"
-              barSize={38}
-              fill="#fd8905"
-              label={renderCustomBarLabel}
-              radius={[10, 10, 0, 0]}
-              animationDuration={1500}
-            >
-              {getReportForChart(sortedCategories) &&
-                getReportForChart(sortedCategories).map((el, idx) => (
-                  <Cell
-                    key={`cell-${idx}`}
-                    fill={idx % 3 ? '#FFDAC0' : '#ff751d'}
-                  />
-                ))}
-            </Bar>
-          </BarChart>
-        </BgrReport>
-      )}
-      {isMobile && (
-        <BgrReport>
-          <ResponsiveContainer
-            width="95%"
-            height={50 * sortedCategories.length}
-          >
+        <Wrapper>
+          <BgrReport>
             <BarChart
-              layout="vertical"
+              width={605}
+              height={328}
               data={getReportForChart(sortedCategories)}
-              margin={{ top: 0, right: 0, bottom: 0, left: 19 }}
-              barGap="15"
+              margin={{ top: 50, right: 20, bottom: 9, left: 20 }}
+              barCategoryGap={20}
             >
-              <XAxis hide axisLine={false} type="number" />
-              <YAxis dataKey="name" type="category" hide />
+              <XAxis
+                dataKey="name"
+                axisLine={false}
+                tickLine={false}
+                dy={5}
+              ></XAxis>
+
               <Bar
                 dataKey="total"
-                barSize={15}
-                radius={[0, 10, 10, 0]}
-                label={renderBarLabel}
-                fill="#52555f"
-                minPointSize={5}
+                barSize={38}
+                fill="#fd8905"
+                label={renderCustomBarLabel}
+                radius={[10, 10, 0, 0]}
+                animationDuration={1500}
               >
                 {getReportForChart(sortedCategories) &&
                   getReportForChart(sortedCategories).map((el, idx) => (
@@ -141,15 +109,51 @@ function ReportBarChart({ type, idSubcategory, detailedReport }) {
                       fill={idx % 3 ? '#FFDAC0' : '#ff751d'}
                     />
                   ))}
-                <LabelList
-                  dataKey="name"
-                  content={renderCategoryLabel}
-                  fill="#52555F"
-                />
               </Bar>
             </BarChart>
-          </ResponsiveContainer>
-        </BgrReport>
+          </BgrReport>
+        </Wrapper>
+      )}
+      {isMobile && (
+        <Wrapper>
+          <BgrReport>
+            <ResponsiveContainer
+              width="95%"
+              height={50 * sortedCategories.length}
+            >
+              <BarChart
+                layout="vertical"
+                data={getReportForChart(sortedCategories)}
+                margin={{ top: 0, right: 0, bottom: 0, left: 19 }}
+                barGap="15"
+              >
+                <XAxis hide axisLine={false} type="number" />
+                <YAxis dataKey="name" type="category" hide />
+                <Bar
+                  dataKey="total"
+                  barSize={15}
+                  radius={[0, 10, 10, 0]}
+                  label={renderBarLabel}
+                  fill="#52555f"
+                  minPointSize={5}
+                >
+                  {getReportForChart(sortedCategories) &&
+                    getReportForChart(sortedCategories).map((el, idx) => (
+                      <Cell
+                        key={`cell-${idx}`}
+                        fill={idx % 3 ? '#FFDAC0' : '#ff751d'}
+                      />
+                    ))}
+                  <LabelList
+                    dataKey="name"
+                    content={renderCategoryLabel}
+                    fill="#52555F"
+                  />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </BgrReport>
+        </Wrapper>
       )}
     </>
   );
