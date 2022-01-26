@@ -24,25 +24,15 @@ const SwitchBtns = () => {
   const location = useLocation();
 
   const handleClick = e => {
-    // dispatch(
-    //   setType(
-    //     e.target.textContent === INCOMES_PAGE ? INCOME_TYPE : EXPENCES_TYPE,
-    //   ),
-    //   type === 'credit'
-    //     ? navigate('/finance/income')
-    //     : navigate('/finance/expenses'),
-    // );
-      dispatch(setType(
-        e.target.textContent === INCOMES_PAGE
-          ? INCOME_TYPE
-          : EXPENCES_TYPE,
-        )
-      );
-    
-    // type === 'credit'
-    //   ? navigate('/finance/income')
-    //   : navigate('/finance/expenses');
-    
+    dispatch(
+      setType(
+        e.target.textContent === INCOMES_PAGE ? INCOME_TYPE : EXPENCES_TYPE,
+      ),
+    );
+
+    type === 'credit'
+      ? navigate('/finance/income')
+      : navigate('/finance/expenses');
   };
 
   return (

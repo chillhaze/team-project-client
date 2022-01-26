@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 import bg from '../../images/mobile-bg-current-period.png';
 
-// export const Form = styled.form``;
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -250,7 +248,8 @@ export const EnterButton = styled.button`
   color: #52555f;
   background-color: transparent;
   border: 2px solid #f5f6fb;
-  transition: background-color 250ms linear, color 250ms linear, border 250ms linear;
+  transition: background-color 250ms linear, color 250ms linear,
+    border 250ms linear;
 
   &:hover,
   &:focus {
@@ -282,7 +281,8 @@ export const ClearButton = styled.button`
   letter-spacing: 0.02em;
   color: #52555f;
   background-color: transparent;
-  transition: background-color 250ms linear, color 250ms linear, border 250ms linear;
+  transition: background-color 250ms linear, color 250ms linear,
+    border 250ms linear;
 
   &:hover,
   &:focus {
